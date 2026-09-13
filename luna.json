@@ -197,8 +197,8 @@
                 "forceIncluded": true
             }
         ],
-        "disableRuntimeAnalysisForCode": true,
-        "disableRuntimeAnalysisForShaders": true,
+        "disableRuntimeAnalysisForCode": false,
+        "disableRuntimeAnalysisForShaders": false,
         "useShadersCache": true,
         "usePreservativeDynamicBatching": true,
         "preventUpdatingRAListWhenRAIsDisabled": false,
@@ -1701,10 +1701,6 @@
             },
             {
                 "name": "UnityEngine.Profiling.Profiler",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.PropertyHelper",
                 "excluded": true
             },
             {
@@ -6464,10 +6460,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.UI.SetPropertyUtility",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.UI.BaseMeshEffect",
                 "excluded": true
             },
@@ -6529,10 +6521,6 @@
             },
             {
                 "name": "UnityEngine.UI.Scrollbar",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.UI.Slider",
                 "excluded": true
             },
             {
@@ -6713,15 +6701,15 @@
             },
             {
                 "name": "UnityEngine.UI.Slider.Axis",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.UI.Slider.Direction",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.UI.Slider.SliderEvent",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.UI.Toggle.ToggleEvent",
@@ -8504,10 +8492,6 @@
                 "excluded": true
             },
             {
-                "name": "DG.Tweening.Plugins.Vector3Plugin",
-                "excluded": true
-            },
-            {
                 "name": "DG.Tweening.Plugins.Vector4Plugin",
                 "excluded": true
             },
@@ -8778,6 +8762,10 @@
             {
                 "name": "DG.Tweening.UpdateType",
                 "excluded": false
+            },
+            {
+                "name": "DuetCats.Presentation.SongChoiceEndCardPresenter.EndCardLayout",
+                "excluded": true
             }
         ],
         "unusedMethods": [
@@ -18381,7 +18369,7 @@
                     },
                     {
                         "name": "_aspect#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "_aspect#set",
@@ -18389,7 +18377,7 @@
                     },
                     {
                         "name": "aspect#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "aspect#set",
@@ -18397,7 +18385,7 @@
                     },
                     {
                         "name": "orthographicSize#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "orthographicSize#set",
@@ -19641,7 +19629,7 @@
                     },
                     {
                         "name": "disabledColor#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "disabledColor#set",
@@ -19853,7 +19841,7 @@
                     },
                     {
                         "name": "disabledSprite#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "disabledSprite#set",
@@ -20241,7 +20229,7 @@
                     },
                     {
                         "name": "type#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "type#set",
@@ -21727,7 +21715,7 @@
                     },
                     {
                         "name": "bounds#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "textureRectOffset#get",
@@ -22364,10 +22352,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "EnsurePlaying",
-                        "excluded": false
-                    },
-                    {
                         "name": "MoveClaimedPointer",
                         "excluded": false
                     },
@@ -22476,6 +22460,10 @@
                     {
                         "name": "ResolveGameplayCamera",
                         "excluded": false
+                    },
+                    {
+                        "name": "JudgementWorldY#get",
+                        "excluded": false
                     }
                 ]
             },
@@ -22534,6 +22522,14 @@
                     {
                         "name": "TryResolveMiss",
                         "excluded": false
+                    },
+                    {
+                        "name": "ReleaseMissedView",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetSide",
+                        "excluded": true
                     }
                 ]
             },
@@ -22660,6 +22656,14 @@
                     {
                         "name": "EnsureConfigured",
                         "excluded": false
+                    },
+                    {
+                        "name": "ShowBreak",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ReturnAllExcept",
+                        "excluded": true
                     }
                 ]
             },
@@ -24097,10 +24101,6 @@
                     },
                     {
                         "name": "Tick",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Tick\",this)}this.c$-=t;if(this.c$<=0){pc.Application.getApplication().events.off(\"update",
                         "excluded": false
                     }
                 ]
@@ -25631,7 +25631,7 @@
                     },
                     {
                         "name": "alpha#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "interactable#get",
@@ -25639,7 +25639,7 @@
                     },
                     {
                         "name": "interactable#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "blocksRaycasts#get",
@@ -25647,7 +25647,7 @@
                     },
                     {
                         "name": "blocksRaycasts#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ignoreParentGroups#get",
@@ -25729,7 +25729,7 @@
                     },
                     {
                         "name": "disabledTrigger#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "disabledTrigger#set",
@@ -26524,6 +26524,10 @@
                     {
                         "name": "IsPortrait",
                         "excluded": false
+                    },
+                    {
+                        "name": "EnableScreenClickCTA",
+                        "excluded": true
                     }
                 ]
             },
@@ -31201,7 +31205,7 @@
                     },
                     {
                         "name": "color#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "color#set",
@@ -31501,7 +31505,7 @@
                     },
                     {
                         "name": "IsFlashEase",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -31827,7 +31831,7 @@
                     },
                     {
                         "name": "To$12",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "To$13",
@@ -32403,7 +32407,7 @@
                     },
                     {
                         "name": "DOLocalMoveX",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DOLocalMoveY",
@@ -32685,11 +32689,11 @@
                     },
                     {
                         "name": "SetLoops$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetEase$2",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetEase$4",
@@ -32889,7 +32893,7 @@
                     },
                     {
                         "name": "SetOptions$12",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetOptions$15",
@@ -33335,15 +33339,15 @@
                 "instanceMethods": [
                     {
                         "name": "getDefaultValue",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Reset",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "getHashCode",
@@ -33355,7 +33359,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -33718,6 +33722,10 @@
                     {
                         "name": "GetRandomMessage",
                         "excluded": false
+                    },
+                    {
+                        "name": "RiseDistance#get",
+                        "excluded": true
                     }
                 ]
             },
@@ -33752,16 +33760,24 @@
                         "excluded": false
                     },
                     {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
                         "name": "Show",
                         "excluded": false
                     },
                     {
                         "name": "Hide",
                         "excluded": false
+                    },
+                    {
+                        "name": "KillTween",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": true
                     }
                 ]
             },
@@ -33788,6 +33804,50 @@
                     {
                         "name": "SetVisible",
                         "excluded": false
+                    },
+                    {
+                        "name": "KillTween",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    },
+                    {
+                        "name": "TryStartFromInstruction",
+                        "excluded": true
+                    },
+                    {
+                        "name": "StartGame",
+                        "excluded": true
+                    },
+                    {
+                        "name": "StartMovement",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CreateMovementTween",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StopMovement",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ResolveInstructionReferences",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CacheInitialPositions",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RestoreCanvasGroup",
+                        "excluded": false
                     }
                 ]
             },
@@ -33802,6 +33862,10 @@
                     {
                         "name": "GetSidePresentation",
                         "excluded": false
+                    },
+                    {
+                        "name": "GetBreakSprite",
+                        "excluded": true
                     }
                 ]
             },
@@ -33834,6 +33898,10 @@
                     {
                         "name": "GetSprite",
                         "excluded": false
+                    },
+                    {
+                        "name": "BreakSprite#get",
+                        "excluded": true
                     }
                 ]
             },
@@ -33910,6 +33978,378 @@
                     {
                         "name": "Apply",
                         "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.PropertyHelper",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "SetColor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetStruct",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetClass",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.UI.SetPropertyUtility",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "SetColor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetStruct",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetClass",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.UI.Slider",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "fillRect#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "fillRect#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "handleRect#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "handleRect#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "direction#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "direction#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "minValue#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "minValue#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "maxValue#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "maxValue#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "wholeNumbers#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "wholeNumbers#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "value#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "value#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "normalizedValue#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "normalizedValue#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "onValueChanged#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "onValueChanged#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "stepSize#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "axis#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "reverseValue#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetValueWithoutNotify",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Rebuild",
+                        "excluded": true
+                    },
+                    {
+                        "name": "LayoutComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GraphicUpdateComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDidApplyAnimationProperties",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateCachedReferences",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ClampValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnRectTransformDimensionsChange",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateVisuals",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateDrag",
+                        "excluded": true
+                    },
+                    {
+                        "name": "MayDrag",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnPointerDown",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnDrag",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnMove",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindSelectableOnLeft",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindSelectableOnRight",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindSelectableOnUp",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindSelectableOnDown",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnInitializePotentialDrag",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetDirection",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ConfigureForEntity",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DG.Tweening.Plugins.Vector3Plugin",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Reset",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFrom$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFrom",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ConvertToStartValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetRelativeEndValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetChangeValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetSpeedBasedDuration",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EvaluateAndApply",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Presentation.GameplayBackgroundPresenter",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RefreshLayout",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Presentation.InstructionStartTrigger",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "OnPointerClick",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Presentation.SongChoiceEndCardPresenter",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "IsReady#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Show",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    },
+                    {
+                        "name": "BuildLayout",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CreateBackground",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CreateImage",
+                        "excluded": true
+                    },
+                    {
+                        "name": "StartHandMotion",
+                        "excluded": true
+                    },
+                    {
+                        "name": "KillHandMotion",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Presentation.SongProgressPresenter",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RefreshProgress",
+                        "excluded": false
                     }
                 ]
             }

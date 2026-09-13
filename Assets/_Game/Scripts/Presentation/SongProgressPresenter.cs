@@ -9,7 +9,7 @@ namespace DuetCats.Presentation
     public sealed class SongProgressPresenter : MonoBehaviour
     {
         [SerializeField] private GameSession gameSession;
-        [SerializeField] private Slider progressSlider;
+        [SerializeField] private Image progressFillImage;
 
         private float songDuration;
 
@@ -23,20 +23,15 @@ namespace DuetCats.Presentation
 
         private void Start()
         {
-            if (gameSession == null || progressSlider == null || gameSession.SongConfig == null ||
+            if (gameSession == null || progressFillImage == null || gameSession.SongConfig == null ||
                 gameSession.SongConfig.AudioClip == null)
             {
-                Debug.LogError("SongProgressPresenter needs GameSession, a Slider and an AudioClip.", this);
+                Debug.LogError("SongProgressPresenter needs GameSession, a filled progress Image and an AudioClip.", this);
                 enabled = false;
                 return;
             }
 
             songDuration = gameSession.SongConfig.AudioClip.length;
-            progressSlider.minValue = 0f;
-            progressSlider.maxValue = 1f;
-            progressSlider.wholeNumbers = false;
-            progressSlider.interactable = false;
-            progressSlider.direction = Slider.Direction.LeftToRight;
             RefreshProgress();
         }
 
@@ -47,12 +42,12 @@ namespace DuetCats.Presentation
 
         private void RefreshProgress()
         {
-            if (progressSlider == null || songDuration <= 0f)
+            if (progressFillImage == null || songDuration <= 0f)
             {
                 return;
             }
 
-            progressSlider.value = Mathf.Clamp01(gameSession.SongTime / songDuration);
+            progressFillImage.fillAmount = Mathf.Clamp01(gameSession.SongTime / songDuration);
         }
     }
 }
