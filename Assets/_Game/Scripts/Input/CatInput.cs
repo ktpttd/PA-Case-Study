@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace DuetCats.Controls
 {
+    [DefaultExecutionOrder(50)]
     [DisallowMultipleComponent]
     [RequireComponent(typeof(GameSession))]
     [RequireComponent(typeof(GameplayLayout))]

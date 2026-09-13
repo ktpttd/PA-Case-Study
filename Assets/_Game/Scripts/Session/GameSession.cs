@@ -67,6 +67,11 @@ namespace DuetCats.Session
             }
 
             outcome = nextOutcome;
+            if (outcome == GameOutcome.Lose)
+            {
+                songPlayback.Stop();
+            }
+
             phase = GamePhase.Ending;
             return true;
         }
