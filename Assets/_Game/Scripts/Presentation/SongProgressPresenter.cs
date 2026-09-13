@@ -12,10 +12,14 @@ namespace DuetCats.Presentation
         [SerializeField] private GameSession gameSession;
         [SerializeField] private Image progressFillImage;
         [SerializeField] private RectTransform progressBarRoot;
+        [SerializeField, Min(0f)] private float minFillWidth;
         [SerializeField, Min(1f)] private float outsideOffset = 160f;
         [SerializeField, Min(0.01f)] private float transitionDuration = 0.3f;
 
         private float songDuration;
+        private RectTransform progressFillTransform;
+        private float sceneMinFillWidth;
+        private float fullFillWidth;
         private Vector2 visiblePosition;
         private Vector2 hiddenPosition;
         private Tween movementTween;
@@ -38,12 +42,13 @@ namespace DuetCats.Presentation
             if (gameSession == null || progressFillImage == null || progressBarRoot == null ||
                 gameSession.SongConfig == null || gameSession.SongConfig.AudioClip == null)
             {
-                Debug.LogError("SongProgressPresenter needs GameSession, a filled progress Image, its RectTransform root and an AudioClip.", this);
+                Debug.LogError("SongProgressPresenter needs GameSession, a progress Image, its RectTransform root and an AudioClip.", this);
                 enabled = false;
                 return;
             }
 
             songDuration = gameSession.SongConfig.AudioClip.length;
+            ConfigureFillForWidthProgress();
             visiblePosition = progressBarRoot.anchoredPosition;
             hiddenPosition = visiblePosition + Vector2.up * outsideOffset;
             SetHiddenInstant();
@@ -71,12 +76,26 @@ namespace DuetCats.Presentation
 
         private void RefreshProgress()
         {
-            if (progressFillImage == null || songDuration <= 0f)
+            if (progressFillTransform == null || songDuration <= 0f)
             {
                 return;
             }
 
-            progressFillImage.fillAmount = Mathf.Clamp01(gameSession.SongTime / songDuration);
+            var progress = Mathf.Clamp01(gameSession.SongTime / songDuration);
+            var minimumWidth = Mathf.Min(
+                Mathf.Max(minFillWidth, sceneMinFillWidth),
+                fullFillWidth);
+            var width = Mathf.Lerp(minimumWidth, fullFillWidth, progress);
+            progressFillTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+        }
+
+        private void ConfigureFillForWidthProgress()
+        {
+            progressFillTransform = progressFillImage.rectTransform;
+            sceneMinFillWidth = progressFillTransform.rect.width;
+            fullFillWidth = Mathf.Max(
+                sceneMinFillWidth,
+                progressBarRoot.rect.width - progressFillTransform.anchoredPosition.x);
         }
 
         private void PlayEntrance()
