@@ -1,3 +1,4 @@
+using DG.Tweening;
 using DuetCats.Gameplay;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,6 +44,7 @@ namespace DuetCats.Presentation
         private void UpdateScore(int score)
         {
             scoreText.text = score.ToString();
+            scoreText.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 0.25f, 1, 1);
         }
     }
 }
