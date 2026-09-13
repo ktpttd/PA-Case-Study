@@ -26,6 +26,18 @@ namespace DuetCats.Presentation
             return sprite;
         }
 
+        public Sprite GetBreakSprite(CatSide side)
+        {
+            var sprite = GetSidePresentation(side).BreakSprite;
+            if (sprite == null)
+            {
+                throw new InvalidOperationException(
+                    "NotePresentationConfig is missing a break sprite for " + side + ".");
+            }
+
+            return sprite;
+        }
+
         private SideNotePresentation GetSidePresentation(CatSide side)
         {
             var presentation = side == CatSide.Left ? left : right;
@@ -44,6 +56,9 @@ namespace DuetCats.Presentation
         [SerializeField] private Sprite normalSprite;
         [SerializeField] private Sprite longSprite;
         [SerializeField] private Sprite strongSprite;
+        [SerializeField] private Sprite breakSprite;
+
+        public Sprite BreakSprite { get { return breakSprite; } }
 
         public Sprite GetSprite(NoteKind kind)
         {

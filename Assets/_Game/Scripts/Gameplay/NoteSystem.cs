@@ -21,6 +21,7 @@ namespace DuetCats.Gameplay
         private IReadOnlyList<RuntimeNote> notes;
         private int nextNoteIndex;
         private float fallDuration;
+        private NoteView missedView;
 
         public IReadOnlyList<ActiveNote> ActiveNotes { get { return activeNotes; } }
         public event Action<RuntimeNote> NoteHit;
@@ -60,6 +61,12 @@ namespace DuetCats.Gameplay
 
         private void Update()
         {
+            if (gameSession.Phase == GamePhase.Result)
+            {
+                ReleaseMissedView();
+                return;
+            }
+
             if (gameSession.Phase != GamePhase.Playing)
             {
                 return;
@@ -95,7 +102,11 @@ namespace DuetCats.Gameplay
             }
 
             var missedNote = activeNote.Note;
-            ReturnAll();
+            missedView = activeNote.View;
+            noteViewPool.ShowBreak(missedView, GetSide(missedNote));
+            activeNotes.Clear();
+            noteViewPool.ReturnAllExcept(missedView);
+
             var callback = NoteMiss;
             if (callback != null)
             {
@@ -109,6 +120,25 @@ namespace DuetCats.Gameplay
         {
             activeNotes.Clear();
             noteViewPool.ReturnAll();
+            missedView = null;
+        }
+
+        private void ReleaseMissedView()
+        {
+            if (missedView == null)
+            {
+                return;
+            }
+
+            noteViewPool.Release(missedView);
+            missedView = null;
+        }
+
+        private CatSide GetSide(RuntimeNote note)
+        {
+            return note.LaneIndex < gameSession.SongContent.LeftLaneCount
+                ? CatSide.Left
+                : CatSide.Right;
         }
 
         private void SpawnDueNotes(float songTime)
@@ -118,9 +148,7 @@ namespace DuetCats.Gameplay
             {
                 var note = notes[nextNoteIndex];
                 var logicalX = gameplayLayout.GetLaneX(note.LaneIndex);
-                var side = note.LaneIndex < gameSession.SongContent.LeftLaneCount
-                    ? CatSide.Left
-                    : CatSide.Right;
+                var side = GetSide(note);
                 var view = noteViewPool.Get(side, note.Kind);
                 view.Show(note, logicalX, gameplayLayout);
                 activeNotes.Add(new ActiveNote(note, note.HitTime - fallDuration, view));

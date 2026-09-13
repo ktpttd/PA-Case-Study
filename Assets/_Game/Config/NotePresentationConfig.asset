@@ -16,8 +16,10 @@ MonoBehaviour:
     normalSprite: {fileID: 21300000, guid: e465869fc191f4f9c8436fe0c561340b, type: 3}
     longSprite: {fileID: 21300000, guid: 3110ce8c96a6a45e08b24d922472ca55, type: 3}
     strongSprite: {fileID: 21300000, guid: 62b2704da769d4c0bbbf11971230e306, type: 3}
+    breakSprite: {fileID: 21300000, guid: 9db0feab42783472090b6c33f73e4497, type: 3}
   right:
     normalSprite: {fileID: 21300000, guid: 85b695b3cd63242d4a4e1f813c91f751, type: 3}
     longSprite: {fileID: 21300000, guid: 88e2d27e54f454655800923fd982f24d, type: 3}
     strongSprite: {fileID: 21300000, guid: 2dcaffee815e847de90a1344fe68e2b8, type: 3}
+    breakSprite: {fileID: 21300000, guid: 4c1bfec91a95c474dbb67bd5a66b6576, type: 3}
   rainbowSprite: {fileID: 21300000, guid: ac96dfcde0c6d41729302068beabd942, type: 3}

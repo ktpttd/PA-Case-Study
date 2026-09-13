@@ -46,6 +46,22 @@ namespace DuetCats.Presentation
             return view;
         }
 
+        public void ShowBreak(NoteView view, CatSide side)
+        {
+            EnsureConfigured();
+            if (presentationConfig == null)
+            {
+                throw new InvalidOperationException("NoteViewPool needs a NotePresentationConfig for break sprites.");
+            }
+
+            if (view == null || !leased.Contains(view))
+            {
+                throw new InvalidOperationException("The missed NoteView is not leased from this pool.");
+            }
+
+            view.SetSprite(presentationConfig.GetBreakSprite(side));
+        }
+
         public void Release(NoteView view)
         {
             if (view == null || !leased.Remove(view))
@@ -56,6 +72,18 @@ namespace DuetCats.Presentation
             view.ResetView();
             view.gameObject.SetActive(false);
             available.Push(view);
+        }
+
+        public void ReturnAllExcept(NoteView retainedView)
+        {
+            var borrowedViews = new List<NoteView>(leased);
+            for (var index = 0; index < borrowedViews.Count; index++)
+            {
+                if (borrowedViews[index] != retainedView)
+                {
+                    Release(borrowedViews[index]);
+                }
+            }
         }
 
         public void ReturnAll()
