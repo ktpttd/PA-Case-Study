@@ -1733,7 +1733,6 @@ MonoBehaviour:
   rightSongCardSprite: {fileID: 21300000, guid: 909e5a59dce1d43ac837069c7a21e632, type: 3}
   handSprite: {fileID: 21300000, guid: a6769954b6ec84e4fa492728f30bf3c9, type: 3}
   handMoveDuration: 0.75
-  endCardController: {fileID: 1346129776}
 --- !u!114 &1093299825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2446,6 +2445,10 @@ PrefabInstance:
     - target: {fileID: 6409182846253341900, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6409182846355686455, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6409182846640851253, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
       propertyPath: m_Pivot.y

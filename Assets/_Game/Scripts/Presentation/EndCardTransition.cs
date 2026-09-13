@@ -10,6 +10,7 @@ namespace DuetCats.Presentation
     {
         [SerializeField] private GameSession gameSession;
         [SerializeField] private EndCardController endCardController;
+        [SerializeField] private SongChoiceEndCardPresenter songChoiceEndCard;
         [SerializeField, Min(0f)] private float resultAnimationHoldDuration = 0.6f;
 
         private bool hasOpenedEndCard;
@@ -26,6 +27,11 @@ namespace DuetCats.Presentation
             if (endCardController == null)
             {
                 endCardController = FindObjectOfType<EndCardController>();
+            }
+
+            if (songChoiceEndCard == null)
+            {
+                songChoiceEndCard = FindObjectOfType<SongChoiceEndCardPresenter>();
             }
         }
 
@@ -47,14 +53,20 @@ namespace DuetCats.Presentation
                 return;
             }
 
-            if (endCardController == null)
+            if (songChoiceEndCard == null || !songChoiceEndCard.IsReady)
             {
-                Debug.LogError("EndCardTransition needs an EndCardController in the scene.", this);
+                Debug.LogError("EndCardTransition needs a configured SongChoiceEndCardPresenter.", this);
                 enabled = false;
                 return;
             }
 
-            hasOpenedEndCard = true;
+            if (endCardController == null)
+            {
+                Debug.LogError("EndCardTransition needs an EndCardController for its Luna ScreenClickButton.", this);
+                enabled = false;
+                return;
+            }
+
             var endCardCanvas = endCardController.GetComponentInParent<Canvas>();
             if (endCardCanvas != null)
             {
@@ -62,7 +74,11 @@ namespace DuetCats.Presentation
                 endCardCanvas.sortingOrder = 100;
             }
 
-            endCardController.OpenEndCard();
+            // The custom UI is visual-only; Luna's ScreenClickButton below it receives every tap.
+            endCardController.EnableScreenClickCTA();
+            songChoiceEndCard.Show();
+
+            hasOpenedEndCard = true;
             Luna.Unity.LifeCycle.GameEnded();
             gameSession.CompleteEnding();
         }

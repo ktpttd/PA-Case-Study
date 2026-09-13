@@ -262,6 +262,7 @@ public class EndCardController : MonoBehaviour
 
     void SetClickableOptions()
     {
+        _CTAButton.gameObject.SetActive(true);
         _ScreenCTAButton.gameObject.SetActive(false); //Always turn off
         _CTAButton.onClick.AddListener(ClickCTA); //Always do this
         switch (_endCardClickableOptions)
@@ -323,6 +324,20 @@ public class EndCardController : MonoBehaviour
         _buttonRect.anchorMin = new Vector2(buttonPositionX, buttonPositionY);
         _buttonRect.anchorMax = new Vector2(buttonPositionX, buttonPositionY);
         _buttonRect.pivot = new Vector2(buttonPositionX, buttonPositionY);
+    }
+
+    public void EnableScreenClickCTA()
+    {
+        if (_ScreenCTAButton == null)
+        {
+            Debug.LogError("EndCardController needs a ScreenClickButton reference.", this);
+            return;
+        }
+
+        _CTAButton.gameObject.SetActive(false);
+        _ScreenCTAButton.gameObject.SetActive(true);
+        _ScreenCTAButton.onClick.RemoveListener(ClickCTA);
+        _ScreenCTAButton.onClick.AddListener(ClickCTA);
     }
 
     public void ClickCTA()
