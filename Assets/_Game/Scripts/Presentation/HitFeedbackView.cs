@@ -19,17 +19,9 @@ namespace DuetCats.Presentation
 
         private void Awake()
         {
-            if (feedbackText == null)
-            {
-                feedbackText = GetComponent<TextMeshPro>();
-            }
-
             initialLocalPosition = transform.localPosition;
             initialLocalScale = transform.localScale;
-            if (feedbackText != null)
-            {
-                initialColor = feedbackText.color;
-            }
+            initialColor = feedbackText.color;
 
             Hide();
         }
@@ -55,7 +47,7 @@ namespace DuetCats.Presentation
 
             transform.localPosition = initialLocalPosition;
             transform.localScale = initialLocalScale;
-            feedbackText.text = message;
+            feedbackText.SetText(message);
             feedbackText.color = initialColor;
 
             movementTween = transform
@@ -72,11 +64,6 @@ namespace DuetCats.Presentation
 
         private void Hide()
         {
-            if (feedbackText != null)
-            {
-                feedbackText.text = string.Empty;
-            }
-
             gameObject.SetActive(false);
         }
 

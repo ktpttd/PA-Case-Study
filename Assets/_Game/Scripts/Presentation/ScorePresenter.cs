@@ -1,7 +1,7 @@
 using DG.Tweening;
+using TMPro;
 using DuetCats.Gameplay;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace DuetCats.Presentation
 {
@@ -10,40 +10,22 @@ namespace DuetCats.Presentation
     public sealed class ScorePresenter : MonoBehaviour
     {
         [SerializeField] private ScoreState scoreState;
-        [SerializeField] private Text scoreText;
-
-        private void Awake()
-        {
-            if (scoreState == null)
-            {
-                scoreState = GetComponent<ScoreState>();
-            }
-        }
+        [SerializeField] private TextMeshProUGUI scoreText;
 
         private void Start()
         {
-            if (scoreState == null || scoreText == null)
-            {
-                Debug.LogError("ScorePresenter needs ScoreState and a UI Text target.", this);
-                enabled = false;
-                return;
-            }
-
             scoreState.ScoreChanged += UpdateScore;
             UpdateScore(scoreState.Score);
         }
 
         private void OnDestroy()
         {
-            if (scoreState != null)
-            {
-                scoreState.ScoreChanged -= UpdateScore;
-            }
+            scoreState.ScoreChanged -= UpdateScore;
         }
 
         private void UpdateScore(int score)
         {
-            scoreText.text = score.ToString();
+            scoreText.SetText($"{score}");
             scoreText.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 0.25f, 1, 1);
         }
     }
