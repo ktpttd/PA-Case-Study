@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: NotePresentationConfig
   m_EditorClassIdentifier: 
   left:
-    normalPrefab: {fileID: 0}
-    longPrefab: {fileID: 0}
-    strongPrefab: {fileID: 0}
+    normalSprite: {fileID: 21300000, guid: e465869fc191f4f9c8436fe0c561340b, type: 3}
+    longSprite: {fileID: 21300000, guid: 3110ce8c96a6a45e08b24d922472ca55, type: 3}
+    strongSprite: {fileID: 21300000, guid: 62b2704da769d4c0bbbf11971230e306, type: 3}
   right:
-    normalPrefab: {fileID: 0}
-    longPrefab: {fileID: 0}
-    strongPrefab: {fileID: 0}
-  rainbowPrefab: {fileID: 0}
+    normalSprite: {fileID: 21300000, guid: 85b695b3cd63242d4a4e1f813c91f751, type: 3}
+    longSprite: {fileID: 21300000, guid: 88e2d27e54f454655800923fd982f24d, type: 3}
+    strongSprite: {fileID: 21300000, guid: 2dcaffee815e847de90a1344fe68e2b8, type: 3}
+  rainbowSprite: {fileID: 21300000, guid: ac96dfcde0c6d41729302068beabd942, type: 3}

@@ -25,6 +25,6 @@ MonoBehaviour:
   - velocity: 127
     points: 5
   specialNotes:
-  - noteId: 46
+  - noteId: 50
     kind: 1
     points: 8
