@@ -14,6 +14,7 @@ namespace DuetCats.Gameplay
     public sealed class GameplayLayout : MonoBehaviour
     {
         [SerializeField] private Camera gameplayCamera;
+        [SerializeField] private float judgementWorldY = -3.25f;
 
         [Header("Logical X ranges")]
         [SerializeField, Range(0f, 1f)] private float leftMinX = 0.05f;
@@ -25,6 +26,7 @@ namespace DuetCats.Gameplay
 
         public bool IsInitialized { get { return laneX != null; } }
         public bool HasWorldProjection { get { return ResolveGameplayCamera() != null; } }
+        public float JudgementWorldY { get { return judgementWorldY; } }
 
         public bool Initialize(SongContent songContent)
         {

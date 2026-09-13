@@ -42,6 +42,7 @@ namespace DuetCats.Presentation
             var logicalX = side == CatSide.Left ? catInput.LeftCatX : catInput.RightCatX;
             var worldPosition = transform.position;
             worldPosition.x = gameplayLayout.ToWorldX(logicalX, worldPosition);
+            worldPosition.y = gameplayLayout.JudgementWorldY;
             transform.position = worldPosition;
         }
 

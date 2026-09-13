@@ -13,7 +13,8 @@ namespace DuetCats.Presentation
         [SerializeField] private CanvasGroup instructionCanvasGroup;
         [SerializeField] private Transform leftInstruction;
         [SerializeField] private Transform rightInstruction;
-        [SerializeField] private float centerLocalX;
+        [SerializeField] private float centerLocalXLeft;
+        [SerializeField] private float centerLocalXRight;
         [SerializeField, Min(0.01f)] private float moveDuration = 0.8f;
         [SerializeField, Min(0f)] private float fadeOutDuration = 0.25f;
 
@@ -132,14 +133,14 @@ namespace DuetCats.Presentation
 
             leftInstruction.localPosition = initialLeftLocalPosition;
             rightInstruction.localPosition = initialRightLocalPosition;
-            leftMovementTween = CreateMovementTween(leftInstruction);
-            rightMovementTween = CreateMovementTween(rightInstruction);
+            leftMovementTween = CreateMovementTween(leftInstruction, centerLocalXLeft);
+            rightMovementTween = CreateMovementTween(rightInstruction, centerLocalXRight);
         }
 
-        private Tween CreateMovementTween(Transform instructionTransform)
+        private Tween CreateMovementTween(Transform instructionTransform, float centerX)
         {
             return instructionTransform
-                .DOLocalMoveX(centerLocalX, moveDuration)
+                .DOLocalMoveX(centerX, moveDuration)
                 .SetEase(Ease.InOutSine)
                 .SetLoops(-1, LoopType.Yoyo);
         }

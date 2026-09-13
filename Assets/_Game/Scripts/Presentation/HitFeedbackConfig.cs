@@ -7,8 +7,10 @@ namespace DuetCats.Presentation
     {
         [SerializeField] private string[] messages = { "Sweet!", "Yummy!", "Taste!" };
         [SerializeField, Min(0.01f)] private float visibleDuration = 0.55f;
+        [SerializeField] private float riseDistance = 0.45f;
 
         public float VisibleDuration { get { return visibleDuration; } }
+        public float RiseDistance { get { return riseDistance; } }
 
         public string GetRandomMessage()
         {

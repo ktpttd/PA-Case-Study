@@ -56,7 +56,10 @@ namespace DuetCats.Presentation
         private void ShowFeedback(RuntimeNote note)
         {
             var feedback = note.LaneIndex < songContent.LeftLaneCount ? leftFeedback : rightFeedback;
-            feedback.Show(config.GetRandomMessage(), config.VisibleDuration);
+            feedback.Show(
+                config.GetRandomMessage(),
+                config.VisibleDuration,
+                config.RiseDistance);
         }
     }
 }
