@@ -5,7 +5,9 @@ namespace DuetCats.Content
     public enum NoteKind
     {
         Normal = 0,
-        Rainbow = 1
+        Rainbow = 1,
+        Long = 2,
+        Strong = 3
     }
 
     public sealed class RuntimeNote

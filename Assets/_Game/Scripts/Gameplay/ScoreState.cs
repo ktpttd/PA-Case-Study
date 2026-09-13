@@ -1,3 +1,4 @@
+using System;
 using DuetCats.Content;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace DuetCats.Gameplay
         [SerializeField] private NoteSystem noteSystem;
 
         public int Score { get; private set; }
+        public event Action<int> ScoreChanged;
 
         private void Awake()
         {
@@ -38,6 +40,11 @@ namespace DuetCats.Gameplay
         private void Add(RuntimeNote note)
         {
             Score += note.Points;
+            var callback = ScoreChanged;
+            if (callback != null)
+            {
+                callback(Score);
+            }
         }
     }
 }

@@ -27,6 +27,7 @@ namespace DuetCats.Content
             var scoreByVelocity = BuildScoreLookup(config.ScoreRules, errors);
             var specialByNoteId = BuildSpecialLookup(config.SpecialNotes, errors);
             var rawNotes = ParseChart(config.Chart, errors);
+            var baseDuration = FindBaseDuration(rawNotes);
             var runtimeNotes = new List<RuntimeNote>();
             var noteIds = new HashSet<int>();
             var maxLaneIndex = -1;
@@ -79,7 +80,7 @@ namespace DuetCats.Content
                         points = 0;
                     }
 
-                    var kind = NoteKind.Normal;
+                    var kind = ResolveNoteKind(raw, baseDuration);
                     SpecialNoteOverride special;
                     if (specialByNoteId.TryGetValue(raw.id, out special))
                     {
@@ -169,6 +170,36 @@ namespace DuetCats.Content
                 errors.Add("leftLaneCount must be greater than zero.");
             }
 
+        }
+
+        private static float FindBaseDuration(RawMidiNote[] rawNotes)
+        {
+            var baseDuration = float.MaxValue;
+            if (rawNotes == null)
+            {
+                return 0f;
+            }
+
+            for (var index = 0; index < rawNotes.Length; index++)
+            {
+                var duration = rawNotes[index].d;
+                if (IsFinite(duration) && duration > 0f)
+                {
+                    baseDuration = Mathf.Min(baseDuration, duration);
+                }
+            }
+
+            return baseDuration == float.MaxValue ? 0f : baseDuration;
+        }
+
+        private static NoteKind ResolveNoteKind(RawMidiNote raw, float baseDuration)
+        {
+            if (baseDuration > 0f && raw.d > baseDuration + 0.0001f)
+            {
+                return NoteKind.Long;
+            }
+
+            return raw.v == 127 ? NoteKind.Strong : NoteKind.Normal;
         }
 
         private static Dictionary<int, int> BuildScoreLookup(

@@ -118,7 +118,10 @@ namespace DuetCats.Gameplay
             {
                 var note = notes[nextNoteIndex];
                 var logicalX = gameplayLayout.GetLaneX(note.LaneIndex);
-                var view = noteViewPool.Get();
+                var side = note.LaneIndex < gameSession.SongContent.LeftLaneCount
+                    ? CatSide.Left
+                    : CatSide.Right;
+                var view = noteViewPool.Get(side, note.Kind);
                 view.Show(note, logicalX, gameplayLayout);
                 activeNotes.Add(new ActiveNote(note, note.HitTime - fallDuration, view));
                 nextNoteIndex++;

@@ -1,4 +1,5 @@
 using DuetCats.Controls;
+using DuetCats.Gameplay;
 using DuetCats.Session;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace DuetCats.Debugging
     {
         [SerializeField] private GameSession gameSession;
         [SerializeField] private CatInput catInput;
+        [SerializeField] private ScoreState scoreState;
         [SerializeField, Min(0.1f)] private float heartbeatSeconds = 1f;
 
         private GamePhase lastPhase;
@@ -26,11 +28,16 @@ namespace DuetCats.Debugging
             {
                 catInput = GetComponent<CatInput>();
             }
+
+            if (scoreState == null)
+            {
+                scoreState = GetComponent<ScoreState>();
+            }
         }
 
         private void Update()
         {
-            if (gameSession == null || catInput == null)
+            if (gameSession == null || catInput == null || scoreState == null)
             {
                 return;
             }
@@ -44,17 +51,19 @@ namespace DuetCats.Debugging
 
             if (gameSession.Phase != lastPhase)
             {
-                Debug.Log("[Duet Cats] Session phase: " + lastPhase + " -> " + gameSession.Phase, this);
+                Debug.Log("[Duet Cats] Session phase: " + lastPhase + " -> " + gameSession.Phase +
+                          "; outcome=" + gameSession.Outcome + "; score=" + scoreState.Score, this);
                 lastPhase = gameSession.Phase;
             }
 
             if (gameSession.Phase == GamePhase.Playing && Time.unscaledTime >= nextHeartbeatTime)
             {
                 Debug.Log(string.Format(
-                    "[Duet Cats] songTime={0:F2}; leftX={1:F3}; rightX={2:F3}",
+                    "[Duet Cats] songTime={0:F2}; leftX={1:F3}; rightX={2:F3}; score={3}",
                     gameSession.SongTime,
                     catInput.LeftCatX,
-                    catInput.RightCatX), this);
+                    catInput.RightCatX,
+                    scoreState.Score), this);
                 nextHeartbeatTime = Time.unscaledTime + heartbeatSeconds;
             }
         }

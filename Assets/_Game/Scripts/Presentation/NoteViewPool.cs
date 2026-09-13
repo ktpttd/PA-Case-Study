@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using DuetCats.Content;
+using DuetCats.Gameplay;
 using UnityEngine;
 
 namespace DuetCats.Presentation
@@ -6,6 +9,7 @@ namespace DuetCats.Presentation
     [DisallowMultipleComponent]
     public sealed class NoteViewPool : MonoBehaviour
     {
+        [SerializeField] private NotePresentationConfig presentationConfig;
         [SerializeField] private NoteView notePrefab;
         [SerializeField] private Transform container;
 
@@ -27,12 +31,17 @@ namespace DuetCats.Presentation
             }
         }
 
-        public NoteView Get()
+        public NoteView Get(CatSide side, NoteKind kind)
         {
             EnsureConfigured();
 
             var view = available.Count > 0 ? available.Pop() : CreateView();
             leased.Add(view);
+            if (presentationConfig != null)
+            {
+                view.SetSprite(presentationConfig.GetSprite(side, kind));
+            }
+
             view.gameObject.SetActive(true);
             return view;
         }
@@ -75,7 +84,7 @@ namespace DuetCats.Presentation
         {
             if (!IsConfigured)
             {
-                throw new System.InvalidOperationException("NoteViewPool needs a NoteView prefab.");
+                throw new InvalidOperationException("NoteViewPool needs a NoteView prefab.");
             }
         }
     }
