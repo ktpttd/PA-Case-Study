@@ -56,7 +56,7 @@ namespace DuetCats.Controls
 
         private void Update()
         {
-            if (gameSession.Phase != GamePhase.Ready && gameSession.Phase != GamePhase.Playing)
+            if (gameSession.Phase != GamePhase.Playing)
             {
                 ReleaseAllPointers();
                 return;
@@ -76,18 +76,6 @@ namespace DuetCats.Controls
 
         private void ProcessKeyboard()
         {
-            if (gameSession.Phase == GamePhase.Ready &&
-                (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) ||
-                 Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)))
-            {
-                gameSession.TryStartRun();
-            }
-
-            if (gameSession.Phase != GamePhase.Playing)
-            {
-                return;
-            }
-
             var distance = keyboardSpeed * Time.unscaledDeltaTime;
             if (Input.GetKey(KeyCode.A))
             {
@@ -157,7 +145,7 @@ namespace DuetCats.Controls
 
         private void TryClaimPointer(int pointerId, float screenX)
         {
-            if (!EnsurePlaying() || IsPointerClaimed(pointerId))
+            if (gameSession.Phase != GamePhase.Playing || IsPointerClaimed(pointerId))
             {
                 return;
             }
@@ -177,16 +165,6 @@ namespace DuetCats.Controls
             {
                 rightPointerId = pointerId;
             }
-        }
-
-        private bool EnsurePlaying()
-        {
-            if (gameSession.Phase == GamePhase.Ready)
-            {
-                gameSession.TryStartRun();
-            }
-
-            return gameSession.Phase == GamePhase.Playing;
         }
 
         private void MoveClaimedPointer(int pointerId, float deltaPixels)
