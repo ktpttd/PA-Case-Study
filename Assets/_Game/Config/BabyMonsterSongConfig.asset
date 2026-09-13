@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa68bf1ccd8754b3cad3d96838014c8b, type: 3}
+  m_Name: BabyMonsterSongConfig
+  m_EditorClassIdentifier: 
+  chart: {fileID: 4900000, guid: fbd72a4de9d54425cac455ba5287edaa, type: 3}
+  audioClip: {fileID: 8300000, guid: fd84d192d8f87464192ffefd1bfb6953, type: 3}
+  chartOffset: 0
+  fallDuration: 2.5
+  hitTolerance: 0.1
+  catchDistance: 0.1
+  leftLaneCount: 3
+  scoreRules:
+  - velocity: 50
+    points: 2
+  - velocity: 127
+    points: 5
+  specialNotes: []
