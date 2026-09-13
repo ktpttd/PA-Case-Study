@@ -22562,14 +22562,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "GetMinX",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetMaxX",
-                        "excluded": false
-                    },
-                    {
                         "name": "HasValidRanges",
                         "excluded": false
                     },
@@ -22579,6 +22571,26 @@
                     },
                     {
                         "name": "JudgementWorldY#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HasValidRangePair",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsLandscapeScreen",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsLandscape#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetCatchDistance",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetRange",
                         "excluded": false
                     }
                 ]
@@ -33005,7 +33017,7 @@
                     },
                     {
                         "name": "SetOptions$9",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetOptions$8",
@@ -34008,6 +34020,34 @@
                     {
                         "name": "UpdateScore",
                         "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayEntrance",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayExit",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetHiddenInstant",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AnimateTo",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetOutsideDirection",
+                        "excluded": false
                     }
                 ]
             },
@@ -34474,6 +34514,34 @@
                     {
                         "name": "RefreshProgress",
                         "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayEntrance",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayExit",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetHiddenInstant",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AnimateTo",
+                        "excluded": false
                     }
                 ]
             },
@@ -34747,7 +34815,7 @@
                     },
                     {
                         "name": "DOAnchorPos",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DOAnchorPosX",
@@ -38205,7 +38273,7 @@
                 "instanceMethods": [
                     {
                         "name": "Reset",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetFrom$1",
@@ -39905,7 +39973,7 @@
                     },
                     {
                         "name": "SetText$3",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetText$4",
@@ -39933,7 +40001,7 @@
                     },
                     {
                         "name": "SetText$10",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetText$11",
@@ -40013,11 +40081,11 @@
                     },
                     {
                         "name": "AddFloatToInternalTextBackingArray",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "AddIntegerToInternalTextBackingArray",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "InternalTextBackingArrayToString",
