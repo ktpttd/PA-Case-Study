@@ -1823,10 +1823,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.PlayerPrefs.SessionStorageWrapper",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.Profiling.Profiler",
                 "excluded": true
             },
@@ -2228,10 +2224,6 @@
             },
             {
                 "name": "UnityEngine.Playables.PlayableBehaviour",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.PlayerPrefs.SessionStorageProvider",
                 "excluded": true
             },
             {
@@ -6908,7 +6900,7 @@
             },
             {
                 "name": "UnityEngine.UI.ILayoutController",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.UI.ContentSizeFitter.FitMode",
@@ -7060,15 +7052,15 @@
             },
             {
                 "name": "UnityEngine.EventSystems.ISubmitHandler",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.EventSystems.IUpdateSelectedHandler",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.EventSystems.IScrollHandler",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.EventSystems.IDropHandler",
@@ -7076,23 +7068,23 @@
             },
             {
                 "name": "UnityEngine.EventSystems.IEndDragHandler",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.EventSystems.IDragHandler",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.EventSystems.IBeginDragHandler",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.EventSystems.IInitializePotentialDragHandler",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.EventSystems.IPointerClickHandler",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.UI.ILayoutSelfController",
@@ -7100,7 +7092,7 @@
             },
             {
                 "name": "UnityEngine.UI.ILayoutGroup",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.EventSystems.EventTrigger.TriggerEvent",
@@ -8113,6 +8105,70 @@
             {
                 "name": "UnityEngine.EventSystems.IPointerEnterHandler",
                 "excluded": false
+            },
+            {
+                "name": "Newtonsoft.Json.JsonException",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.JsonPropertyAttribute",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.JsonSerializerSettings",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.Utils.AssemblyVersion",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.JsonSerializationException",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.DefaultValueHandling",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.Formatting",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.JsonConstructorAttribute",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.JsonIgnoreAttribute",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.NullValueHandling",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.ObjectCreationHandling",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.Required",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.Serialization.IContractResolver",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.Serialization.ISerializationBinder",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.TypeNameHandling",
+                "excluded": true
+            },
+            {
+                "name": "Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver",
+                "excluded": true
             }
         ],
         "unusedMethods": [
@@ -12240,7 +12296,7 @@
                 "instanceMethods": [
                     {
                         "name": "init",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Count#get",
@@ -12260,7 +12316,7 @@
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "$ctor2",
@@ -19134,11 +19190,11 @@
                     },
                     {
                         "name": "init",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Get",
@@ -20031,6 +20087,160 @@
                         "excluded": true
                     }
                 ]
+            },
+            {
+                "className": "Newtonsoft.Json.JsonConvert",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "stringify",
+                        "excluded": true
+                    },
+                    {
+                        "name": "parse",
+                        "excluded": true
+                    },
+                    {
+                        "name": "getEnumerableElementType",
+                        "excluded": true
+                    },
+                    {
+                        "name": "validateReflectable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "defaultGuard",
+                        "excluded": true
+                    },
+                    {
+                        "name": "getValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "getCacheByType",
+                        "excluded": true
+                    },
+                    {
+                        "name": "getMembers",
+                        "excluded": true
+                    },
+                    {
+                        "name": "preRawProcess",
+                        "excluded": true
+                    },
+                    {
+                        "name": "preProcess",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PopulateObject",
+                        "excluded": true
+                    },
+                    {
+                        "name": "BindToName",
+                        "excluded": true
+                    },
+                    {
+                        "name": "BindToType",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SplitFullyQualifiedTypeName",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetAssemblyDelimiterIndex",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Trim",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SerializeObject",
+                        "excluded": true
+                    },
+                    {
+                        "name": "getInstanceBuilder",
+                        "excluded": true
+                    },
+                    {
+                        "name": "createInstance",
+                        "excluded": true
+                    },
+                    {
+                        "name": "needReuse",
+                        "excluded": true
+                    },
+                    {
+                        "name": "tryToGetCastOperator",
+                        "excluded": true
+                    },
+                    {
+                        "name": "DeserializeObject",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.PlayerPrefs.SessionStorageWrapper",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetItem",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetItem",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RemoveItem",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Clear",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.PlayerPrefs.SessionStorageProvider",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Remove",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Clear",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Save",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Has",
+                        "excluded": true
+                    }
+                ]
             }
         ],
         "stubberDataList": [],
@@ -20044,7 +20254,7 @@
         "playerPrefs": true,
         "enableStaticBatching": false,
         "enableDynamicBatching": false,
-        "forceSourcesBasedCompilation": false
+        "forceSourcesBasedCompilation": true
     },
     "assets": {
         "rules": {

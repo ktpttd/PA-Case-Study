@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
   m_Name: White_Cat_Atlas
   m_EditorClassIdentifier: 
+  textureLoadingMode: 0
+  onDemandTextureLoader: {fileID: 0}
   atlasFile: {fileID: 4900000, guid: 3ed35607b60cc4fa29b332adac6e7216, type: 3}
   materials:
   - {fileID: 2100000, guid: cb3ece4f89744454793627a8108c5359, type: 2}
