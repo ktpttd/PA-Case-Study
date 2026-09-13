@@ -8264,10 +8264,6 @@
                 "excluded": true
             },
             {
-                "name": "DG.Tweening.Core.SequenceCallback",
-                "excluded": true
-            },
-            {
                 "name": "DG.Tweening.DOTweenPath",
                 "excluded": true
             },
@@ -8313,10 +8309,6 @@
             },
             {
                 "name": "DG.Tweening.Plugins.Vector4Plugin",
-                "excluded": true
-            },
-            {
-                "name": "DG.Tweening.Sequence",
                 "excluded": true
             },
             {
@@ -8461,18 +8453,6 @@
             },
             {
                 "name": "DG.Tweening.DOTweenCYInstruction.WaitForStart",
-                "excluded": true
-            },
-            {
-                "name": "DG.Tweening.DOTweenModuleAudio",
-                "excluded": true
-            },
-            {
-                "name": "DG.Tweening.DOTweenModulePhysics",
-                "excluded": true
-            },
-            {
-                "name": "DG.Tweening.DOTweenModulePhysics2D",
                 "excluded": true
             },
             {
@@ -17173,11 +17153,11 @@
                     },
                     {
                         "name": "SetFloat$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetFloat",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetInt$1",
@@ -17859,7 +17839,7 @@
                     },
                     {
                         "name": "IDToProperty",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "IsKeywordEnabled",
@@ -19745,7 +19725,7 @@
                     },
                     {
                         "name": "material#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "raycastTarget#get",
@@ -19757,7 +19737,7 @@
                     },
                     {
                         "name": "color#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "color#set",
@@ -20093,7 +20073,7 @@
                     },
                     {
                         "name": "material#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "enabled#get",
@@ -20461,7 +20441,7 @@
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ApplyFontDataChanges",
@@ -26217,7 +26197,7 @@
                     },
                     {
                         "name": "CompleteEndGameTransition",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -31401,7 +31381,7 @@
                     },
                     {
                         "name": "GetSequence",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetUpdateType",
@@ -31409,7 +31389,7 @@
                     },
                     {
                         "name": "AddActiveTweenToSequence",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DespawnAll",
@@ -31473,7 +31453,7 @@
                     },
                     {
                         "name": "Goto",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Pause",
@@ -31671,7 +31651,7 @@
                     },
                     {
                         "name": "To$15",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "InitCheck",
@@ -31747,7 +31727,7 @@
                     },
                     {
                         "name": "Sequence",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Sequence$1",
@@ -32251,7 +32231,7 @@
                     },
                     {
                         "name": "DOScale",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DOScaleX",
@@ -32597,7 +32577,7 @@
                     },
                     {
                         "name": "Append",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Prepend",
@@ -32605,7 +32585,7 @@
                     },
                     {
                         "name": "Join",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Insert",
@@ -32613,7 +32593,7 @@
                     },
                     {
                         "name": "AppendInterval",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "PrependInterval",
@@ -32621,7 +32601,7 @@
                     },
                     {
                         "name": "AppendCallback",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "PrependCallback",
@@ -32633,7 +32613,7 @@
                     },
                     {
                         "name": "ValidateAddToSequence",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "From",
@@ -34143,11 +34123,11 @@
                     },
                     {
                         "name": "ShowForTransition",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RevealFromTransition",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -34387,7 +34367,7 @@
                     },
                     {
                         "name": "DOFade$2",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DOFade$3",
@@ -37977,23 +37957,107 @@
                     },
                     {
                         "name": "RevealDuration#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Play",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnDestroy",
                         "excluded": true
                     },
                     {
-                        "name": "LoadIrisFrames",
+                        "name": "SetIrisRadius",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DG.Tweening.Core.SequenceCallback",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DG.Tweening.Sequence",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Setup",
                         "excluded": false
                     },
                     {
-                        "name": "SetIrisProgress",
+                        "name": "DoStartup",
+                        "excluded": false
+                    },
+                    {
+                        "name": "DoApplyTween",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ApplyInternalCycle",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StableSortSequencedObjs",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsAnyCallbackSet",
                         "excluded": true
+                    },
+                    {
+                        "name": "DoPrepend",
+                        "excluded": true
+                    },
+                    {
+                        "name": "DoInsert",
+                        "excluded": false
+                    },
+                    {
+                        "name": "DoAppendInterval",
+                        "excluded": false
+                    },
+                    {
+                        "name": "DoPrependInterval",
+                        "excluded": true
+                    },
+                    {
+                        "name": "DoInsertCallback",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateDelay",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Reset",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Validate",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Startup",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ApplyTween",
+                        "excluded": false
                     }
                 ]
             }
@@ -38033,6 +38097,36 @@
                         "script": "",
                         "ext": "",
                         "name": "Resources/unity_builtin_extra/Default-Particle"
+                    },
+                    {
+                        "maxWidth": 512,
+                        "maxHeight": 512,
+                        "format": "png32",
+                        "compression": "none",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Art/fonts/font_kalam--regular SDF.asset"
+                    },
+                    {
+                        "maxWidth": 512,
+                        "maxHeight": 512,
+                        "format": "png32",
+                        "compression": "none",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset"
+                    },
+                    {
+                        "maxWidth": 512,
+                        "maxHeight": 512,
+                        "format": "png32",
+                        "compression": "none",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset"
                     }
                 ]
             },

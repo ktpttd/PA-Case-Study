@@ -8,10 +8,19 @@ namespace DuetCats.Presentation
     [DisallowMultipleComponent]
     public sealed class EndGameTransitionPresenter : MonoBehaviour
     {
+        private static readonly int RadiusProperty = Shader.PropertyToID("_Radius");
+        private static readonly int FeatherProperty = Shader.PropertyToID("_Feather");
+        private static readonly int AspectProperty = Shader.PropertyToID("_Aspect");
+
         [Header("Scene References")]
         [SerializeField] private GameObject transitionRoot;
         [SerializeField] private Image blackOverlay;
         [SerializeField] private Image pawImage;
+        [SerializeField] private Material irisMaterial;
+
+        [Header("Iris")]
+        [SerializeField, Min(0.1f)] private float openRadius = 1.2f;
+        [SerializeField, Range(0.001f, 0.1f)] private float irisFeather = 0.015f;
 
         [Header("Layout")]
         [SerializeField] private Vector2 portraitPawSize = new Vector2(250f, 250f);
@@ -26,7 +35,7 @@ namespace DuetCats.Presentation
 
         public bool IsReady
         {
-            get { return transitionRoot != null && blackOverlay != null && pawImage != null; }
+            get { return transitionRoot != null && blackOverlay != null && pawImage != null && irisMaterial != null; }
         }
 
         public float RevealDuration { get { return revealDuration; } }
@@ -35,13 +44,16 @@ namespace DuetCats.Presentation
         {
             if (!IsReady)
             {
-                Debug.LogError("EndGameTransitionPresenter needs Transition Root, Black Overlay and Paw Image.", this);
+                Debug.LogError("EndGameTransitionPresenter needs Transition Root, Black Overlay, Paw Image and Iris Material.", this);
                 return;
             }
 
             transitionSequence.Kill();
             transitionRoot.SetActive(true);
-            SetImageAlpha(blackOverlay, 0f);
+            blackOverlay.material = irisMaterial;
+            irisMaterial.SetFloat(AspectProperty, (float)Screen.width / Screen.height);
+            irisMaterial.SetFloat(FeatherProperty, irisFeather);
+            SetIrisRadius(openRadius);
             pawImage.color = Color.white;
             pawImage.rectTransform.sizeDelta = Screen.width > Screen.height
                 ? landscapePawSize
@@ -50,12 +62,12 @@ namespace DuetCats.Presentation
 
             transitionSequence = DOTween.Sequence()
                 .SetUpdate(true)
-                .Append(blackOverlay.DOFade(1f, coverDuration))
+                .Append(DOTween.To(SetIrisRadius, openRadius, 0f, coverDuration).SetEase(Ease.InQuad))
                 .Join(pawImage.rectTransform.DOScale(1f, coverDuration).SetEase(Ease.OutBack))
                 .AppendInterval(coveredHoldDuration)
                 .AppendCallback(() => onCovered?.Invoke())
                 .AppendCallback(() => onReveal?.Invoke())
-                .Append(blackOverlay.DOFade(0f, revealDuration))
+                .Append(DOTween.To(SetIrisRadius, 0f, openRadius, revealDuration).SetEase(Ease.OutQuad))
                 .Join(pawImage.rectTransform.DOScale(0.15f, revealDuration).SetEase(Ease.InBack))
                 .Join(pawImage.DOFade(0f, revealDuration * 0.7f))
                 .AppendCallback(() =>
@@ -71,11 +83,9 @@ namespace DuetCats.Presentation
             transitionSequence.Kill();
         }
 
-        private static void SetImageAlpha(Graphic image, float alpha)
+        private void SetIrisRadius(float radius)
         {
-            var color = image.color;
-            color.a = alpha;
-            image.color = color;
+            irisMaterial.SetFloat(RadiusProperty, radius);
         }
     }
 }

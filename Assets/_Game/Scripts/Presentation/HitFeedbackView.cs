@@ -1,13 +1,14 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 namespace DuetCats.Presentation
 {
     [DisallowMultipleComponent]
-    [RequireComponent(typeof(TextMesh))]
+    [RequireComponent(typeof(TextMeshPro))]
     public sealed class HitFeedbackView : MonoBehaviour
     {
-        [SerializeField] private TextMesh textMesh;
+        [SerializeField] private TextMeshPro feedbackText;
 
         private Vector3 initialLocalPosition;
         private Vector3 initialLocalScale;
@@ -18,16 +19,16 @@ namespace DuetCats.Presentation
 
         private void Awake()
         {
-            if (textMesh == null)
+            if (feedbackText == null)
             {
-                textMesh = GetComponent<TextMesh>();
+                feedbackText = GetComponent<TextMeshPro>();
             }
 
             initialLocalPosition = transform.localPosition;
             initialLocalScale = transform.localScale;
-            if (textMesh != null)
+            if (feedbackText != null)
             {
-                initialColor = textMesh.color;
+                initialColor = feedbackText.color;
             }
 
             Hide();
@@ -42,12 +43,7 @@ namespace DuetCats.Presentation
 
         public void Show(string message, float duration, float riseDistance)
         {
-            if (textMesh == null)
-            {
-                textMesh = GetComponent<TextMesh>();
-            }
-
-            if (textMesh == null || string.IsNullOrEmpty(message))
+            if (feedbackText == null || string.IsNullOrEmpty(message))
             {
                 return;
             }
@@ -59,8 +55,8 @@ namespace DuetCats.Presentation
 
             transform.localPosition = initialLocalPosition;
             transform.localScale = initialLocalScale;
-            textMesh.text = message;
-            textMesh.color = initialColor;
+            feedbackText.text = message;
+            feedbackText.color = initialColor;
 
             movementTween = transform
                 .DOLocalMoveY(initialLocalPosition.y + riseDistance, duration)
@@ -69,16 +65,16 @@ namespace DuetCats.Presentation
                 .DOScale(initialLocalScale * 0.5f, duration)
                 .SetEase(Ease.InQuad);
             fadeTween = DOTween
-                .ToAlpha(() => textMesh.color, color => textMesh.color = color, 0f, duration)
+                .ToAlpha(() => feedbackText.color, color => feedbackText.color = color, 0f, duration)
                 .SetEase(Ease.InQuad)
                 .OnComplete(Hide);
         }
 
         private void Hide()
         {
-            if (textMesh != null)
+            if (feedbackText != null)
             {
-                textMesh.text = string.Empty;
+                feedbackText.text = string.Empty;
             }
 
             gameObject.SetActive(false);
