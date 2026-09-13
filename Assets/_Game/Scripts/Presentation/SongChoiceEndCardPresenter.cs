@@ -21,6 +21,7 @@ namespace DuetCats.Presentation
         private GameObject endCardRoot;
         private RectTransform handTransform;
         private Tween handTween;
+        private Tween revealTween;
         private Vector2 handLeftPosition;
         private Vector2 handRightPosition;
 
@@ -35,6 +36,12 @@ namespace DuetCats.Presentation
 
         public void Show()
         {
+            ShowForTransition(1f);
+            StartHandMotion();
+        }
+
+        public void ShowForTransition(float initialScale)
+        {
             if (!IsReady)
             {
                 Debug.LogError("SongChoiceEndCardPresenter needs a portrait background and all artwork sprites.", this);
@@ -46,13 +53,35 @@ namespace DuetCats.Presentation
                 BuildLayout(Screen.width > Screen.height);
             }
 
+            revealTween.Kill();
+            KillHandMotion();
             endCardRoot.SetActive(true);
-            StartHandMotion();
+            endCardRoot.transform.localScale = Vector3.one * Mathf.Clamp(initialScale, 0.01f, 1f);
+        }
+
+        public void RevealFromTransition(float duration)
+        {
+            if (endCardRoot == null)
+            {
+                return;
+            }
+
+            revealTween.Kill();
+            revealTween = endCardRoot.transform
+                .DOScale(1f, duration)
+                .SetEase(Ease.OutQuad)
+                .SetUpdate(true)
+                .OnComplete(() =>
+                {
+                    revealTween = null;
+                    StartHandMotion();
+                });
         }
 
         private void OnDestroy()
         {
             KillHandMotion();
+            revealTween.Kill();
         }
 
         private void BuildLayout(bool isLandscape)

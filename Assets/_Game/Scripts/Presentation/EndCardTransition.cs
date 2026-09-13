@@ -11,9 +11,11 @@ namespace DuetCats.Presentation
         [SerializeField] private GameSession gameSession;
         [SerializeField] private EndCardController endCardController;
         [SerializeField] private SongChoiceEndCardPresenter songChoiceEndCard;
+        [SerializeField] private EndGameTransitionPresenter endGameTransition;
         [SerializeField, Min(0f)] private float resultAnimationHoldDuration = 0.6f;
 
         private bool hasOpenedEndCard;
+        private bool hasStartedTransition;
         private bool isWaitingForEndCard;
         private float endingStartedAt;
 
@@ -53,9 +55,10 @@ namespace DuetCats.Presentation
                 return;
             }
 
-            if (songChoiceEndCard == null || !songChoiceEndCard.IsReady)
+            if (songChoiceEndCard == null || !songChoiceEndCard.IsReady ||
+                endGameTransition == null || !endGameTransition.IsReady)
             {
-                Debug.LogError("EndCardTransition needs a configured SongChoiceEndCardPresenter.", this);
+                Debug.LogError("EndCardTransition needs configured SongChoiceEndCardPresenter and EndGameTransitionPresenter.", this);
                 enabled = false;
                 return;
             }
@@ -67,6 +70,12 @@ namespace DuetCats.Presentation
                 return;
             }
 
+            if (hasStartedTransition)
+            {
+                return;
+            }
+
+            hasStartedTransition = true;
             var endCardCanvas = endCardController.GetComponentInParent<Canvas>();
             if (endCardCanvas != null)
             {
@@ -74,13 +83,22 @@ namespace DuetCats.Presentation
                 endCardCanvas.sortingOrder = 100;
             }
 
-            // The custom UI is visual-only; Luna's ScreenClickButton below it receives every tap.
-            endCardController.EnableScreenClickCTA();
-            songChoiceEndCard.Show();
-
+            endGameTransition.Play(
+                () =>
+                {
+                    // The custom UI is visual-only; Luna's ScreenClickButton below it receives every tap.
+                    endCardController.EnableScreenClickCTA();
+                    songChoiceEndCard.ShowForTransition(0.1f);
+                },
+                () => songChoiceEndCard.RevealFromTransition(endGameTransition.RevealDuration),
+                CompleteEndGameTransition);
+        }
+        private void CompleteEndGameTransition()
+        {
             hasOpenedEndCard = true;
             Luna.Unity.LifeCycle.GameEnded();
             gameSession.CompleteEnding();
         }
+
     }
 }

@@ -13,14 +13,6 @@ namespace DuetCats.Presentation
 
         private float songDuration;
 
-        private void Awake()
-        {
-            if (gameSession == null)
-            {
-                gameSession = GetComponent<GameSession>();
-            }
-        }
-
         private void Start()
         {
             if (gameSession == null || progressFillImage == null || gameSession.SongConfig == null ||
