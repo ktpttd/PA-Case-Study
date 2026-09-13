@@ -65,7 +65,10 @@ namespace DuetCats.Gameplay
                     ? catInput.LeftCatX
                     : catInput.RightCatX;
                 var noteX = gameplayLayout.GetLaneX(activeNote.Note.LaneIndex);
-                if (Mathf.Abs(catX - noteX) <= config.CatchDistance)
+                var catchDistance = gameplayLayout.GetCatchDistance(
+                    activeNote.Note.LaneIndex,
+                    config.CatchDistance);
+                if (Mathf.Abs(catX - noteX) <= catchDistance)
                 {
                     noteSystem.TryResolveHit(activeNote);
                     continue;

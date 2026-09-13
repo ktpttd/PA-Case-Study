@@ -25,6 +25,7 @@ namespace DuetCats.Session
         public SongContent SongContent { get { return songContent; } }
         public float SongTime { get { return songTime; } }
         public string PlayerMessage { get { return playerMessage; } }
+        public event Action Started;
         public event Action<GameOutcome> Finished;
 
         private void Awake()
@@ -57,6 +58,12 @@ namespace DuetCats.Session
             songTime = Mathf.Min(0f, songContent.FirstHitTime - songConfig.FallDuration);
             songPlayback.Begin(songTime, Time.unscaledTime);
             phase = GamePhase.Playing;
+            var startedCallback = Started;
+            if (startedCallback != null)
+            {
+                startedCallback();
+            }
+
             return true;
         }
 

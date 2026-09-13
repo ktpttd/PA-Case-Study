@@ -1,3 +1,4 @@
+using DG.Tweening;
 using DuetCats.Session;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,26 +11,62 @@ namespace DuetCats.Presentation
     {
         [SerializeField] private GameSession gameSession;
         [SerializeField] private Image progressFillImage;
+        [SerializeField] private RectTransform progressBarRoot;
+        [SerializeField, Min(1f)] private float outsideOffset = 160f;
+        [SerializeField, Min(0.01f)] private float transitionDuration = 0.3f;
 
         private float songDuration;
+        private Vector2 visiblePosition;
+        private Vector2 hiddenPosition;
+        private Tween movementTween;
+
+        private void Awake()
+        {
+            if (gameSession == null)
+            {
+                gameSession = GetComponent<GameSession>();
+            }
+        }
 
         private void Start()
         {
-            if (gameSession == null || progressFillImage == null || gameSession.SongConfig == null ||
-                gameSession.SongConfig.AudioClip == null)
+            if (progressBarRoot == null && progressFillImage != null)
             {
-                Debug.LogError("SongProgressPresenter needs GameSession, a filled progress Image and an AudioClip.", this);
+                progressBarRoot = progressFillImage.rectTransform.parent as RectTransform;
+            }
+
+            if (gameSession == null || progressFillImage == null || progressBarRoot == null ||
+                gameSession.SongConfig == null || gameSession.SongConfig.AudioClip == null)
+            {
+                Debug.LogError("SongProgressPresenter needs GameSession, a filled progress Image, its RectTransform root and an AudioClip.", this);
                 enabled = false;
                 return;
             }
 
             songDuration = gameSession.SongConfig.AudioClip.length;
+            visiblePosition = progressBarRoot.anchoredPosition;
+            hiddenPosition = visiblePosition + Vector2.up * outsideOffset;
+            SetHiddenInstant();
+
+            gameSession.Started += PlayEntrance;
+            gameSession.Finished += PlayExit;
             RefreshProgress();
         }
 
         private void Update()
         {
             RefreshProgress();
+        }
+
+        private void OnDestroy()
+        {
+            if (gameSession != null)
+            {
+                gameSession.Started -= PlayEntrance;
+                gameSession.Finished -= PlayExit;
+            }
+
+            movementTween.Kill();
         }
 
         private void RefreshProgress()
@@ -40,6 +77,31 @@ namespace DuetCats.Presentation
             }
 
             progressFillImage.fillAmount = Mathf.Clamp01(gameSession.SongTime / songDuration);
+        }
+
+        private void PlayEntrance()
+        {
+            AnimateTo(visiblePosition, Ease.OutBack);
+        }
+
+        private void PlayExit(GameOutcome outcome)
+        {
+            AnimateTo(hiddenPosition, Ease.InBack);
+        }
+
+        private void SetHiddenInstant()
+        {
+            movementTween.Kill();
+            progressBarRoot.anchoredPosition = hiddenPosition;
+        }
+
+        private void AnimateTo(Vector2 targetPosition, Ease ease)
+        {
+            movementTween.Kill();
+            movementTween = progressBarRoot
+                .DOAnchorPos(targetPosition, transitionDuration)
+                .SetEase(ease)
+                .SetUpdate(true);
         }
     }
 }
