@@ -25,6 +25,7 @@ namespace DuetCats.Session
         public SongContent SongContent { get { return songContent; } }
         public float SongTime { get { return songTime; } }
         public string PlayerMessage { get { return playerMessage; } }
+        public event Action<GameOutcome> Finished;
 
         private void Awake()
         {
@@ -73,6 +74,12 @@ namespace DuetCats.Session
             }
 
             phase = GamePhase.Ending;
+            var callback = Finished;
+            if (callback != null)
+            {
+                callback(outcome);
+            }
+
             return true;
         }
 

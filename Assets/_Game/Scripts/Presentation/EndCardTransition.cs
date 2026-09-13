@@ -10,8 +10,11 @@ namespace DuetCats.Presentation
     {
         [SerializeField] private GameSession gameSession;
         [SerializeField] private EndCardController endCardController;
+        [SerializeField, Min(0f)] private float resultAnimationHoldDuration = 0.6f;
 
         private bool hasOpenedEndCard;
+        private bool isWaitingForEndCard;
+        private float endingStartedAt;
 
         private void Awake()
         {
@@ -29,6 +32,17 @@ namespace DuetCats.Presentation
         private void Update()
         {
             if (hasOpenedEndCard || gameSession == null || gameSession.Phase != GamePhase.Ending)
+            {
+                return;
+            }
+
+            if (!isWaitingForEndCard)
+            {
+                isWaitingForEndCard = true;
+                endingStartedAt = Time.unscaledTime;
+            }
+
+            if (Time.unscaledTime < endingStartedAt + resultAnimationHoldDuration)
             {
                 return;
             }
