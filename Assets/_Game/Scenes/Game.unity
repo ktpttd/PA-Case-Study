@@ -1084,12 +1084,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467591242}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b0ba117f9d8e6a4a8a2aaca7154c935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectClick: 0
   waveCount: 1
   timeInfinity: 0
   waveTime: 1
@@ -1133,6 +1132,7 @@ MonoBehaviour:
   waveFrequency: 1
   circleXScale: 1
   circleYScale: 1
+  rippleMaterial: {fileID: 2100000, guid: 3c67abf49edc74547ab55f9a33d37eef, type: 2}
 --- !u!1 &498144547
 GameObject:
   m_ObjectHideFlags: 0

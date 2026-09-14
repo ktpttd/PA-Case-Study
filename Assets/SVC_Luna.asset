@@ -47,6 +47,14 @@ MonoBehaviour:
     keywords:
       "\L\u2025": []
   - shaderCompilerPlatform: 9
+    shader: {fileID: 4800000, guid: 033b26540afb2fc47ac4e9b02819ad9c, type: 3}
+    passType: 0
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 0
+    keywords:
+      "\L\u2025": []
+  - shaderCompilerPlatform: 9
     shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
     passType: 4
     passId: 0
@@ -461,9 +469,25 @@ MonoBehaviour:
     upToDate: 0
     keywords:
       "\L\u2025": []
+  - shaderCompilerPlatform: 5
+    shader: {fileID: 4800000, guid: 033b26540afb2fc47ac4e9b02819ad9c, type: 3}
+    passType: 0
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 0
+    keywords:
+      "\L\u2025": []
+  - shaderCompilerPlatform: 9
+    shader: {fileID: 4800000, guid: 033b26540afb2fc47ac4e9b02819ad9c, type: 3}
+    passType: 0
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 0
+    keywords:
+      "\L\u2025": []
   _includedShaderVariants: []
   _excludedShaderVariants: []
-  version: 1011
+  version: 1078
   _shaderParsedShaders:
   - ParsedSubShaders:
     - Index: 0
@@ -861,6 +885,297 @@ MonoBehaviour:
       shader: {fileID: 17, guid: 0000000000000000e000000000000000, type: 0}
       passType: 0
       passId: 2
+      subShaderIndex: 0
+      upToDate: 0
+      keywords:
+        "\L\u2025": []
+  - ParsedSubShaders:
+    - Index: 0
+      Passes:
+      - Shader: {fileID: 4800000, guid: 033b26540afb2fc47ac4e9b02819ad9c, type: 3}
+        ShaderVariants:
+        - ShaderCompilerPlatform: 9
+          NoShaderVariant: 0
+          VertexProgram: "\n#version 300 es\n\n#define HLSLCC_ENABLE_UNIFORM_BUFFERS
+            0\n#if HLSLCC_ENABLE_UNIFORM_BUFFERS\n#define UNITY_UNIFORM\n#else\n#define
+            UNITY_UNIFORM uniform\n#endif\n#define UNITY_SUPPORTS_UNIFORM_LOCATION
+            0\n#if UNITY_SUPPORTS_UNIFORM_LOCATION\n#define UNITY_LOCATION(x) layout(location
+            = x)\n#define UNITY_BINDING(x) layout(binding = x, std140)\n#else\n#define
+            UNITY_LOCATION(x)\n#define UNITY_BINDING(x) layout(std140)\n#endif\nuniform
+            \tvec4 hlslcc_mtx4x4unity_ObjectToWorld[4];\nuniform \tvec4 hlslcc_mtx4x4unity_MatrixVP[4];\nin
+            highp vec4 in_POSITION0;\nin mediump vec2 in_TEXCOORD0;\nout mediump
+            vec2 vs_TEXCOORD0;\nvec4 u_xlat0;\nvec4 u_xlat1;\nvoid main()\n{\n   
+            u_xlat0 = in_POSITION0.yyyy * hlslcc_mtx4x4unity_ObjectToWorld[1];\n   
+            u_xlat0 = hlslcc_mtx4x4unity_ObjectToWorld[0] * in_POSITION0.xxxx + u_xlat0;\n   
+            u_xlat0 = hlslcc_mtx4x4unity_ObjectToWorld[2] * in_POSITION0.zzzz + u_xlat0;\n   
+            u_xlat0 = u_xlat0 + hlslcc_mtx4x4unity_ObjectToWorld[3];\n    u_xlat1
+            = u_xlat0.yyyy * hlslcc_mtx4x4unity_MatrixVP[1];\n    u_xlat1 = hlslcc_mtx4x4unity_MatrixVP[0]
+            * u_xlat0.xxxx + u_xlat1;\n    u_xlat1 = hlslcc_mtx4x4unity_MatrixVP[2]
+            * u_xlat0.zzzz + u_xlat1;\n    gl_Position = hlslcc_mtx4x4unity_MatrixVP[3]
+            * u_xlat0.wwww + u_xlat1;\n    vs_TEXCOORD0.xy = in_TEXCOORD0.xy;\n   
+            return;\n}\n\n"
+          FragmentProgram: "\n#version 300 es\n\nprecision highp float;\nprecision
+            highp int;\n#define HLSLCC_ENABLE_UNIFORM_BUFFERS 0\n#if HLSLCC_ENABLE_UNIFORM_BUFFERS\n#define
+            UNITY_UNIFORM\n#else\n#define UNITY_UNIFORM uniform\n#endif\n#define
+            UNITY_SUPPORTS_UNIFORM_LOCATION 0\n#if UNITY_SUPPORTS_UNIFORM_LOCATION\n#define
+            UNITY_LOCATION(x) layout(location = x)\n#define UNITY_BINDING(x) layout(binding
+            = x, std140)\n#else\n#define UNITY_LOCATION(x)\n#define UNITY_BINDING(x)
+            layout(std140)\n#endif\nuniform \tvec4 _Time;\nuniform \tfloat _WaveCount;\nuniform
+            \tfloat _Scale;\nuniform \tfloat _Speed;\nuniform \tfloat _Frequency;\nuniform
+            \tfloat _ExternalRadio;\nuniform \tfloat _AspectRatio;\nuniform \tfloat
+            _CircleXScale;\nuniform \tfloat _CircleYScale;\nuniform \tfloat _InternalRadio0;\nuniform
+            \tfloat _InternalRadio1;\nuniform \tfloat _InternalRadio2;\nuniform \tfloat
+            _InternalRadio3;\nuniform \tfloat _InternalRadio4;\nuniform \tfloat _InternalRadio5;\nuniform
+            \tfloat _InternalRadio6;\nuniform \tfloat _InternalRadio7;\nuniform \tfloat
+            _InternalRadio8;\nuniform \tfloat _InternalRadio9;\nuniform \tfloat _Amplitude0;\nuniform
+            \tfloat _Amplitude1;\nuniform \tfloat _Amplitude2;\nuniform \tfloat _Amplitude3;\nuniform
+            \tfloat _Amplitude4;\nuniform \tfloat _Amplitude5;\nuniform \tfloat _Amplitude6;\nuniform
+            \tfloat _Amplitude7;\nuniform \tfloat _Amplitude8;\nuniform \tfloat _Amplitude9;\nuniform
+            \tfloat _MaxValue0;\nuniform \tfloat _MaxValue1;\nuniform \tfloat _MaxValue2;\nuniform
+            \tfloat _MaxValue3;\nuniform \tfloat _MaxValue4;\nuniform \tfloat _MaxValue5;\nuniform
+            \tfloat _MaxValue6;\nuniform \tfloat _MaxValue7;\nuniform \tfloat _MaxValue8;\nuniform
+            \tfloat _MaxValue9;\nuniform \tfloat _TargetPosX0;\nuniform \tfloat _TargetPosX1;\nuniform
+            \tfloat _TargetPosX2;\nuniform \tfloat _TargetPosX3;\nuniform \tfloat
+            _TargetPosX4;\nuniform \tfloat _TargetPosX5;\nuniform \tfloat _TargetPosX6;\nuniform
+            \tfloat _TargetPosX7;\nuniform \tfloat _TargetPosX8;\nuniform \tfloat
+            _TargetPosX9;\nuniform \tfloat _TargetPosY0;\nuniform \tfloat _TargetPosY1;\nuniform
+            \tfloat _TargetPosY2;\nuniform \tfloat _TargetPosY3;\nuniform \tfloat
+            _TargetPosY4;\nuniform \tfloat _TargetPosY5;\nuniform \tfloat _TargetPosY6;\nuniform
+            \tfloat _TargetPosY7;\nuniform \tfloat _TargetPosY8;\nuniform \tfloat
+            _TargetPosY9;\nUNITY_LOCATION(0) uniform mediump sampler2D _MainTex;\nin
+            mediump vec2 vs_TEXCOORD0;\nlayout(location = 0) out highp vec4 SV_Target0;\nvec3
+            u_xlat0;\nvec4 u_xlat1;\nbool u_xlatb1;\nvec4 u_xlat2;\nbool u_xlatb2;\nvec2
+            u_xlat3;\nvec4 u_xlat4;\nvec4 u_xlat5;\nvec4 u_xlat6;\nvec4 u_xlat7;\nbvec4
+            u_xlatb7;\nvec4 u_xlat8;\nbvec4 u_xlatb8;\nvec3 u_xlat9;\nfloat u_xlat10;\nbool
+            u_xlatb10;\nvec2 u_xlat18;\nbool u_xlatb18;\nfloat u_xlat19;\nbool u_xlatb19;\nvec2
+            u_xlat20;\nbvec2 u_xlatb20;\nbool u_xlatb21;\nbool u_xlatb27;\nfloat
+            u_xlat28;\nbool u_xlatb28;\nvoid main()\n{\n    u_xlat0.xy = vs_TEXCOORD0.xx
+            + (-vec2(_TargetPosX0, _TargetPosX1));\n    u_xlat0.xy = u_xlat0.xy *
+            vec2(vec2(_Scale, _Scale));\n    u_xlat18.xy = vec2(vec2(_AspectRatio,
+            _AspectRatio)) * vec2(_TargetPosX0, _TargetPosX1);\n    u_xlat1.xz =
+            u_xlat18.xy / vec2(vec2(_CircleXScale, _CircleXScale));\n    u_xlat2
+            = vec4(_TargetPosY0, _TargetPosY2, _TargetPosY1, _TargetPosY3) / vec4(vec4(_CircleYScale,
+            _CircleYScale, _CircleYScale, _CircleYScale));\n    u_xlat1.yw = u_xlat2.xz;\n   
+            u_xlat18.x = vs_TEXCOORD0.x * _AspectRatio;\n    u_xlat3.x = u_xlat18.x
+            / _CircleXScale;\n    u_xlat3.y = vs_TEXCOORD0.y / _CircleYScale;\n   
+            u_xlat1 = (-u_xlat1) + u_xlat3.xyxy;\n    u_xlat18.x = dot(u_xlat1.zw,
+            u_xlat1.zw);\n    u_xlat18.y = dot(u_xlat1.xy, u_xlat1.xy);\n    u_xlat18.xy
+            = sqrt(u_xlat18.xy);\n    u_xlat1.x = u_xlat18.x * _Frequency;\n    u_xlat10
+            = _Time.w * _Speed;\n    u_xlat10 = u_xlat10 * 15.0;\n    u_xlat1.x =
+            u_xlat1.x * 80.0 + (-u_xlat10);\n    u_xlat1.x = sin(u_xlat1.x);\n   
+            u_xlat1.x = u_xlat1.x + 0.5;\n    u_xlat9.x = u_xlat0.y * u_xlat1.x;\n   
+            u_xlat9.x = u_xlat9.x * _Amplitude1;\n    u_xlat9.x = u_xlat9.x * 0.0333333351;\n   
+            u_xlat1.x = u_xlat18.x + (-_InternalRadio1);\n    u_xlat1.x = u_xlat1.x
+            / _MaxValue1;\n    u_xlat1.x = u_xlat9.x * u_xlat1.x;\n    u_xlatb19
+            = _InternalRadio1>=u_xlat18.x;\n    u_xlat1.x = (u_xlatb19) ? 0.0 : u_xlat1.x;\n   
+            u_xlat4 = vec4(_InternalRadio0, _InternalRadio1, _InternalRadio2, _InternalRadio3)
+            + vec4(_MaxValue0, _MaxValue1, _MaxValue2, _MaxValue3);\n    u_xlat19
+            = u_xlat18.x + (-u_xlat4.y);\n    u_xlat5 = vec4(_ExternalRadio) + vec4(_InternalRadio0,
+            _InternalRadio1, _InternalRadio2, _InternalRadio3);\n    u_xlat6 = (-u_xlat4)
+            + u_xlat5;\n    u_xlat19 = u_xlat19 / u_xlat6.y;\n    u_xlat9.x = (-u_xlat9.x)
+            * u_xlat19 + u_xlat9.x;\n    u_xlatb19 = u_xlat4.y>=u_xlat18.x;\n   
+            u_xlatb18 = u_xlat5.y>=u_xlat18.x;\n    u_xlat9.x = (u_xlatb19) ? u_xlat1.x
+            : u_xlat9.x;\n    u_xlat9.x = u_xlatb18 ? u_xlat9.x : float(0.0);\n   
+            u_xlat18.x = u_xlat18.y * _Frequency;\n    u_xlat18.x = u_xlat18.x *
+            80.0 + (-u_xlat10);\n    u_xlat18.x = sin(u_xlat18.x);\n    u_xlat18.x
+            = u_xlat18.x + 0.5;\n    u_xlat0.x = u_xlat18.x * u_xlat0.x;\n    u_xlat0.x
+            = u_xlat0.x * _Amplitude0;\n    u_xlat0.x = u_xlat0.x * 0.0333333351;\n   
+            u_xlat18.x = u_xlat18.y + (-_InternalRadio0);\n    u_xlat18.x = u_xlat18.x
+            / _MaxValue0;\n    u_xlat18.x = u_xlat18.x * u_xlat0.x;\n    u_xlatb1
+            = _InternalRadio0>=u_xlat18.y;\n    u_xlat18.x = (u_xlatb1) ? 0.0 : u_xlat18.x;\n   
+            u_xlat1.x = u_xlat18.y + (-u_xlat4.x);\n    u_xlat1.x = u_xlat1.x / u_xlat6.x;\n   
+            u_xlat0.x = (-u_xlat0.x) * u_xlat1.x + u_xlat0.x;\n    u_xlatb1 = u_xlat4.x>=u_xlat18.y;\n   
+            u_xlatb27 = u_xlat5.x>=u_xlat18.y;\n    u_xlat0.x = (u_xlatb1) ? u_xlat18.x
+            : u_xlat0.x;\n    u_xlat0.x = u_xlatb27 ? u_xlat0.x : float(0.0);\n   
+            u_xlat0.xz = u_xlat0.xx + vs_TEXCOORD0.xy;\n    u_xlatb7 = lessThan(vec4(0.0,
+            1.0, 2.0, 3.0), vec4(_WaveCount));\n    u_xlat0.xz = (u_xlatb7.x) ? u_xlat0.xz
+            : vs_TEXCOORD0.xy;\n    u_xlat9.xz = u_xlat9.xx + u_xlat0.xz;\n    u_xlat0.xy
+            = (u_xlatb7.y) ? u_xlat9.xz : u_xlat0.xz;\n    u_xlat8 = vec4(vec4(_AspectRatio,
+            _AspectRatio, _AspectRatio, _AspectRatio)) * vec4(_TargetPosX2, _TargetPosX3,
+            _TargetPosX4, _TargetPosX5);\n    u_xlat8 = u_xlat8.zxwy / vec4(vec4(_CircleXScale,
+            _CircleXScale, _CircleXScale, _CircleXScale));\n    u_xlat2.xz = u_xlat8.yw;\n   
+            u_xlat2 = (-u_xlat2) + u_xlat3.xyxy;\n    u_xlat18.x = dot(u_xlat2.xy,
+            u_xlat2.xy);\n    u_xlat18.y = dot(u_xlat2.zw, u_xlat2.zw);\n    u_xlat18.xy
+            = sqrt(u_xlat18.xy);\n    u_xlat1.x = u_xlat18.x + (-_InternalRadio2);\n   
+            u_xlat1.x = u_xlat1.x / _MaxValue2;\n    u_xlat19 = u_xlat18.x * _Frequency;\n   
+            u_xlat19 = u_xlat19 * 80.0 + (-u_xlat10);\n    u_xlat19 = sin(u_xlat19);\n   
+            u_xlat19 = u_xlat19 + 0.5;\n    u_xlat2 = vs_TEXCOORD0.xxxx + (-vec4(_TargetPosX2,
+            _TargetPosX3, _TargetPosX4, _TargetPosX5));\n    u_xlat2 = u_xlat2 *
+            vec4(vec4(_Scale, _Scale, _Scale, _Scale));\n    u_xlat19 = u_xlat19
+            * u_xlat2.x;\n    u_xlat19 = u_xlat19 * _Amplitude2;\n    u_xlat19 =
+            u_xlat19 * 0.0333333351;\n    u_xlat1.x = u_xlat1.x * u_xlat19;\n   
+            u_xlatb28 = _InternalRadio2>=u_xlat18.x;\n    u_xlat1.x = (u_xlatb28)
+            ? 0.0 : u_xlat1.x;\n    u_xlat28 = (-u_xlat4.z) + u_xlat18.x;\n    u_xlat28
+            = u_xlat28 / u_xlat6.z;\n    u_xlat19 = (-u_xlat19) * u_xlat28 + u_xlat19;\n   
+            u_xlatb28 = u_xlat4.z>=u_xlat18.x;\n    u_xlatb18 = u_xlat5.z>=u_xlat18.x;\n   
+            u_xlatb2 = u_xlat5.w>=u_xlat18.y;\n    u_xlat1.x = (u_xlatb28) ? u_xlat1.x
+            : u_xlat19;\n    u_xlat18.x = u_xlatb18 ? u_xlat1.x : float(0.0);\n   
+            u_xlat1.xz = u_xlat18.xx + u_xlat0.xy;\n    u_xlat0.xy = (u_xlatb7.z)
+            ? u_xlat1.xz : u_xlat0.xy;\n    u_xlat18.x = u_xlat18.y + (-_InternalRadio3);\n   
+            u_xlat18.x = u_xlat18.x / _MaxValue3;\n    u_xlat1.x = u_xlat18.y * _Frequency;\n   
+            u_xlat1.x = u_xlat1.x * 80.0 + (-u_xlat10);\n    u_xlat1.x = sin(u_xlat1.x);\n   
+            u_xlat1.x = u_xlat1.x + 0.5;\n    u_xlat1.x = u_xlat1.x * u_xlat2.y;\n   
+            u_xlat1.x = u_xlat1.x * _Amplitude3;\n    u_xlat1.x = u_xlat1.x * 0.0333333351;\n   
+            u_xlat18.x = u_xlat18.x * u_xlat1.x;\n    u_xlatb19 = _InternalRadio3>=u_xlat18.y;\n   
+            u_xlat18.x = (u_xlatb19) ? 0.0 : u_xlat18.x;\n    u_xlat19 = (-u_xlat4.w)
+            + u_xlat18.y;\n    u_xlatb27 = u_xlat4.w>=u_xlat18.y;\n    u_xlat19 =
+            u_xlat19 / u_xlat6.w;\n    u_xlat1.x = (-u_xlat1.x) * u_xlat19 + u_xlat1.x;\n   
+            u_xlat18.x = (u_xlatb27) ? u_xlat18.x : u_xlat1.x;\n    u_xlat18.x =
+            u_xlatb2 ? u_xlat18.x : float(0.0);\n    u_xlat18.xy = u_xlat18.xx +
+            u_xlat0.xy;\n    u_xlat0.xy = (u_xlatb7.w) ? u_xlat18.xy : u_xlat0.xy;\n   
+            u_xlat4 = vec4(_TargetPosY4, _TargetPosY6, _TargetPosY5, _TargetPosY7)
+            / vec4(vec4(_CircleYScale, _CircleYScale, _CircleYScale, _CircleYScale));\n   
+            u_xlat8.yw = u_xlat4.xz;\n    u_xlat5 = u_xlat3.xyxy + (-u_xlat8);\n   
+            u_xlat18.x = dot(u_xlat5.xy, u_xlat5.xy);\n    u_xlat18.y = dot(u_xlat5.zw,
+            u_xlat5.zw);\n    u_xlat18.xy = sqrt(u_xlat18.xy);\n    u_xlat1.x = u_xlat18.x
+            * _Frequency;\n    u_xlat1.x = u_xlat1.x * 80.0 + (-u_xlat10);\n    u_xlat1.x
+            = sin(u_xlat1.x);\n    u_xlat1.x = u_xlat1.x + 0.5;\n    u_xlat1.x =
+            u_xlat1.x * u_xlat2.z;\n    u_xlat1.x = u_xlat1.x * _Amplitude4;\n   
+            u_xlat1.x = u_xlat1.x * 0.0333333351;\n    u_xlat19 = u_xlat18.x + (-_InternalRadio4);\n   
+            u_xlat19 = u_xlat19 / _MaxValue4;\n    u_xlat19 = u_xlat19 * u_xlat1.x;\n   
+            u_xlatb28 = _InternalRadio4>=u_xlat18.x;\n    u_xlat19 = (u_xlatb28)
+            ? 0.0 : u_xlat19;\n    u_xlat5 = vec4(_InternalRadio4, _InternalRadio5,
+            _InternalRadio6, _InternalRadio7) + vec4(_MaxValue4, _MaxValue5, _MaxValue6,
+            _MaxValue7);\n    u_xlat28 = u_xlat18.x + (-u_xlat5.x);\n    u_xlat6
+            = vec4(_ExternalRadio) + vec4(_InternalRadio4, _InternalRadio5, _InternalRadio6,
+            _InternalRadio7);\n    u_xlat7 = (-u_xlat5) + u_xlat6;\n    u_xlat28
+            = u_xlat28 / u_xlat7.x;\n    u_xlat1.x = (-u_xlat1.x) * u_xlat28 + u_xlat1.x;\n   
+            u_xlatb28 = u_xlat5.x>=u_xlat18.x;\n    u_xlatb18 = u_xlat6.x>=u_xlat18.x;\n   
+            u_xlat1.x = (u_xlatb28) ? u_xlat19 : u_xlat1.x;\n    u_xlat18.x = u_xlatb18
+            ? u_xlat1.x : float(0.0);\n    u_xlat1.xz = u_xlat18.xx + u_xlat0.xy;\n   
+            u_xlatb8 = lessThan(vec4(4.0, 5.0, 6.0, 7.0), vec4(_WaveCount));\n   
+            u_xlat0.xy = (u_xlatb8.x) ? u_xlat1.xz : u_xlat0.xy;\n    u_xlat18.x
+            = u_xlat18.y * _Frequency;\n    u_xlat18.x = u_xlat18.x * 80.0 + (-u_xlat10);\n   
+            u_xlat18.x = sin(u_xlat18.x);\n    u_xlat18.x = u_xlat18.x + 0.5;\n   
+            u_xlat18.x = u_xlat18.x * u_xlat2.w;\n    u_xlat18.x = u_xlat18.x * _Amplitude5;\n   
+            u_xlat18.x = u_xlat18.x * 0.0333333351;\n    u_xlat1.x = u_xlat18.y +
+            (-_InternalRadio5);\n    u_xlat1.x = u_xlat1.x / _MaxValue5;\n    u_xlat1.x
+            = u_xlat18.x * u_xlat1.x;\n    u_xlatb19 = _InternalRadio5>=u_xlat18.y;\n   
+            u_xlat1.x = (u_xlatb19) ? 0.0 : u_xlat1.x;\n    u_xlat19 = u_xlat18.y
+            + (-u_xlat5.y);\n    u_xlat19 = u_xlat19 / u_xlat7.y;\n    u_xlat18.x
+            = (-u_xlat18.x) * u_xlat19 + u_xlat18.x;\n    u_xlatb19 = u_xlat5.y>=u_xlat18.y;\n   
+            u_xlatb27 = u_xlat6.y>=u_xlat18.y;\n    u_xlat18.x = (u_xlatb19) ? u_xlat1.x
+            : u_xlat18.x;\n    u_xlat18.x = u_xlatb27 ? u_xlat18.x : float(0.0);\n   
+            u_xlat18.xy = u_xlat18.xx + u_xlat0.xy;\n    u_xlat0.xy = (u_xlatb8.y)
+            ? u_xlat18.xy : u_xlat0.xy;\n    u_xlat2 = vec4(vec4(_AspectRatio, _AspectRatio,
+            _AspectRatio, _AspectRatio)) * vec4(_TargetPosX6, _TargetPosX7, _TargetPosX8,
+            _TargetPosX9);\n    u_xlat2 = u_xlat2.zxwy / vec4(vec4(_CircleXScale,
+            _CircleXScale, _CircleXScale, _CircleXScale));\n    u_xlat4.xz = u_xlat2.yw;\n   
+            u_xlat4 = u_xlat3.xyxy + (-u_xlat4);\n    u_xlat18.x = dot(u_xlat4.xy,
+            u_xlat4.xy);\n    u_xlat18.y = dot(u_xlat4.zw, u_xlat4.zw);\n    u_xlat18.xy
+            = sqrt(u_xlat18.xy);\n    u_xlat1.x = u_xlat18.x + (-_InternalRadio6);\n   
+            u_xlat1.x = u_xlat1.x / _MaxValue6;\n    u_xlat19 = u_xlat18.x * _Frequency;\n   
+            u_xlat19 = u_xlat19 * 80.0 + (-u_xlat10);\n    u_xlat19 = sin(u_xlat19);\n   
+            u_xlat19 = u_xlat19 + 0.5;\n    u_xlat4 = vs_TEXCOORD0.xxxx + (-vec4(_TargetPosX6,
+            _TargetPosX7, _TargetPosX8, _TargetPosX9));\n    u_xlat4 = u_xlat4 *
+            vec4(vec4(_Scale, _Scale, _Scale, _Scale));\n    u_xlat19 = u_xlat19
+            * u_xlat4.x;\n    u_xlat19 = u_xlat19 * _Amplitude6;\n    u_xlat19 =
+            u_xlat19 * 0.0333333351;\n    u_xlat1.x = u_xlat1.x * u_xlat19;\n   
+            u_xlatb28 = _InternalRadio6>=u_xlat18.x;\n    u_xlat1.x = (u_xlatb28)
+            ? 0.0 : u_xlat1.x;\n    u_xlat28 = (-u_xlat5.z) + u_xlat18.x;\n    u_xlat28
+            = u_xlat28 / u_xlat7.z;\n    u_xlat19 = (-u_xlat19) * u_xlat28 + u_xlat19;\n   
+            u_xlatb28 = u_xlat5.z>=u_xlat18.x;\n    u_xlatb18 = u_xlat6.z>=u_xlat18.x;\n   
+            u_xlatb21 = u_xlat6.w>=u_xlat18.y;\n    u_xlat1.x = (u_xlatb28) ? u_xlat1.x
+            : u_xlat19;\n    u_xlat18.x = u_xlatb18 ? u_xlat1.x : float(0.0);\n   
+            u_xlat1.xz = u_xlat18.xx + u_xlat0.xy;\n    u_xlat0.xy = (u_xlatb8.z)
+            ? u_xlat1.xz : u_xlat0.xy;\n    u_xlat18.x = u_xlat18.y * _Frequency;\n   
+            u_xlat18.x = u_xlat18.x * 80.0 + (-u_xlat10);\n    u_xlat18.x = sin(u_xlat18.x);\n   
+            u_xlat18.x = u_xlat18.x + 0.5;\n    u_xlat18.x = u_xlat18.x * u_xlat4.y;\n   
+            u_xlat18.x = u_xlat18.x * _Amplitude7;\n    u_xlat18.x = u_xlat18.x *
+            0.0333333351;\n    u_xlat1.x = u_xlat18.y + (-_InternalRadio7);\n   
+            u_xlat1.x = u_xlat1.x / _MaxValue7;\n    u_xlat1.x = u_xlat18.x * u_xlat1.x;\n   
+            u_xlatb19 = _InternalRadio7>=u_xlat18.y;\n    u_xlat1.x = (u_xlatb19)
+            ? 0.0 : u_xlat1.x;\n    u_xlat19 = (-u_xlat5.w) + u_xlat18.y;\n    u_xlatb27
+            = u_xlat5.w>=u_xlat18.y;\n    u_xlat19 = u_xlat19 / u_xlat7.w;\n    u_xlat18.x
+            = (-u_xlat18.x) * u_xlat19 + u_xlat18.x;\n    u_xlat18.x = (u_xlatb27)
+            ? u_xlat1.x : u_xlat18.x;\n    u_xlat18.x = u_xlatb21 ? u_xlat18.x :
+            float(0.0);\n    u_xlat18.xy = u_xlat18.xx + u_xlat0.xy;\n    u_xlat0.xy
+            = (u_xlatb8.w) ? u_xlat18.xy : u_xlat0.xy;\n    u_xlat2.yw = vec2(_TargetPosY8,
+            _TargetPosY9) / vec2(vec2(_CircleYScale, _CircleYScale));\n    u_xlat2
+            = (-u_xlat2) + u_xlat3.xyxy;\n    u_xlat18.x = dot(u_xlat2.xy, u_xlat2.xy);\n   
+            u_xlat18.y = dot(u_xlat2.zw, u_xlat2.zw);\n    u_xlat18.xy = sqrt(u_xlat18.xy);\n   
+            u_xlat1.x = u_xlat18.x * _Frequency;\n    u_xlat1.x = u_xlat1.x * 80.0
+            + (-u_xlat10);\n    u_xlat1.x = sin(u_xlat1.x);\n    u_xlat1.x = u_xlat1.x
+            + 0.5;\n    u_xlat1.x = u_xlat1.x * u_xlat4.z;\n    u_xlat1.x = u_xlat1.x
+            * _Amplitude8;\n    u_xlat1.x = u_xlat1.x * 0.0333333351;\n    u_xlat19
+            = u_xlat18.x + (-_InternalRadio8);\n    u_xlat19 = u_xlat19 / _MaxValue8;\n   
+            u_xlat19 = u_xlat19 * u_xlat1.x;\n    u_xlatb28 = _InternalRadio8>=u_xlat18.x;\n   
+            u_xlat19 = (u_xlatb28) ? 0.0 : u_xlat19;\n    u_xlat2.xy = vec2(_InternalRadio8,
+            _InternalRadio9) + vec2(_MaxValue8, _MaxValue9);\n    u_xlat28 = u_xlat18.x
+            + (-u_xlat2.x);\n    u_xlat20.xy = vec2(_ExternalRadio) + vec2(_InternalRadio8,
+            _InternalRadio9);\n    u_xlat3.xy = (-u_xlat2.xy) + u_xlat20.xy;\n   
+            u_xlat28 = u_xlat28 / u_xlat3.x;\n    u_xlat1.x = (-u_xlat1.x) * u_xlat28
+            + u_xlat1.x;\n    u_xlatb28 = u_xlat2.x>=u_xlat18.x;\n    u_xlatb18 =
+            u_xlat20.x>=u_xlat18.x;\n    u_xlatb2 = u_xlat20.y>=u_xlat18.y;\n   
+            u_xlat1.x = (u_xlatb28) ? u_xlat19 : u_xlat1.x;\n    u_xlat18.x = u_xlatb18
+            ? u_xlat1.x : float(0.0);\n    u_xlat1.xz = u_xlat18.xx + u_xlat0.xy;\n   
+            u_xlatb20.xy = lessThan(vec4(8.0, 9.0, 8.0, 9.0), vec4(_WaveCount)).xy;\n   
+            u_xlat0.xy = (u_xlatb20.x) ? u_xlat1.xz : u_xlat0.xy;\n    u_xlat18.x
+            = u_xlat18.y * _Frequency;\n    u_xlat18.x = u_xlat18.x * 80.0 + (-u_xlat10);\n   
+            u_xlat18.x = sin(u_xlat18.x);\n    u_xlat18.x = u_xlat18.x + 0.5;\n   
+            u_xlat18.x = u_xlat18.x * u_xlat4.w;\n    u_xlat18.x = u_xlat18.x * _Amplitude9;\n   
+            u_xlat18.x = u_xlat18.x * 0.0333333351;\n    u_xlat1.x = u_xlat18.y +
+            (-_InternalRadio9);\n    u_xlat1.x = u_xlat1.x / _MaxValue9;\n    u_xlat1.x
+            = u_xlat18.x * u_xlat1.x;\n    u_xlatb10 = _InternalRadio9>=u_xlat18.y;\n   
+            u_xlat1.x = (u_xlatb10) ? 0.0 : u_xlat1.x;\n    u_xlat10 = u_xlat18.y
+            + (-u_xlat2.y);\n    u_xlatb27 = u_xlat2.y>=u_xlat18.y;\n    u_xlat10
+            = u_xlat10 / u_xlat3.y;\n    u_xlat18.x = (-u_xlat18.x) * u_xlat10 +
+            u_xlat18.x;\n    u_xlat18.x = (u_xlatb27) ? u_xlat1.x : u_xlat18.x;\n   
+            u_xlat18.x = u_xlatb2 ? u_xlat18.x : float(0.0);\n    u_xlat18.xy = u_xlat18.xx
+            + u_xlat0.xy;\n    u_xlat0.xy = (u_xlatb20.y) ? u_xlat18.xy : u_xlat0.xy;\n   
+            SV_Target0 = texture(_MainTex, u_xlat0.xy);\n    return;\n}\n\n"
+          LOD: 0
+          readDepth: 0
+          PassId: 0
+          SubShaderIndex: 0
+          Keywords:
+            "\L\u2025": []
+          Tags: []
+        DefinedKeywords:
+          "\L\u2025":
+          - STEREO_CUBEMAP_RENDER_ON
+          - STEREO_INSTANCING_ON
+          - STEREO_MULTIVIEW_ON
+          - UNITY_SINGLE_PASS_STEREO
+        KeywordGroups: []
+        KeywordsMinimalCardinality: 0
+        ContainsInvalidVariant: 0
+        VariantStructures:
+        - shaderCompilerPlatform: 9
+          shader: {fileID: 4800000, guid: 033b26540afb2fc47ac4e9b02819ad9c, type: 3}
+          passType: 0
+          passId: 0
+          subShaderIndex: 0
+          upToDate: 0
+          keywords:
+            "\L\u2025": []
+        CompilationErrors: []
+        HasDepthReader: 0
+        Id: 0
+        SubShaderIndex: 0
+        SerializedObjectId: 0
+        Tags: []
+        UsePass:
+          shader: 
+          pass: 
+        GrabPassTextureName: 
+        PlatformMask: -129
+      Shader: {fileID: 4800000, guid: 033b26540afb2fc47ac4e9b02819ad9c, type: 3}
+      Tags: []
+    Shader: {fileID: 4800000, guid: 033b26540afb2fc47ac4e9b02819ad9c, type: 3}
+    ShaderPath: Assets/_Game/Shaders/RippleDiffuse.shader
+    ShaderDefinedKeywords:
+    - STEREO_CUBEMAP_RENDER_ON
+    - STEREO_INSTANCING_ON
+    - STEREO_MULTIVIEW_ON
+    - UNITY_SINGLE_PASS_STEREO
+    fallbackShader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+    CompilationErrors: []
+    Variants:
+    - shaderCompilerPlatform: 9
+      shader: {fileID: 4800000, guid: 033b26540afb2fc47ac4e9b02819ad9c, type: 3}
+      passType: 0
+      passId: 0
       subShaderIndex: 0
       upToDate: 0
       keywords:
@@ -5533,6 +5848,5 @@ MonoBehaviour:
         "\L\u2025":
         - UNITY_UI_ALPHACLIP
         - UNITY_UI_CLIP_RECT
-  _modifiedShaders:
-  - Assets/WaterRippleForScreens/Shaders/RippleDiffuse.shader
-  invalidShaders: 1
+  _modifiedShaders: []
+  invalidShaders: 0

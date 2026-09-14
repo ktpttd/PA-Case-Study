@@ -32,10 +32,11 @@ public class RippleEffect : MonoBehaviour
 
     private int lastIDUsed = 0; //Stores the ID of the last ripple effect
 
-    //Reference to the Shader
-    private Material material;
+    //Material authored in the scene. Do not create it with Shader.Find at runtime:
+    //the Luna build only includes serialized shader dependencies reliably.
+    [SerializeField] private Material rippleMaterial;
 
-    // Creates a private material used to the effect
+    //Initializes the ripple state
     void Awake()
     {
         //Init all arrays
@@ -52,12 +53,19 @@ public class RippleEffect : MonoBehaviour
         //Init status variables
         lastIDUsed = -1;
 
-        //Find the Shader
-        material = new Material(Shader.Find("Hidden/RippleDiffuse"));
     }
 
     void Update()
     {
+        if (rippleMaterial == null)
+        {
+            Debug.LogError("RippleEffect needs a Ripple Material assigned in the Inspector.", this);
+            enabled = false;
+            return;
+        }
+
+        var hasActiveWave = false;
+
         if (!timeInfinity)
         {
             //Wave has a lifetime
@@ -78,8 +86,13 @@ public class RippleEffect : MonoBehaviour
 
                 if (waveAmplitude[i] > 1) waveAmplitude[i] = 1.0f;
 
+                if (waveAmplitude[i] < 1.0f)
+                {
+                    hasActiveWave = true;
+                }
+
                 //Set max value
-                material.SetFloat("_MaxValue" + i, waveAmplitude[i] * waveExternalRadio / 2.0f);
+                rippleMaterial.SetFloat("_MaxValue" + i, waveAmplitude[i] * waveExternalRadio / 2.0f);
 
                 //Set internal ratio
                 currentInternalRadio[i] = Mathf.Clamp(waveInternalRadio * waveAmplitude[i], 0.0f, waveInternalRadio);
@@ -103,7 +116,12 @@ public class RippleEffect : MonoBehaviour
 
                 waveAmplitude[i] = 1.0f;
                 currentInternalRadio[i] = waveInternalRadio;
+                hasActiveWave = true;
             }
+        }
+        if (!hasActiveWave)
+        {
+            enabled = false;
         }
     }
 
@@ -124,6 +142,7 @@ public class RippleEffect : MonoBehaviour
 
         //Init grow
         currentInternalRadio[lastIDUsed] = 0.0f;
+        enabled = true;
     }
 
     //Converts the vector to texture space
@@ -151,44 +170,44 @@ public class RippleEffect : MonoBehaviour
             pivotTime[i] = Time.time - waveTime;
             waveAmplitude[i] = 0.0f;
         }
+        enabled = false;
     }
 
     //Postprocess the image
     void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        if (waveSpeed == 0 || waveScale == 0 || material == null)
+        if (waveSpeed == 0 || waveScale == 0 || rippleMaterial == null)
         {
             //Do nothing
-            if (material == null) Debug.Log("Material is null");
 
             Graphics.Blit(source, destination);
             return;
         }
 
         //Pass parameters to shader
-        material.SetInt("_WaveCount", waveCount);
-        material.SetFloat("_Speed", waveSpeed);
-        material.SetFloat("_Scale", waveScale);
-        material.SetFloat("_Frequency", waveFrequency);
-        material.SetFloat("_ExternalRadio", waveExternalRadio);
-        material.SetFloat("_AspectRatio", (float)Screen.width / Screen.height);
-        material.SetFloat("_CircleXScale", circleXScale);
-        material.SetFloat("_CircleYScale", circleYScale);
+        rippleMaterial.SetInt("_WaveCount", waveCount);
+        rippleMaterial.SetFloat("_Speed", waveSpeed);
+        rippleMaterial.SetFloat("_Scale", waveScale);
+        rippleMaterial.SetFloat("_Frequency", waveFrequency);
+        rippleMaterial.SetFloat("_ExternalRadio", waveExternalRadio);
+        rippleMaterial.SetFloat("_AspectRatio", (float)Screen.width / Screen.height);
+        rippleMaterial.SetFloat("_CircleXScale", circleXScale);
+        rippleMaterial.SetFloat("_CircleYScale", circleYScale);
         for (int i = 0; i < targetPosition.Length; i++)
         {
-            material.SetFloat("_InternalRadio" + i, currentInternalRadio[i]);
-            material.SetFloat("_TargetPosX" + i, targetPosition[i].x);
-            material.SetFloat("_TargetPosY" + i, targetPosition[i].y);
-            material.SetFloat("_Amplitude" + i, (i >= waveCount || lastIDUsed == -1) ? 0.0f : waveAmplitude[i]);
+            rippleMaterial.SetFloat("_InternalRadio" + i, currentInternalRadio[i]);
+            rippleMaterial.SetFloat("_TargetPosX" + i, targetPosition[i].x);
+            rippleMaterial.SetFloat("_TargetPosY" + i, targetPosition[i].y);
+            rippleMaterial.SetFloat("_Amplitude" + i, (i >= waveCount || lastIDUsed == -1) ? 0.0f : waveAmplitude[i]);
         }
 
-        //RenderTexture tempTexture = RenderTexture.GetTemporary(Screen.width, Screen.height);
-        //tempTexture.filterMode = FilterMode.Bilinear;
+        RenderTexture tempTexture = RenderTexture.GetTemporary(Screen.width, Screen.height);
+        tempTexture.filterMode = FilterMode.Bilinear;
 
-        //Graphics.Blit(source, tempTexture, material);
-        //Graphics.Blit(tempTexture, destination);
-        //RenderTexture.ReleaseTemporary(tempTexture);
+        Graphics.Blit(source, tempTexture, rippleMaterial);
+        Graphics.Blit(tempTexture, destination);
+        RenderTexture.ReleaseTemporary(tempTexture);
 
-        Graphics.Blit(source, destination, material);
+        Graphics.Blit(source, destination, rippleMaterial);
     }
 }

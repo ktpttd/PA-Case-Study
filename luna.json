@@ -17284,7 +17284,7 @@
                     },
                     {
                         "name": "filterMode#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "wrapMode#get",
@@ -22417,10 +22417,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
                         "name": "Start",
                         "excluded": false
                     },
@@ -22472,10 +22468,6 @@
                 "instanceMethods": [
                     {
                         "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
                         "excluded": false
                     },
                     {
@@ -22589,10 +22581,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
                         "name": "Start",
                         "excluded": false
                     },
@@ -22652,10 +22640,6 @@
                     },
                     {
                         "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
                         "excluded": false
                     },
                     {
@@ -26465,10 +26449,6 @@
                 "staticMethods": [],
                 "instanceMethods": [
                     {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
                         "name": "Start",
                         "excluded": false
                     },
@@ -26482,10 +26462,6 @@
                 "className": "DuetCats.Gameplay.ScoreState",
                 "staticMethods": [],
                 "instanceMethods": [
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
                     {
                         "name": "OnEnable",
                         "excluded": false
@@ -27300,7 +27276,7 @@
                     },
                     {
                         "name": "Dispose",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Complete",
@@ -33785,10 +33761,6 @@
                 "staticMethods": [],
                 "instanceMethods": [
                     {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
                         "name": "Start",
                         "excluded": false
                     },
@@ -33836,10 +33808,6 @@
                 "className": "DuetCats.Presentation.HitFeedbackPresenter",
                 "staticMethods": [],
                 "instanceMethods": [
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
                     {
                         "name": "Start",
                         "excluded": false
@@ -33990,10 +33958,6 @@
                     },
                     {
                         "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
                         "excluded": false
                     },
                     {
@@ -34462,10 +34426,6 @@
                     },
                     {
                         "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
                         "excluded": false
                     },
                     {
@@ -43385,10 +43345,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
                         "name": "Start",
                         "excluded": false
                     },
@@ -44393,40 +44349,6 @@
                 ]
             },
             {
-                "className": "WaterRippleForScreens.RippleEffect",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SetNewRipplePosition",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ConvertToTextureSpace",
-                        "excluded": false
-                    },
-                    {
-                        "name": "StopAllEffects",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnRenderImage",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Start",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "UnityEngine.Physics",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -44783,6 +44705,40 @@
                     {
                         "name": "Awake",
                         "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "RippleEffect",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetNewRipplePosition",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ConvertToTextureSpace",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StopAllEffects",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnRenderImage",
+                        "excluded": false
                     }
                 ]
             }
