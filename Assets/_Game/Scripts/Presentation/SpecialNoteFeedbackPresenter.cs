@@ -12,6 +12,7 @@ namespace DuetCats.Presentation
         [SerializeField] private NoteSystem noteSystem;
         [SerializeField] private AudioSource soundEffectSource;
         [SerializeField] private NoteFeedbackCatalog config;
+        [SerializeField] private RippleEffect rippleEffect;
 
         private void OnEnable()
         {
@@ -23,7 +24,7 @@ namespace DuetCats.Presentation
 
         private void Start()
         {
-            if (noteSystem == null || soundEffectSource == null || config == null)
+            if (noteSystem == null || rippleEffect == null || soundEffectSource == null || config == null)
             {
                 Debug.LogError(
                     "SpecialNoteFeedbackPresenter needs NoteSystem, RippleEffect, an AudioSource and its config.",
@@ -42,8 +43,7 @@ namespace DuetCats.Presentation
 
         private void PlayFeedback(RuntimeNote note)
         {
-            SpecialNoteFeedback feedback;
-            if (note == null || !config.TryGetFeedback(note.Kind, out feedback))
+            if (note == null || !config.TryGetFeedback(note.Kind, out SpecialNoteFeedback feedback))
             {
                 return;
             }
@@ -54,6 +54,7 @@ namespace DuetCats.Presentation
                 var screenPosition = new Vector2(
                     Screen.width * Mathf.Clamp01(normalizedPosition.x),
                     Screen.height * Mathf.Clamp01(normalizedPosition.y));
+                rippleEffect.SetNewRipplePosition(screenPosition);
             }
 
             if (feedback.HitSound != null)

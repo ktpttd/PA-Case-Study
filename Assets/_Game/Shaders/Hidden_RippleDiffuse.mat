@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden_RippleDiffuse
+  m_Shader: {fileID: 4800000, guid: 033b26540afb2fc47ac4e9b02819ad9c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Amplitude0: 1
+    - _Amplitude1: 1
+    - _Amplitude2: 1
+    - _Amplitude3: 1
+    - _Amplitude4: 1
+    - _Amplitude5: 1
+    - _Amplitude6: 1
+    - _Amplitude7: 1
+    - _Amplitude8: 1
+    - _Amplitude9: 1
+    - _AspectRatio: 1
+    - _CircleXScale: 1
+    - _CircleYScale: 1
+    - _ExternalRadio: 0.1
+    - _Frequency: 1
+    - _InternalRadio0: 0.1
+    - _InternalRadio1: 0.1
+    - _InternalRadio2: 0.1
+    - _InternalRadio3: 0.1
+    - _InternalRadio4: 0.1
+    - _InternalRadio5: 0.1
+    - _InternalRadio6: 0.1
+    - _InternalRadio7: 0.1
+    - _InternalRadio8: 0.1
+    - _InternalRadio9: 0.1
+    - _MaxValue0: 1
+    - _MaxValue1: 1
+    - _MaxValue2: 1
+    - _MaxValue3: 1
+    - _MaxValue4: 1
+    - _MaxValue5: 1
+    - _MaxValue6: 1
+    - _MaxValue7: 1
+    - _MaxValue8: 1
+    - _MaxValue9: 1
+    - _Scale: 1
+    - _Speed: 1
+    - _TargetPosX0: 0.5
+    - _TargetPosX1: 0.5
+    - _TargetPosX2: 0.5
+    - _TargetPosX3: 0.5
+    - _TargetPosX4: 0.5
+    - _TargetPosX5: 0.5
+    - _TargetPosX6: 0.5
+    - _TargetPosX7: 0.5
+    - _TargetPosX8: 0.5
+    - _TargetPosX9: 0.5
+    - _TargetPosY0: 0.5
+    - _TargetPosY1: 0.5
+    - _TargetPosY2: 0.5
+    - _TargetPosY3: 0.5
+    - _TargetPosY4: 0.5
+    - _TargetPosY5: 0.5
+    - _TargetPosY6: 0.5
+    - _TargetPosY7: 0.5
+    - _TargetPosY8: 0.5
+    - _TargetPosY9: 0.5
+    - _WaveCount: 1
+    m_Colors: []
+  m_BuildTextureStacks: []
