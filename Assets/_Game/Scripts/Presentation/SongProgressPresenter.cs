@@ -24,14 +24,6 @@ namespace DuetCats.Presentation
         private Vector2 hiddenPosition;
         private Tween movementTween;
 
-        private void Awake()
-        {
-            if (gameSession == null)
-            {
-                gameSession = GetComponent<GameSession>();
-            }
-        }
-
         private void Start()
         {
             if (progressBarRoot == null && progressFillImage != null)

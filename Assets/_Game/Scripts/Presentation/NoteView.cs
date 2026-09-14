@@ -19,11 +19,6 @@ namespace DuetCats.Presentation
 
         private void Awake()
         {
-            if (spriteRenderer == null)
-            {
-                spriteRenderer = GetComponent<SpriteRenderer>();
-            }
-
             if (spriteRenderer != null)
             {
                 defaultSprite = spriteRenderer.sprite;

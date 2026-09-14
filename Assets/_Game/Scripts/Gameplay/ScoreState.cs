@@ -13,14 +13,6 @@ namespace DuetCats.Gameplay
         public int Score { get; private set; }
         public event Action<int> ScoreChanged;
 
-        private void Awake()
-        {
-            if (noteSystem == null)
-            {
-                noteSystem = GetComponent<NoteSystem>();
-            }
-        }
-
         private void OnEnable()
         {
             if (noteSystem != null)

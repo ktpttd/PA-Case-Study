@@ -17,14 +17,6 @@ namespace DuetCats.Gameplay
         [SerializeField] private NoteSystem noteSystem;
         [SerializeField] private CatInput catInput;
 
-        private void Awake()
-        {
-            if (gameSession == null) gameSession = GetComponent<GameSession>();
-            if (gameplayLayout == null) gameplayLayout = GetComponent<GameplayLayout>();
-            if (noteSystem == null) noteSystem = GetComponent<NoteSystem>();
-            if (catInput == null) catInput = GetComponent<CatInput>();
-        }
-
         private void Start()
         {
             if (gameSession == null || gameplayLayout == null || noteSystem == null ||

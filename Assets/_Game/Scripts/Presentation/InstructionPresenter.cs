@@ -28,11 +28,6 @@ namespace DuetCats.Presentation
 
         private void Awake()
         {
-            if (gameSession == null)
-            {
-                gameSession = GetComponent<GameSession>();
-            }
-
             ResolveInstructionReferences();
             CacheInitialPositions();
         }
@@ -166,11 +161,6 @@ namespace DuetCats.Presentation
             if (instructionRoot == null)
             {
                 return;
-            }
-
-            if (instructionCanvasGroup == null)
-            {
-                instructionCanvasGroup = instructionRoot.GetComponent<CanvasGroup>();
             }
 
             if (leftInstruction == null)

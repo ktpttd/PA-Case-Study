@@ -24,14 +24,6 @@ namespace DuetCats.Presentation
             get { return side; }
         }
 
-        private void Awake()
-        {
-            if (skeletonAnimation == null)
-            {
-                skeletonAnimation = GetComponentInChildren<SkeletonAnimation>();
-            }
-        }
-
         private void LateUpdate()
         {
             if (catInput == null || gameplayLayout == null || !gameplayLayout.HasWorldProjection)

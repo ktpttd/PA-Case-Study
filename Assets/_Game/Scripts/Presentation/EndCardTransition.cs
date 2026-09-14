@@ -21,11 +21,6 @@ namespace DuetCats.Presentation
 
         private void Awake()
         {
-            if (gameSession == null)
-            {
-                gameSession = GetComponent<GameSession>();
-            }
-
             if (endCardController == null)
             {
                 endCardController = FindObjectOfType<EndCardController>();

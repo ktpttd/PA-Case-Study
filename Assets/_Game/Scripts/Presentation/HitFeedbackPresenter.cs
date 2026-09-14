@@ -18,19 +18,6 @@ namespace DuetCats.Presentation
 
         private SongContent songContent;
 
-        private void Awake()
-        {
-            if (noteSystem == null)
-            {
-                noteSystem = GetComponent<NoteSystem>();
-            }
-
-            if (gameSession == null)
-            {
-                gameSession = GetComponent<GameSession>();
-            }
-        }
-
         private void Start()
         {
             if (noteSystem == null || gameSession == null || config == null ||

@@ -17,24 +17,6 @@ namespace DuetCats.Debugging
         private float nextHeartbeatTime;
         private bool loggedStartup;
 
-        private void Awake()
-        {
-            if (gameSession == null)
-            {
-                gameSession = GetComponent<GameSession>();
-            }
-
-            if (catInput == null)
-            {
-                catInput = GetComponent<CatInput>();
-            }
-
-            if (scoreState == null)
-            {
-                scoreState = GetComponent<ScoreState>();
-            }
-        }
-
         private void Update()
         {
             if (gameSession == null || catInput == null || scoreState == null)

@@ -30,19 +30,6 @@ namespace DuetCats.Gameplay
         public bool HasNoActiveNotes { get { return activeNotes.Count == 0; } }
         public int PrewarmedCapacity { get; private set; }
 
-        private void Awake()
-        {
-            if (gameSession == null)
-            {
-                gameSession = GetComponent<GameSession>();
-            }
-
-            if (gameplayLayout == null)
-            {
-                gameplayLayout = GetComponent<GameplayLayout>();
-            }
-        }
-
         private void Start()
         {
             if (gameSession == null || gameplayLayout == null || noteViewPool == null ||

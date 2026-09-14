@@ -23,19 +23,6 @@ namespace DuetCats.Presentation
         private Tween movementTween;
         private Tween punchTween;
 
-        private void Awake()
-        {
-            if (scoreState == null)
-            {
-                scoreState = GetComponent<ScoreState>();
-            }
-
-            if (gameSession == null)
-            {
-                gameSession = GetComponent<GameSession>();
-            }
-        }
-
         private void Start()
         {
             if (scoreState == null || gameSession == null || scoreText == null)

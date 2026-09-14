@@ -27,19 +27,6 @@ namespace DuetCats.Controls
         public float LeftCatX { get { return leftCatX; } }
         public float RightCatX { get { return rightCatX; } }
 
-        private void Awake()
-        {
-            if (gameSession == null)
-            {
-                gameSession = GetComponent<GameSession>();
-            }
-
-            if (gameplayLayout == null)
-            {
-                gameplayLayout = GetComponent<GameplayLayout>();
-            }
-        }
-
         private void Start()
         {
             if (gameSession == null || gameplayLayout == null ||

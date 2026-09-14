@@ -30,11 +30,6 @@ namespace DuetCats.Session
 
         private void Awake()
         {
-            if (songPlayback == null)
-            {
-                songPlayback = GetComponent<SongPlayback>();
-            }
-
             Prepare();
         }
 

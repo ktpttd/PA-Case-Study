@@ -15,14 +15,6 @@ namespace DuetCats.Presentation
 
         private Tween fadeTween;
 
-        private void Awake()
-        {
-            if (hudCanvasGroup == null)
-            {
-                hudCanvasGroup = GetComponent<CanvasGroup>();
-            }
-        }
-
         private void Start()
         {
             if (gameSession == null || hudCanvasGroup == null)
