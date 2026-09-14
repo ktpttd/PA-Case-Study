@@ -29,32 +29,32 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude0: 1
-    - _Amplitude1: 1
-    - _Amplitude2: 1
-    - _Amplitude3: 1
-    - _Amplitude4: 1
-    - _Amplitude5: 1
-    - _Amplitude6: 1
-    - _Amplitude7: 1
-    - _Amplitude8: 1
-    - _Amplitude9: 1
-    - _AspectRatio: 1
+    - _Amplitude0: -0.00000017881393
+    - _Amplitude1: 0
+    - _Amplitude2: 0
+    - _Amplitude3: 0
+    - _Amplitude4: 0
+    - _Amplitude5: 0
+    - _Amplitude6: 0
+    - _Amplitude7: 0
+    - _Amplitude8: 0
+    - _Amplitude9: 0
+    - _AspectRatio: 0.46182266
     - _CircleXScale: 1
     - _CircleYScale: 1
-    - _ExternalRadio: 0.1
+    - _ExternalRadio: 0.2
     - _Frequency: 1
-    - _InternalRadio0: 0.1
-    - _InternalRadio1: 0.1
-    - _InternalRadio2: 0.1
-    - _InternalRadio3: 0.1
-    - _InternalRadio4: 0.1
-    - _InternalRadio5: 0.1
-    - _InternalRadio6: 0.1
-    - _InternalRadio7: 0.1
-    - _InternalRadio8: 0.1
-    - _InternalRadio9: 0.1
-    - _MaxValue0: 1
+    - _InternalRadio0: 0.99915576
+    - _InternalRadio1: 0
+    - _InternalRadio2: 0
+    - _InternalRadio3: 0
+    - _InternalRadio4: 0
+    - _InternalRadio5: 0
+    - _InternalRadio6: 0
+    - _InternalRadio7: 0
+    - _InternalRadio8: 0
+    - _InternalRadio9: 0
+    - _MaxValue0: 0.1
     - _MaxValue1: 1
     - _MaxValue2: 1
     - _MaxValue3: 1
@@ -64,28 +64,28 @@ Material:
     - _MaxValue7: 1
     - _MaxValue8: 1
     - _MaxValue9: 1
-    - _Scale: 1
+    - _Scale: 30
     - _Speed: 1
     - _TargetPosX0: 0.5
-    - _TargetPosX1: 0.5
-    - _TargetPosX2: 0.5
-    - _TargetPosX3: 0.5
-    - _TargetPosX4: 0.5
-    - _TargetPosX5: 0.5
-    - _TargetPosX6: 0.5
-    - _TargetPosX7: 0.5
-    - _TargetPosX8: 0.5
-    - _TargetPosX9: 0.5
+    - _TargetPosX1: -1
+    - _TargetPosX2: -1
+    - _TargetPosX3: -1
+    - _TargetPosX4: -1
+    - _TargetPosX5: -1
+    - _TargetPosX6: -1
+    - _TargetPosX7: -1
+    - _TargetPosX8: -1
+    - _TargetPosX9: -1
     - _TargetPosY0: 0.5
-    - _TargetPosY1: 0.5
-    - _TargetPosY2: 0.5
-    - _TargetPosY3: 0.5
-    - _TargetPosY4: 0.5
-    - _TargetPosY5: 0.5
-    - _TargetPosY6: 0.5
-    - _TargetPosY7: 0.5
-    - _TargetPosY8: 0.5
-    - _TargetPosY9: 0.5
+    - _TargetPosY1: -1
+    - _TargetPosY2: -1
+    - _TargetPosY3: -1
+    - _TargetPosY4: -1
+    - _TargetPosY5: -1
+    - _TargetPosY6: -1
+    - _TargetPosY7: -1
+    - _TargetPosY8: -1
+    - _TargetPosY9: -1
     - _WaveCount: 1
     m_Colors: []
   m_BuildTextureStacks: []

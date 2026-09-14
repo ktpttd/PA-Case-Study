@@ -995,7 +995,6 @@ GameObject:
   - component: {fileID: 467591245}
   - component: {fileID: 467591244}
   - component: {fileID: 467591243}
-  - component: {fileID: 467591246}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1077,62 +1076,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &467591246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 467591242}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b0ba117f9d8e6a4a8a2aaca7154c935, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveCount: 1
-  timeInfinity: 0
-  waveTime: 1
-  waveAnimCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.219
-      value: 0.529
-      inSlope: -2.1942995
-      outSlope: -2.1942995
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  waveInternalRadio: 1
-  waveExternalRadio: 0.2
-  waveScale: 30
-  waveSpeed: 1
-  waveFrequency: 1
-  circleXScale: 1
-  circleYScale: 1
-  rippleMaterial: {fileID: 2100000, guid: 3c67abf49edc74547ab55f9a33d37eef, type: 2}
 --- !u!1 &498144547
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,7 +2235,7 @@ MonoBehaviour:
   noteSystem: {fileID: 1093299815}
   soundEffectSource: {fileID: 1093299812}
   config: {fileID: 11400000, guid: c88ae78ad97d9499ea5af8a3b84e4088, type: 2}
-  rippleEffect: {fileID: 467591246}
+  rippleEffect: {fileID: 0}
 --- !u!1 &1124262085
 GameObject:
   m_ObjectHideFlags: 0

@@ -67,7 +67,7 @@ namespace DuetCats.Presentation
                 return;
             }
 
-            scoreText.SetText("{0}", score);
+            scoreText.SetText($"{score}");
             if (gameSession != null && gameSession.Phase == GamePhase.Playing)
             {
                 punchTween.Kill();
