@@ -85,9 +85,7 @@
             "dotnetVersion": ""
         },
         "assets": {
-            "export": [
-                "resources"
-            ],
+            "export": [],
             "excludes": [
                 "**/Editor/",
                 "**/FacebookSDK/",
@@ -22458,24 +22456,6 @@
                     },
                     {
                         "name": "ReleaseAllPointers",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "DuetCats.Debugging.SessionInputDebugLogger",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
-                        "name": "LogStartup",
                         "excluded": false
                     }
                 ]
