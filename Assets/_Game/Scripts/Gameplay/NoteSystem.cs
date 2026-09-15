@@ -121,10 +121,16 @@ namespace DuetCats.Gameplay
             SpawnDueNotes(firstSpawnTime);
         }
 
-        public void ClearIntroNotes()
+        public float GetIntroSongTime()
         {
-            ReturnAll();
-            nextNoteIndex = 0;
+            if (activeNotes.Count == 0)
+            {
+                return gameSession.SongContent.FirstHitTime - fallDuration;
+            }
+
+            var activeNote = activeNotes[0];
+            var duration = Mathf.Max(0.001f, activeNote.Note.HitTime - activeNote.SpawnTime);
+            return activeNote.SpawnTime + duration * activeNote.View.GetProgressFromCurrentPosition();
         }
 
         private void ReleaseMissedView()

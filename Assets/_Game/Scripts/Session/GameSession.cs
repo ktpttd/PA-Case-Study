@@ -43,14 +43,14 @@ namespace DuetCats.Session
             songTime = songPlayback.Tick(Time.unscaledTime);
         }
 
-        public bool TryStartRun()
+        public bool TryStartRun(float startSongTime)
         {
             if (phase != GamePhase.Ready || songContent == null)
             {
                 return false;
             }
 
-            songTime = Mathf.Min(0f, songContent.FirstHitTime - songConfig.FallDuration);
+            songTime = Mathf.Min(0f, startSongTime);
             songPlayback.Begin(songTime, Time.unscaledTime);
             phase = GamePhase.Playing;
             var startedCallback = Started;

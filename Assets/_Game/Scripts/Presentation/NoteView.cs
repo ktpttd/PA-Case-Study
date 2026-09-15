@@ -64,6 +64,19 @@ namespace DuetCats.Presentation
             transform.position = worldPosition;
         }
 
+        public float GetProgressFromCurrentPosition()
+        {
+            if (gameplayLayout == null || !gameplayLayout.HasWorldProjection)
+            {
+                return 0f;
+            }
+
+            return Mathf.InverseLerp(
+                spawnWorldY,
+                gameplayLayout.JudgementWorldY,
+                transform.position.y);
+        }
+
         public void ResetView()
         {
             note = null;

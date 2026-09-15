@@ -112,12 +112,10 @@ namespace DuetCats.Presentation
                 instructionRoot.SetActive(false);
             }
 
-            if (noteSystem != null)
-            {
-                noteSystem.ClearIntroNotes();
-            }
-
-            if (gameSession.TryStartRun())
+            var introSongTime = noteSystem != null
+                ? noteSystem.GetIntroSongTime()
+                : gameSession.SongContent.FirstHitTime - gameSession.SongConfig.FallDuration;
+            if (gameSession.TryStartRun(introSongTime))
             {
                 return;
             }
