@@ -2027,10 +2027,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.WaitForSeconds",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.WaitForSecondsRealtime",
                 "excluded": true
             },
@@ -8156,7 +8152,7 @@
             },
             {
                 "name": "EndCardLandscapeAnimationType",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "EndCardPortraitAnimationType",
@@ -8372,7 +8368,7 @@
             },
             {
                 "name": "DG.Tweening.ShakeRandomnessMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "DG.Tweening.SpiralMode",
@@ -8996,7 +8992,7 @@
                     },
                     {
                         "name": "isSeparator",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "isPunctuation",
@@ -15868,7 +15864,7 @@
                     },
                     {
                         "name": "position#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "position#set",
@@ -22365,6 +22361,10 @@
                     {
                         "name": "init",
                         "excluded": false
+                    },
+                    {
+                        "name": "ComboNoteCount#get",
+                        "excluded": false
                     }
                 ]
             },
@@ -22597,7 +22597,7 @@
                         "excluded": false
                     },
                     {
-                        "name": "ClearIntroNotes",
+                        "name": "GetIntroSongTime",
                         "excluded": false
                     }
                 ]
@@ -22678,6 +22678,10 @@
                     },
                     {
                         "name": "SetSprite",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetProgressFromCurrentPosition",
                         "excluded": false
                     }
                 ]
@@ -24868,7 +24872,7 @@
                     },
                     {
                         "name": "Clear",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetTexture",
@@ -31518,7 +31522,7 @@
                     },
                     {
                         "name": "Vector3FromAngle",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Angle2D",
@@ -31982,11 +31986,11 @@
                     },
                     {
                         "name": "Shake$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Shake$2",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ToArray",
@@ -32284,7 +32288,7 @@
                     },
                     {
                         "name": "SetShake",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetCameraShakePosition",
@@ -32980,7 +32984,7 @@
                     },
                     {
                         "name": "SetOptions$11",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetOptions$10",
@@ -34780,7 +34784,7 @@
                     },
                     {
                         "name": "DOShakeAnchorPos$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DOJumpAnchorPos",
@@ -38886,7 +38890,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -39982,7 +39986,7 @@
                     },
                     {
                         "name": "ResizeInternalArray$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "AddFloatToInternalTextBackingArray",
@@ -40336,7 +40340,7 @@
                 "instanceMethods": [
                     {
                         "name": "getDefaultValue",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "init",
@@ -40356,7 +40360,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -41816,7 +41820,7 @@
                 "instanceMethods": [
                     {
                         "name": "getDefaultValue",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
@@ -41832,7 +41836,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -41850,7 +41854,7 @@
                     },
                     {
                         "name": "Resize$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
@@ -42276,7 +42280,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -44989,6 +44993,74 @@
                     {
                         "name": "OnDestroy",
                         "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Presentation.ComboFeedbackPresenter",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "KillTween",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetComboMessage",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    },
+                    {
+                        "name": "HandleNoteHit",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FindSpecialNote",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HideAfterDelay",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Hide",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayTextAnimation",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HideVisual",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.WaitForSeconds",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Reset",
+                        "excluded": false
                     }
                 ]
             }

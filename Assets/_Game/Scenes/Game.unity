@@ -6759,10 +6759,10 @@ MonoBehaviour:
   leftMaxX: 0.35
   rightMinX: 0.65
   rightMaxX: 0.9
-  landscapeLeftMinX: 0.325
-  landscapeLeftMaxX: 0.4
-  landscapeRightMinX: 0.6
-  landscapeRightMaxX: 0.625
+  landscapeLeftMinX: 0.3
+  landscapeLeftMaxX: 0.45
+  landscapeRightMinX: 0.55
+  landscapeRightMaxX: 0.7
   maxCatchDistanceOfLaneSpacing: 0.45
 --- !u!114 &1093299810
 MonoBehaviour:
