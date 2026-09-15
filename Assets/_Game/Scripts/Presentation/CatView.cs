@@ -19,6 +19,8 @@ namespace DuetCats.Presentation
         [SpineAnimation, SerializeField] private string winAnimation = "Cheering_Happy _Victory";
         [SpineAnimation, SerializeField] private string loseAnimation = "Miss_Object_Lose";
 
+        private float introOffsetX;
+
         public CatSide Side
         {
             get { return side; }
@@ -33,7 +35,7 @@ namespace DuetCats.Presentation
 
             var logicalX = side == CatSide.Left ? catInput.LeftCatX : catInput.RightCatX;
             var worldPosition = transform.position;
-            worldPosition.x = gameplayLayout.ToWorldX(logicalX, worldPosition);
+            worldPosition.x = gameplayLayout.ToWorldX(logicalX, worldPosition) + introOffsetX;
             worldPosition.y = gameplayLayout.JudgementWorldY;
             transform.position = worldPosition;
         }
@@ -62,6 +64,11 @@ namespace DuetCats.Presentation
         public void PlayLose()
         {
             PlayLoop(loseAnimation);
+        }
+
+        public void SetIntroOffsetX(float offsetX)
+        {
+            introOffsetX = offsetX;
         }
 
         private void PlayLoop(string animationName)

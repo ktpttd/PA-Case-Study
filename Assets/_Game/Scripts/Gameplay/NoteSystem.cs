@@ -110,6 +110,23 @@ namespace DuetCats.Gameplay
             missedView = null;
         }
 
+        public void PrepareIntroNotes()
+        {
+            if (notes == null || gameSession.SongContent == null)
+            {
+                return;
+            }
+
+            var firstSpawnTime = gameSession.SongContent.FirstHitTime - fallDuration;
+            SpawnDueNotes(firstSpawnTime);
+        }
+
+        public void ClearIntroNotes()
+        {
+            ReturnAll();
+            nextNoteIndex = 0;
+        }
+
         private void ReleaseMissedView()
         {
             if (missedView == null)

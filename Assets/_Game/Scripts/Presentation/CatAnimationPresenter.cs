@@ -1,3 +1,4 @@
+using DuetCats.Audio;
 using DuetCats.Content;
 using DuetCats.Gameplay;
 using DuetCats.Session;
@@ -22,7 +23,8 @@ namespace DuetCats.Presentation
             if (gameSession == null || noteSystem == null || leftCat == null || rightCat == null ||
                 gameSession.SongContent == null)
             {
-                Debug.LogError("CatAnimationPresenter needs GameSession, NoteSystem and both CatViews.", this);
+                Debug.LogError(
+                    "CatAnimationPresenter needs GameSession, NoteSystem and both CatViews.", this);
                 enabled = false;
                 return;
             }
@@ -62,11 +64,13 @@ namespace DuetCats.Presentation
         {
             if (outcome == GameOutcome.Win)
             {
+                AudioManager.Play(AudioKey.SFX_Win);
                 leftCat.PlayWin();
                 rightCat.PlayWin();
             }
             else if (outcome == GameOutcome.Lose)
             {
+                AudioManager.Play(AudioKey.SFX_Lose);
                 leftCat.PlayLose();
                 rightCat.PlayLose();
             }
