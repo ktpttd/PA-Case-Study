@@ -28,3 +28,4 @@ MonoBehaviour:
   - noteId: 50
     kind: 1
     points: 8
+    comboNoteCount: 20

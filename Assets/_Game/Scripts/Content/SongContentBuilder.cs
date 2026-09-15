@@ -271,6 +271,11 @@ namespace DuetCats.Content
                     errors.Add("Special-note override for id " + special.NoteId + " must award points.");
                 }
 
+                if (special.ComboNoteCount <= 0)
+                {
+                    errors.Add("Special-note override for id " + special.NoteId + " must enable at least one combo note.");
+                }
+
                 if (result.ContainsKey(special.NoteId))
                 {
                     errors.Add("Duplicate special-note override for id " + special.NoteId + ".");

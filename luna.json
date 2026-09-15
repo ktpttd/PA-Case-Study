@@ -1,7 +1,7 @@
 {
     "version": "7.2.0",
     "projectId": "9345ae4d863434c8eb26c0373141a0e0",
-    "applicationID": 0,
+    "applicationID": 42721,
     "creativeName": "Tap",
     "pgServer": "EU",
     "window": {
@@ -181,8 +181,8 @@
             },
             {
                 "name": "particle-system",
-                "excluded": true,
-                "forceIncluded": false
+                "excluded": false,
+                "forceIncluded": true
             },
             {
                 "name": "reflection",
@@ -1447,10 +1447,6 @@
                 "excluded": true
             },
             {
-                "name": "Luna.Unity.DTO.UnityEngine.ParticleSystemTypes.Data.GradientColorKey",
-                "excluded": true
-            },
-            {
                 "name": "Luna.Unity.DTO.UnityEngine.ParticleSystemTypes.MinMaxGradient",
                 "excluded": true
             },
@@ -1867,10 +1863,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.TrailModule",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.TrailRenderer.Parameters",
                 "excluded": true
             },
@@ -2260,10 +2252,6 @@
             },
             {
                 "name": "UnityEngine.CompositeCollider2D",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.ParticleSystemRenderer",
                 "excluded": true
             },
             {
@@ -2728,7 +2716,7 @@
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.ParticleSystemTypes.Data.GradientAlphaKey",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.ParticleSystemTypes.Gradient",
@@ -4168,7 +4156,7 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemAnimationMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemAnimationRowMode",
@@ -4180,7 +4168,7 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemAnimationType",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemColliderQueryMode",
@@ -4220,7 +4208,7 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemEmitterVelocityMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemForceFieldShape",
@@ -4236,7 +4224,7 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemInheritVelocityMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemMeshDistribution",
@@ -4244,11 +4232,11 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemMeshShapeType",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemNoiseQuality",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemOverlapAction",
@@ -4256,11 +4244,11 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemRenderMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemRenderSpace",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemRingBufferMode",
@@ -4268,11 +4256,11 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemScalingMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemShapeMultiModeValue",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemShapeTextureChannel",
@@ -4280,23 +4268,23 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemShapeType",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemSimulationSpace",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemSortMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemStopAction",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemStopBehavior",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemSubEmitterProperties",
@@ -8207,10 +8195,6 @@
                 "excluded": true
             },
             {
-                "name": "DG.Tweening.DOVirtual",
-                "excluded": true
-            },
-            {
                 "name": "DG.Tweening.EaseFactory",
                 "excluded": true
             },
@@ -8857,6 +8841,10 @@
             {
                 "name": "DuetCats.Presentation.CatPlatformView",
                 "excluded": true
+            },
+            {
+                "name": "DuetCats.Audio.AudioKey",
+                "excluded": false
             }
         ],
         "unusedMethods": [
@@ -22603,6 +22591,14 @@
                     {
                         "name": "GetSide",
                         "excluded": false
+                    },
+                    {
+                        "name": "PrepareIntroNotes",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ClearIntroNotes",
+                        "excluded": false
                     }
                 ]
             },
@@ -22644,6 +22640,10 @@
                     },
                     {
                         "name": "CanPlay",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetIntroOffsetX",
                         "excluded": false
                     }
                 ]
@@ -32446,7 +32446,7 @@
                     },
                     {
                         "name": "DOMove",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DOMoveX",
@@ -32816,7 +32816,7 @@
                     },
                     {
                         "name": "OnUpdate",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnStepComplete",
@@ -32856,7 +32856,7 @@
                     },
                     {
                         "name": "Insert",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "AppendInterval",
@@ -32876,7 +32876,7 @@
                     },
                     {
                         "name": "InsertCallback",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ValidateAddToSequence",
@@ -32948,7 +32948,7 @@
                     },
                     {
                         "name": "SetOptions$13",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetOptions$12",
@@ -33899,6 +33899,22 @@
                     {
                         "name": "RestoreCanvasGroup",
                         "excluded": false
+                    },
+                    {
+                        "name": "StartIntro",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShowInstructionDuringIntro",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CompleteIntro",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetCatIntroOffsets",
+                        "excluded": false
                     }
                 ]
             },
@@ -34397,10 +34413,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
                         "name": "RefreshProgress",
                         "excluded": false
                     },
@@ -34430,6 +34442,10 @@
                     },
                     {
                         "name": "ConfigureFillForWidthProgress",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HandleNoteHit",
                         "excluded": false
                     }
                 ]
@@ -35594,11 +35610,11 @@
                     },
                     {
                         "name": "init",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetParticles",
@@ -35622,7 +35638,7 @@
                     },
                     {
                         "name": "Play$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Pause",
@@ -35642,7 +35658,7 @@
                     },
                     {
                         "name": "Stop$2",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Emit",
@@ -44338,7 +44354,7 @@
                     },
                     {
                         "name": "gravity#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "gravity#set",
@@ -44643,15 +44659,15 @@
                         "excluded": false
                     },
                     {
-                        "name": "HitSound#get",
-                        "excluded": false
-                    },
-                    {
                         "name": "Volume#get",
                         "excluded": false
                     },
                     {
                         "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AudioKey#get",
                         "excluded": false
                     }
                 ]
@@ -44684,12 +44700,240 @@
                 "instanceMethods": [
                     {
                         "name": "Awake",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Luna.Unity.DTO.UnityEngine.ParticleSystemTypes.Data.GradientColorKey",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.TrailModule",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "enabled#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "enabled#set",
                         "excluded": true
                     }
                 ]
             },
             {
-                "className": "RippleEffect",
+                "className": "UnityEngine.ParticleSystemRenderer",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "mesh#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "mesh#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "meshCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "meshCount#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "activeVertexStreamsCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "activeVertexStreamsCount#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "alignment#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "alignment#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "renderMode#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "renderMode#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sortMode#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sortMode#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "lengthScale#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "lengthScale#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "velocityScale#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "velocityScale#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "cameraVelocityScale#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "cameraVelocityScale#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "normalDirection#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "normalDirection#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sortingFudge#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sortingFudge#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "minParticleSize#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "minParticleSize#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxParticleSize#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxParticleSize#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "pivot#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "pivot#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "trailMaterial#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "trailMaterial#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "applyActiveColorSpace#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "applyActiveColorSpace#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "BakeTrailsMesh",
+                        "excluded": true
+                    },
+                    {
+                        "name": "BakeMesh",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "DG.Tweening.DOVirtual",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Float",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Int",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Vector3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Color",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EasedValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EasedValue$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EasedValue$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EasedValue$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EasedValue$4",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EasedValue$5",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EasedValue$6",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EasedValue$7",
+                        "excluded": true
+                    },
+                    {
+                        "name": "DelayedCall",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Audio.AudioCatalog",
                 "staticMethods": [],
                 "instanceMethods": [
                     {
@@ -44697,28 +44941,54 @@
                         "excluded": false
                     },
                     {
+                        "name": "TryGetClip",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Audio.AudioEntry",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Key#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Clip#get",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Audio.AudioManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Initialize",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Clear",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Play",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Audio.AudioManagerBootstrap",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
                         "name": "Awake",
                         "excluded": false
                     },
                     {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SetNewRipplePosition",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ConvertToTextureSpace",
-                        "excluded": false
-                    },
-                    {
-                        "name": "StopAllEffects",
+                        "name": "OnDestroy",
                         "excluded": true
-                    },
-                    {
-                        "name": "OnRenderImage",
-                        "excluded": false
                     }
                 ]
             }

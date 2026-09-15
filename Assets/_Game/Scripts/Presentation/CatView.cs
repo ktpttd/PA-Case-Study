@@ -12,6 +12,7 @@ namespace DuetCats.Presentation
         [SerializeField] private CatInput catInput;
         [SerializeField] private GameplayLayout gameplayLayout;
         [SerializeField] private SkeletonAnimation skeletonAnimation;
+        [SerializeField] private ParticleSystem hitSplash;
 
         [Header("Spine Animations")]
         [SpineAnimation, SerializeField] private string idleAnimation = "Idle_Playing";
@@ -47,6 +48,12 @@ namespace DuetCats.Presentation
 
         public void PlayHit()
         {
+            if (hitSplash != null)
+            {
+                hitSplash.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                hitSplash.Play(true);
+            }
+
             if (!CanPlay(hitAnimation) || !CanPlay(idleAnimation))
             {
                 return;

@@ -48,9 +48,11 @@ namespace DuetCats.Content
         [SerializeField, Min(1)] private int noteId;
         [SerializeField] private NoteKind kind;
         [SerializeField, Min(1)] private int points = 1;
+        [SerializeField, Min(1)] private int comboNoteCount = 12;
 
         public int NoteId { get { return noteId; } }
         public NoteKind Kind { get { return kind; } }
         public int Points { get { return points; } }
+        public int ComboNoteCount { get { return comboNoteCount; } }
     }
 }

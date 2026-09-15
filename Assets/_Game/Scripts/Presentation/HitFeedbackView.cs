@@ -52,7 +52,7 @@ namespace DuetCats.Presentation
 
             movementTween = transform
                 .DOLocalMoveY(initialLocalPosition.y + riseDistance, duration)
-                .SetEase(Ease.InQuint);
+                .SetEase(Ease.InQuart);
             scaleTween = transform
                 .DOScale(initialLocalScale * 0.5f, duration)
                 .SetEase(Ease.InQuad);
