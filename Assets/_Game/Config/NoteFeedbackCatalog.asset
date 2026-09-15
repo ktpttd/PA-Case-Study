@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialNotes:
   - kind: 1
+    audioKey: 2
     playRipple: 1
     normalizedScreenPosition: {x: 0.5, y: 0.5}
-    hitSound: {fileID: 8300000, guid: 43f9ee4ca479e480986edcc86ebefb21, type: 3}
     volume: 1
