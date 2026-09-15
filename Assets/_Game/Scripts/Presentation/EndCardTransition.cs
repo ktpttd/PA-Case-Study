@@ -12,8 +12,6 @@ namespace DuetCats.Presentation
         [SerializeField] private EndCardController endCardController;
         [SerializeField] private SongChoiceEndCardPresenter songChoiceEndCard;
         [SerializeField] private EndGameTransitionPresenter endGameTransition;
-        [SerializeField, Min(0f)] private float resultAnimationHoldDuration = 0.6f;
-
         private bool hasOpenedEndCard;
         private bool hasStartedTransition;
         private bool isWaitingForEndCard;
@@ -45,7 +43,8 @@ namespace DuetCats.Presentation
                 endingStartedAt = Time.unscaledTime;
             }
 
-            if (Time.unscaledTime < endingStartedAt + resultAnimationHoldDuration)
+            if (Time.unscaledTime < endingStartedAt +
+                gameSession.GlobalSetting.EndCard.ResultAnimationHoldDuration)
             {
                 return;
             }

@@ -16,13 +16,6 @@ namespace DuetCats.Presentation
         [SerializeField] private NoteSystem noteSystem;
         [SerializeField] private GameSession gameSession;
         [SerializeField] private TextMeshProUGUI comboText;
-        [SerializeField, Min(0.01f)] private float visibleDuration = 0.55f;
-        [SerializeField, Min(0f)] private float punchScaleStrength = 0.2f;
-        [SerializeField, Min(0.01f)] private float punchScaleDuration = 0.25f;
-        [SerializeField] private Vector2 shakePositionStrength = new Vector2(16f, 10f);
-        [SerializeField, Min(0.01f)] private float shakePositionDuration = 0.25f;
-        [SerializeField, Min(1)] private int shakePositionVibrato = 10;
-
         private int comboFeedbackIndex;
         private int comboNotesRemaining;
         private Coroutine hideRoutine;
@@ -35,7 +28,7 @@ namespace DuetCats.Presentation
         private void Start()
         {
             if (noteSystem == null || gameSession == null || comboText == null ||
-                gameSession.SongContent == null)
+                gameSession.SongContent == null || gameSession.GlobalSetting == null)
             {
                 Debug.LogError("ComboFeedbackPresenter needs NoteSystem, GameSession and a combo TMP text.", this);
                 enabled = false;
@@ -111,7 +104,7 @@ namespace DuetCats.Presentation
 
         private IEnumerator HideAfterDelay()
         {
-            yield return new WaitForSeconds(visibleDuration);
+            yield return new WaitForSeconds(gameSession.GlobalSetting.ComboFeedback.VisibleDuration);
             hideRoutine = null;
             HideVisual();
         }
@@ -134,13 +127,14 @@ namespace DuetCats.Presentation
             comboRect.anchoredPosition = initialAnchoredPosition;
             comboRect.localScale = initialLocalScale;
 
+            var tuning = gameSession.GlobalSetting.ComboFeedback;
             punchScaleTween = comboRect.DOPunchScale(
-                Vector3.one * punchScaleStrength,
-                punchScaleDuration);
+                Vector3.one * tuning.PunchScaleStrength,
+                tuning.PunchScaleDuration);
             shakePositionTween = comboRect.DOShakeAnchorPos(
-                shakePositionDuration,
-                shakePositionStrength,
-                shakePositionVibrato);
+                tuning.ShakePositionDuration,
+                tuning.ShakePositionStrength,
+                tuning.ShakePositionVibrato);
         }
 
         private void HideVisual()

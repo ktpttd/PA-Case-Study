@@ -13,8 +13,6 @@ namespace DuetCats.Controls
         private const int NoPointer = int.MinValue;
         private const int MousePointer = -1;
 
-        [SerializeField, Min(0.01f)] private float dragSensitivity = 1f;
-        [SerializeField, Min(0.01f)] private float keyboardSpeed = 0.5f;
         [SerializeField] private GameSession gameSession;
         [SerializeField] private GameplayLayout gameplayLayout;
 
@@ -30,7 +28,7 @@ namespace DuetCats.Controls
         private void Start()
         {
             if (gameSession == null || gameplayLayout == null ||
-                !gameplayLayout.Initialize(gameSession.SongContent))
+                !gameplayLayout.Initialize(gameSession.SongContent, gameSession.GlobalSetting))
             {
                 Debug.LogError("CatInput needs a valid GameSession and GameplayLayout.", this);
                 enabled = false;
@@ -63,7 +61,7 @@ namespace DuetCats.Controls
 
         private void ProcessKeyboard()
         {
-            var distance = keyboardSpeed * Time.unscaledDeltaTime;
+            var distance = gameSession.GlobalSetting.Input.KeyboardSpeed * Time.unscaledDeltaTime;
             if (Input.GetKey(KeyCode.A))
             {
                 MoveCat(CatSide.Left, -distance);
@@ -156,7 +154,8 @@ namespace DuetCats.Controls
 
         private void MoveClaimedPointer(int pointerId, float deltaPixels)
         {
-            var deltaX = deltaPixels / Mathf.Max(1f, Screen.width) * dragSensitivity;
+            var deltaX = deltaPixels / Mathf.Max(1f, Screen.width) *
+                         gameSession.GlobalSetting.Input.DragSensitivity;
             if (pointerId == leftPointerId)
             {
                 MoveCat(CatSide.Left, deltaX);

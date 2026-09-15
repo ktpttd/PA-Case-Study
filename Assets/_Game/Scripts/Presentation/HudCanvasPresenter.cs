@@ -10,14 +10,11 @@ namespace DuetCats.Presentation
     {
         [SerializeField] private GameSession gameSession;
         [SerializeField] private CanvasGroup hudCanvasGroup;
-        [SerializeField, Range(0f, 1f)] private float visibleAlpha = 1f;
-        [SerializeField, Min(0.01f)] private float fadeDuration = 0.3f;
-
         private Tween fadeTween;
 
         private void Start()
         {
-            if (gameSession == null || hudCanvasGroup == null)
+            if (gameSession == null || gameSession.GlobalSetting == null || hudCanvasGroup == null)
             {
                 Debug.LogError("HudCanvasPresenter needs GameSession and a CanvasGroup on the HUD Canvas.", this);
                 enabled = false;
@@ -42,7 +39,7 @@ namespace DuetCats.Presentation
 
         private void FadeIn()
         {
-            FadeTo(visibleAlpha, Ease.OutQuad);
+            FadeTo(gameSession.GlobalSetting.Hud.VisibleAlpha, Ease.OutQuad);
         }
 
         private void FadeOut(GameOutcome outcome)
@@ -54,7 +51,7 @@ namespace DuetCats.Presentation
         {
             fadeTween.Kill();
             fadeTween = hudCanvasGroup
-                .DOFade(targetAlpha, fadeDuration)
+                .DOFade(targetAlpha, gameSession.GlobalSetting.Hud.FadeDuration)
                 .SetEase(ease)
                 .SetUpdate(true);
         }

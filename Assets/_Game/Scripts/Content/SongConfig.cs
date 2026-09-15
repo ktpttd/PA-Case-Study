@@ -12,9 +12,6 @@ namespace DuetCats.Content
 
         [Header("Gameplay")]
         [SerializeField] private float chartOffset;
-        [SerializeField, Min(0.01f)] private float fallDuration = 2.5f;
-        [SerializeField, Min(0f)] private float hitTolerance = 0.1f;
-        [SerializeField, Min(0.01f)] private float catchDistance = 0.1f;
         [SerializeField, Min(1)] private int leftLaneCount = 3;
 
         [Header("Scoring")]
@@ -24,9 +21,6 @@ namespace DuetCats.Content
         public TextAsset Chart { get { return chart; } }
         public AudioClip AudioClip { get { return audioClip; } }
         public float ChartOffset { get { return chartOffset; } }
-        public float FallDuration { get { return fallDuration; } }
-        public float HitTolerance { get { return hitTolerance; } }
-        public float CatchDistance { get { return catchDistance; } }
         public int LeftLaneCount { get { return leftLaneCount; } }
         public VelocityScoreRule[] ScoreRules { get { return scoreRules; } }
         public SpecialNoteOverride[] SpecialNotes { get { return specialNotes; } }

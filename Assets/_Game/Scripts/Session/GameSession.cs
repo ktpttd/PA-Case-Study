@@ -11,6 +11,7 @@ namespace DuetCats.Session
         private const string DefaultContentErrorMessage = "Unable to load this song.";
 
         [SerializeField] private SongConfig songConfig;
+        [SerializeField] private GlobalSetting globalSetting;
         [SerializeField] private SongPlayback songPlayback;
 
         private SongContent songContent;
@@ -22,6 +23,7 @@ namespace DuetCats.Session
         public GamePhase Phase { get { return phase; } }
         public GameOutcome Outcome { get { return outcome; } }
         public SongConfig SongConfig { get { return songConfig; } }
+        public GlobalSetting GlobalSetting { get { return globalSetting; } }
         public SongContent SongContent { get { return songContent; } }
         public float SongTime { get { return songTime; } }
         public string PlayerMessage { get { return playerMessage; } }
@@ -106,7 +108,7 @@ namespace DuetCats.Session
 
             try
             {
-                songContent = SongContentBuilder.Build(songConfig);
+                songContent = SongContentBuilder.Build(songConfig, globalSetting);
                 songPlayback.Configure(songConfig.AudioClip);
                 phase = GamePhase.Ready;
             }

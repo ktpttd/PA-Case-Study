@@ -22247,18 +22247,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "FallDuration#get",
-                        "excluded": false
-                    },
-                    {
-                        "name": "HitTolerance#get",
-                        "excluded": false
-                    },
-                    {
-                        "name": "CatchDistance#get",
-                        "excluded": false
-                    },
-                    {
                         "name": "LeftLaneCount#get",
                         "excluded": false
                     },
@@ -22471,10 +22459,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
                         "name": "Initialize",
                         "excluded": false
                     },
@@ -22529,6 +22513,14 @@
                     {
                         "name": "GetRange",
                         "excluded": false
+                    },
+                    {
+                        "name": "SpawnWorldY#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Tuning#get",
+                        "excluded": true
                     }
                 ]
             },
@@ -22655,10 +22647,6 @@
                     {
                         "name": "Note#get",
                         "excluded": true
-                    },
-                    {
-                        "name": "init",
-                        "excluded": false
                     },
                     {
                         "name": "Show",
@@ -22794,6 +22782,10 @@
                     },
                     {
                         "name": "Prepare",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GlobalSetting#get",
                         "excluded": false
                     }
                 ]
@@ -26470,10 +26462,6 @@
                     },
                     {
                         "name": "Update",
-                        "excluded": false
-                    },
-                    {
-                        "name": "init",
                         "excluded": false
                     },
                     {
@@ -33762,28 +33750,6 @@
                     },
                     {
                         "name": "PlayOutcome",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "DuetCats.Presentation.HitFeedbackConfig",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "VisibleDuration#get",
-                        "excluded": false
-                    },
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetRandomMessage",
-                        "excluded": false
-                    },
-                    {
-                        "name": "RiseDistance#get",
                         "excluded": false
                     }
                 ]
@@ -43341,10 +43307,6 @@
                 "staticMethods": [],
                 "instanceMethods": [
                     {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
                         "name": "Start",
                         "excluded": false
                     },
@@ -45060,6 +45022,194 @@
                     },
                     {
                         "name": "Reset",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Content.ComboFeedbackTuning",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Content.EndCardTuning",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Content.GameplayTuning",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Content.GlobalSetting",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Gameplay#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Input#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Layout#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Intro#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HitFeedback#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ComboFeedback#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Hud#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Progress#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Score#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EndCard#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Content.HitFeedbackTuning",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetRandomMessage",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Content.HudTuning",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Content.InputTuning",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Content.IntroTuning",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Content.LayoutTuning",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Content.ProgressTuning",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DuetCats.Content.ScoreTuning",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "RippleEffect",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetNewRipplePosition",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ConvertToTextureSpace",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StopAllEffects",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnRenderImage",
                         "excluded": false
                     }
                 ]

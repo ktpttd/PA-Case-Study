@@ -14,35 +14,23 @@ namespace DuetCats.Gameplay
     public sealed class GameplayLayout : MonoBehaviour
     {
         [SerializeField] private Camera gameplayCamera;
-        [SerializeField] private float judgementWorldY = -3.25f;
-
-        [Header("Portrait logical X ranges")]
-        [SerializeField, Range(0f, 1f)] private float leftMinX = 0.05f;
-        [SerializeField, Range(0f, 1f)] private float leftMaxX = 0.45f;
-        [SerializeField, Range(0f, 1f)] private float rightMinX = 0.55f;
-        [SerializeField, Range(0f, 1f)] private float rightMaxX = 0.95f;
-
-        [Header("Landscape logical X ranges")]
-        [SerializeField, Range(0f, 1f)] private float landscapeLeftMinX = 0.20f;
-        [SerializeField, Range(0f, 1f)] private float landscapeLeftMaxX = 0.45f;
-        [SerializeField, Range(0f, 1f)] private float landscapeRightMinX = 0.55f;
-        [SerializeField, Range(0f, 1f)] private float landscapeRightMaxX = 0.80f;
-
-        [Header("Judgement")]
-        [SerializeField, Range(0.01f, 0.49f)] private float maxCatchDistanceOfLaneSpacing = 0.45f;
 
         private float[] laneX;
         private int leftLaneCount;
         private bool initializedForLandscape;
+        private LayoutTuning tuning;
 
         public bool IsInitialized { get { return laneX != null; } }
         public bool IsLandscape { get { return IsLandscapeScreen(); } }
         public bool HasWorldProjection { get { return ResolveGameplayCamera() != null; } }
-        public float JudgementWorldY { get { return judgementWorldY; } }
+        public float JudgementWorldY { get { return tuning.JudgementWorldY; } }
+        public float SpawnWorldY { get { return tuning.SpawnWorldY; } }
+        public LayoutTuning Tuning { get { return tuning; } }
 
-        public bool Initialize(SongContent songContent)
+        public bool Initialize(SongContent songContent, GlobalSetting globalSetting)
         {
-            if (songContent == null || !HasValidRanges())
+            tuning = globalSetting == null ? null : globalSetting.Layout;
+            if (songContent == null || tuning == null || !HasValidRanges())
             {
                 return false;
             }
@@ -102,7 +90,7 @@ namespace DuetCats.Gameplay
 
             return nearestLaneDistance == float.MaxValue
                 ? configuredDistance
-                : Mathf.Min(configuredDistance, nearestLaneDistance * maxCatchDistanceOfLaneSpacing);
+                : Mathf.Min(configuredDistance, nearestLaneDistance * tuning.MaxCatchDistanceOfLaneSpacing);
         }
 
         public float GetDefaultCatX(CatSide side)
@@ -154,23 +142,23 @@ namespace DuetCats.Gameplay
         {
             if (IsLandscape)
             {
-                minX = side == CatSide.Left ? landscapeLeftMinX : landscapeRightMinX;
-                maxX = side == CatSide.Left ? landscapeLeftMaxX : landscapeRightMaxX;
+                minX = side == CatSide.Left ? tuning.LandscapeLeftMinX : tuning.LandscapeRightMinX;
+                maxX = side == CatSide.Left ? tuning.LandscapeLeftMaxX : tuning.LandscapeRightMaxX;
                 return;
             }
 
-            minX = side == CatSide.Left ? leftMinX : rightMinX;
-            maxX = side == CatSide.Left ? leftMaxX : rightMaxX;
+            minX = side == CatSide.Left ? tuning.LeftMinX : tuning.RightMinX;
+            maxX = side == CatSide.Left ? tuning.LeftMaxX : tuning.RightMaxX;
         }
 
         private bool HasValidRanges()
         {
-            return HasValidRangePair(leftMinX, leftMaxX, rightMinX, rightMaxX) &&
+            return HasValidRangePair(tuning.LeftMinX, tuning.LeftMaxX, tuning.RightMinX, tuning.RightMaxX) &&
                    HasValidRangePair(
-                       landscapeLeftMinX,
-                       landscapeLeftMaxX,
-                       landscapeRightMinX,
-                       landscapeRightMaxX);
+                       tuning.LandscapeLeftMinX,
+                       tuning.LandscapeLeftMaxX,
+                       tuning.LandscapeRightMinX,
+                       tuning.LandscapeRightMaxX);
         }
 
         private static bool HasValidRangePair(float leftMin, float leftMax, float rightMin, float rightMax)

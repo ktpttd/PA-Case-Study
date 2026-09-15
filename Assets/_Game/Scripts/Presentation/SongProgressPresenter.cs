@@ -15,10 +15,6 @@ namespace DuetCats.Presentation
         [SerializeField] private GameSession gameSession;
         [SerializeField] private Image progressFillImage;
         [SerializeField] private RectTransform progressBarRoot;
-        [SerializeField, Min(0f)] private float minFillWidth;
-        [SerializeField, Min(1f)] private float outsideOffset = 160f;
-        [SerializeField, Min(0.01f)] private float transitionDuration = 0.3f;
-
         private NoteSystem noteSystem;
         private int totalNoteCount;
         private int hitNoteCount;
@@ -39,7 +35,8 @@ namespace DuetCats.Presentation
 
             noteSystem = GetComponent<NoteSystem>();
             if (gameSession == null || noteSystem == null || progressFillImage == null ||
-                progressBarRoot == null || gameSession.SongContent == null)
+                progressBarRoot == null || gameSession.SongContent == null ||
+                gameSession.GlobalSetting == null)
             {
                 Debug.LogError("SongProgressPresenter needs GameSession, NoteSystem, a progress Image, its RectTransform root and valid SongContent.", this);
                 enabled = false;
@@ -49,7 +46,7 @@ namespace DuetCats.Presentation
             totalNoteCount = gameSession.SongContent.Notes.Count;
             ConfigureFillForWidthProgress();
             visiblePosition = progressBarRoot.anchoredPosition;
-            hiddenPosition = visiblePosition + Vector2.up * outsideOffset;
+            hiddenPosition = visiblePosition + Vector2.up * gameSession.GlobalSetting.Progress.OutsideOffset;
             SetHiddenInstant();
 
             gameSession.Started += PlayEntrance;
@@ -84,7 +81,7 @@ namespace DuetCats.Presentation
 
             var progress = Mathf.Clamp01((float)hitNoteCount / totalNoteCount);
             var minimumWidth = Mathf.Min(
-                Mathf.Max(minFillWidth, sceneMinFillWidth),
+                Mathf.Max(gameSession.GlobalSetting.Progress.MinFillWidth, sceneMinFillWidth),
                 fullFillWidth);
             var width = Mathf.Lerp(minimumWidth, fullFillWidth, progress);
             progressTween.Kill();
@@ -92,7 +89,7 @@ namespace DuetCats.Presentation
                     () => progressFillTransform.rect.width,
                     value => progressFillTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, value),
                     width,
-                    transitionDuration)
+                    gameSession.GlobalSetting.Progress.TransitionDuration)
                 .SetEase(Ease.OutQuad)
                 .SetUpdate(true);
         }
@@ -132,7 +129,7 @@ namespace DuetCats.Presentation
         {
             movementTween.Kill();
             movementTween = progressBarRoot
-                .DOAnchorPos(targetPosition, transitionDuration)
+                .DOAnchorPos(targetPosition, gameSession.GlobalSetting.Progress.TransitionDuration)
                 .SetEase(ease)
                 .SetUpdate(true);
         }

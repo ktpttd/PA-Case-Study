@@ -20,7 +20,7 @@ namespace DuetCats.Gameplay
         private void Start()
         {
             if (gameSession == null || gameplayLayout == null || noteSystem == null ||
-                catInput == null || gameSession.SongContent == null)
+                catInput == null || gameSession.SongContent == null || gameSession.GlobalSetting == null)
             {
                 Debug.LogError("JudgementSystem needs valid gameplay dependencies and SongContent.", this);
                 enabled = false;
@@ -35,19 +35,19 @@ namespace DuetCats.Gameplay
             }
 
             var songTime = gameSession.SongTime;
-            var config = gameSession.SongConfig;
+            var gameplay = gameSession.GlobalSetting.Gameplay;
             var activeNotes = noteSystem.ActiveNotes;
 
             for (var index = 0; index < activeNotes.Count;)
             {
                 var activeNote = activeNotes[index];
                 var timingOffset = songTime - activeNote.Note.HitTime;
-                if (timingOffset < -config.HitTolerance)
+                if (timingOffset < -gameplay.HitTolerance)
                 {
                     break;
                 }
 
-                if (timingOffset > config.HitTolerance)
+                if (timingOffset > gameplay.HitTolerance)
                 {
                     noteSystem.TryResolveMiss(activeNote);
                     return;
@@ -59,7 +59,7 @@ namespace DuetCats.Gameplay
                 var noteX = gameplayLayout.GetLaneX(activeNote.Note.LaneIndex);
                 var catchDistance = gameplayLayout.GetCatchDistance(
                     activeNote.Note.LaneIndex,
-                    config.CatchDistance);
+                    gameplay.CatchDistance);
                 if (Mathf.Abs(catX - noteX) <= catchDistance)
                 {
                     noteSystem.TryResolveHit(activeNote);
@@ -69,7 +69,7 @@ namespace DuetCats.Gameplay
                 index++;
             }
 
-            if (gameSession.SongTime >= config.AudioClip.length &&
+            if (gameSession.SongTime >= gameSession.SongConfig.AudioClip.length &&
                 noteSystem.HasSpawnedAllNotes && noteSystem.HasNoActiveNotes)
             {
                 gameSession.TryFinish(GameOutcome.Win);

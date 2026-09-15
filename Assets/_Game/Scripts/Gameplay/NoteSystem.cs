@@ -33,7 +33,7 @@ namespace DuetCats.Gameplay
         private void Start()
         {
             if (gameSession == null || gameplayLayout == null || noteViewPool == null ||
-                gameSession.SongContent == null)
+                gameSession.SongContent == null || gameSession.GlobalSetting == null)
             {
                 Debug.LogError("NoteSystem needs GameSession, GameplayLayout, NoteViewPool and valid SongContent.", this);
                 enabled = false;
@@ -41,8 +41,11 @@ namespace DuetCats.Gameplay
             }
 
             notes = gameSession.SongContent.Notes;
-            fallDuration = gameSession.SongConfig.FallDuration;
-            PrewarmedCapacity = CalculateMaximumConcurrentNotes(notes, fallDuration, gameSession.SongConfig.HitTolerance);
+            fallDuration = gameSession.GlobalSetting.Gameplay.FallDuration;
+            PrewarmedCapacity = CalculateMaximumConcurrentNotes(
+                notes,
+                fallDuration,
+                gameSession.GlobalSetting.Gameplay.HitTolerance);
             noteViewPool.Prewarm(PrewarmedCapacity);
         }
 

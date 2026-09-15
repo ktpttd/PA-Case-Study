@@ -12,7 +12,6 @@ namespace DuetCats.Presentation
     {
         [SerializeField] private NoteSystem noteSystem;
         [SerializeField] private GameSession gameSession;
-        [SerializeField] private HitFeedbackConfig config;
         [SerializeField] private HitFeedbackView leftFeedback;
         [SerializeField] private HitFeedbackView rightFeedback;
 
@@ -20,7 +19,7 @@ namespace DuetCats.Presentation
 
         private void Start()
         {
-            if (noteSystem == null || gameSession == null || config == null ||
+            if (noteSystem == null || gameSession == null || gameSession.GlobalSetting == null ||
                 leftFeedback == null || rightFeedback == null || gameSession.SongContent == null)
             {
                 Debug.LogError("HitFeedbackPresenter needs NoteSystem, config and one feedback view per cat.", this);
@@ -43,10 +42,11 @@ namespace DuetCats.Presentation
         private void ShowFeedback(RuntimeNote note)
         {
             var feedback = note.LaneIndex < songContent.LeftLaneCount ? leftFeedback : rightFeedback;
+            var tuning = gameSession.GlobalSetting.HitFeedback;
             feedback.Show(
-                config.GetRandomMessage(),
-                config.VisibleDuration,
-                config.RiseDistance);
+                tuning.GetRandomMessage(),
+                tuning.VisibleDuration,
+                tuning.RiseDistance);
         }
     }
 }

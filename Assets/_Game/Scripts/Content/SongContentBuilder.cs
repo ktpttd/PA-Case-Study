@@ -14,15 +14,20 @@ namespace DuetCats.Content
 
     public static class SongContentBuilder
     {
-        public static SongContent Build(SongConfig config)
+        public static SongContent Build(SongConfig config, GlobalSetting globalSetting)
         {
             if (config == null)
             {
                 throw new SongContentException("SongConfig is missing.");
             }
 
+            if (globalSetting == null)
+            {
+                throw new SongContentException("GlobalSetting is missing.");
+            }
+
             var errors = new List<string>();
-            ValidateConfig(config, errors);
+            ValidateConfig(config, globalSetting.Gameplay, errors);
 
             var scoreByVelocity = BuildScoreLookup(config.ScoreRules, errors);
             var specialByNoteId = BuildSpecialLookup(config.SpecialNotes, errors);
@@ -117,7 +122,7 @@ namespace DuetCats.Content
 
             if (config.AudioClip != null && runtimeNotes.Count > 0)
             {
-                var finalWindowEnd = runtimeNotes[runtimeNotes.Count - 1].HitTime + config.HitTolerance;
+                var finalWindowEnd = runtimeNotes[runtimeNotes.Count - 1].HitTime + globalSetting.Gameplay.HitTolerance;
                 if (finalWindowEnd > config.AudioClip.length + 0.001f)
                 {
                     errors.Add("Final note window ends after the audio clip.");
@@ -133,7 +138,10 @@ namespace DuetCats.Content
                 maxScore);
         }
 
-        private static void ValidateConfig(SongConfig config, List<string> errors)
+        private static void ValidateConfig(
+            SongConfig config,
+            GameplayTuning gameplay,
+            List<string> errors)
         {
             if (config.Chart == null)
             {
@@ -150,17 +158,17 @@ namespace DuetCats.Content
                 errors.Add("chartOffset must be finite.");
             }
 
-            if (!IsFinite(config.FallDuration) || config.FallDuration <= 0f)
+            if (!IsFinite(gameplay.FallDuration) || gameplay.FallDuration <= 0f)
             {
                 errors.Add("fallDuration must be finite and greater than zero.");
             }
 
-            if (!IsFinite(config.HitTolerance) || config.HitTolerance < 0f)
+            if (!IsFinite(gameplay.HitTolerance) || gameplay.HitTolerance < 0f)
             {
                 errors.Add("hitTolerance must be finite and non-negative.");
             }
 
-            if (!IsFinite(config.CatchDistance) || config.CatchDistance <= 0f)
+            if (!IsFinite(gameplay.CatchDistance) || gameplay.CatchDistance <= 0f)
             {
                 errors.Add("catchDistance must be finite and greater than zero.");
             }

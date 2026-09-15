@@ -1,4 +1,5 @@
 using DG.Tweening;
+using DuetCats.Content;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -17,7 +18,7 @@ namespace DuetCats.Presentation
         [SerializeField] private Sprite leftSongCardSprite;
         [SerializeField] private Sprite rightSongCardSprite;
         [SerializeField] private Sprite handSprite;
-        [SerializeField, Min(0.01f)] private float handMoveDuration = 0.75f;
+        [SerializeField] private GlobalSetting globalSetting;
         private GameObject endCardRoot;
         private RectTransform handTransform;
         private Tween handTween;
@@ -29,7 +30,8 @@ namespace DuetCats.Presentation
         {
             get
             {
-                return portraitBackgroundSprite != null && logoSprite != null && taglineSprite != null &&
+                return globalSetting != null && portraitBackgroundSprite != null &&
+                       logoSprite != null && taglineSprite != null &&
                        leftSongCardSprite != null && rightSongCardSprite != null && handSprite != null;
             }
         }
@@ -168,7 +170,7 @@ namespace DuetCats.Presentation
             KillHandMotion();
             handTransform.anchoredPosition = handLeftPosition;
             handTween = handTransform
-                .DOAnchorPosX(handRightPosition.x, handMoveDuration)
+                .DOAnchorPosX(handRightPosition.x, globalSetting.EndCard.HandMoveDuration)
                 .SetEase(Ease.InOutSine)
                 .SetLoops(-1, LoopType.Yoyo);
         }

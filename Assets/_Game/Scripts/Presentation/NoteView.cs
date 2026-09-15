@@ -7,7 +7,6 @@ namespace DuetCats.Presentation
     [DisallowMultipleComponent]
     public sealed class NoteView : MonoBehaviour
     {
-        [SerializeField] private float spawnWorldY = 7f;
         [SerializeField] private SpriteRenderer spriteRenderer;
 
         private RuntimeNote note;
@@ -57,7 +56,7 @@ namespace DuetCats.Presentation
 
             var worldPosition = transform.position;
             worldPosition.y = Mathf.Lerp(
-                spawnWorldY,
+                gameplayLayout.SpawnWorldY,
                 gameplayLayout.JudgementWorldY,
                 Mathf.Clamp01(progress));
             worldPosition.x = gameplayLayout.ToWorldX(logicalX, worldPosition);
@@ -72,7 +71,7 @@ namespace DuetCats.Presentation
             }
 
             return Mathf.InverseLerp(
-                spawnWorldY,
+                gameplayLayout.SpawnWorldY,
                 gameplayLayout.JudgementWorldY,
                 transform.position.y);
         }

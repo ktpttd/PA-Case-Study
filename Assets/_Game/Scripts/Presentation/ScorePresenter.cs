@@ -14,9 +14,6 @@ namespace DuetCats.Presentation
         [SerializeField] private ScoreState scoreState;
         [SerializeField] private GameSession gameSession;
         [SerializeField] private TextMeshProUGUI scoreText;
-        [SerializeField, Min(1f)] private float outsideOffset = 240f;
-        [SerializeField, Min(0.01f)] private float transitionDuration = 0.3f;
-
         private RectTransform scoreTransform;
         private Vector2 visiblePosition;
         private Vector2 hiddenPosition;
@@ -25,7 +22,8 @@ namespace DuetCats.Presentation
 
         private void Start()
         {
-            if (scoreState == null || gameSession == null || scoreText == null)
+            if (scoreState == null || gameSession == null || gameSession.GlobalSetting == null ||
+                scoreText == null)
             {
                 Debug.LogError("ScorePresenter needs ScoreState, GameSession and a TextMeshProUGUI target.", this);
                 enabled = false;
@@ -34,7 +32,8 @@ namespace DuetCats.Presentation
 
             scoreTransform = scoreText.rectTransform;
             visiblePosition = scoreTransform.anchoredPosition;
-            hiddenPosition = visiblePosition + Vector2.right * GetOutsideDirection() * outsideOffset;
+            hiddenPosition = visiblePosition + Vector2.right * GetOutsideDirection() *
+                             gameSession.GlobalSetting.Score.OutsideOffset;
             SetHiddenInstant();
 
             scoreState.ScoreChanged += UpdateScore;
@@ -95,7 +94,7 @@ namespace DuetCats.Presentation
         {
             movementTween.Kill();
             movementTween = scoreTransform
-                .DOAnchorPos(targetPosition, transitionDuration)
+                .DOAnchorPos(targetPosition, gameSession.GlobalSetting.Score.TransitionDuration)
                 .SetEase(ease)
                 .SetUpdate(true);
         }

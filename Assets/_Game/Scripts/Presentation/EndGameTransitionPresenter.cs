@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using DuetCats.Content;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,28 +18,20 @@ namespace DuetCats.Presentation
         [SerializeField] private Image blackOverlay;
         [SerializeField] private Image pawImage;
         [SerializeField] private Material irisMaterial;
-
-        [Header("Iris")]
-        [SerializeField, Min(0.1f)] private float openRadius = 1.2f;
-        [SerializeField, Range(0.001f, 0.1f)] private float irisFeather = 0.015f;
-
-        [Header("Layout")]
-        [SerializeField] private Vector2 portraitPawSize = new Vector2(250f, 250f);
-        [SerializeField] private Vector2 landscapePawSize = new Vector2(180f, 180f);
-
-        [Header("Timing")]
-        [SerializeField, Min(0.01f)] private float coverDuration = 0.25f;
-        [SerializeField, Min(0f)] private float coveredHoldDuration = 0.1f;
-        [SerializeField, Min(0.01f)] private float revealDuration = 0.35f;
+        [SerializeField] private GlobalSetting globalSetting;
 
         private Sequence transitionSequence;
 
         public bool IsReady
         {
-            get { return transitionRoot != null && blackOverlay != null && pawImage != null && irisMaterial != null; }
+            get
+            {
+                return globalSetting != null && transitionRoot != null && blackOverlay != null &&
+                       pawImage != null && irisMaterial != null;
+            }
         }
 
-        public float RevealDuration { get { return revealDuration; } }
+        public float RevealDuration { get { return globalSetting.EndCard.RevealDuration; } }
 
         public void Play(Action onCovered, Action onReveal, Action onComplete)
         {
@@ -49,27 +42,28 @@ namespace DuetCats.Presentation
             }
 
             transitionSequence.Kill();
+            var tuning = globalSetting.EndCard;
             transitionRoot.SetActive(true);
             blackOverlay.material = irisMaterial;
             irisMaterial.SetFloat(AspectProperty, (float)Screen.width / Screen.height);
-            irisMaterial.SetFloat(FeatherProperty, irisFeather);
-            SetIrisRadius(openRadius);
+            irisMaterial.SetFloat(FeatherProperty, tuning.IrisFeather);
+            SetIrisRadius(tuning.OpenRadius);
             pawImage.color = Color.white;
             pawImage.rectTransform.sizeDelta = Screen.width > Screen.height
-                ? landscapePawSize
-                : portraitPawSize;
+                ? tuning.LandscapePawSize
+                : tuning.PortraitPawSize;
             pawImage.rectTransform.localScale = Vector3.one * 0.1f;
 
             transitionSequence = DOTween.Sequence()
                 .SetUpdate(true)
-                .Append(DOTween.To(SetIrisRadius, openRadius, 0f, coverDuration).SetEase(Ease.InQuad))
-                .Join(pawImage.rectTransform.DOScale(2f, coverDuration).SetEase(Ease.OutBack))
-                .AppendInterval(coveredHoldDuration)
+                .Append(DOTween.To(SetIrisRadius, tuning.OpenRadius, 0f, tuning.CoverDuration).SetEase(Ease.InQuad))
+                .Join(pawImage.rectTransform.DOScale(2f, tuning.CoverDuration).SetEase(Ease.OutBack))
+                .AppendInterval(tuning.CoveredHoldDuration)
                 .AppendCallback(() => onCovered?.Invoke())
                 .AppendCallback(() => onReveal?.Invoke())
-                .Append(DOTween.To(SetIrisRadius, 0f, openRadius, revealDuration).SetEase(Ease.OutQuad))
-                .Join(pawImage.rectTransform.DOScale(0.15f, revealDuration).SetEase(Ease.InBack))
-                .Join(pawImage.DOFade(0f, revealDuration * 0.7f))
+                .Append(DOTween.To(SetIrisRadius, 0f, tuning.OpenRadius, tuning.RevealDuration).SetEase(Ease.OutQuad))
+                .Join(pawImage.rectTransform.DOScale(0.15f, tuning.RevealDuration).SetEase(Ease.InBack))
+                .Join(pawImage.DOFade(0f, tuning.RevealDuration * 0.7f))
                 .AppendCallback(() =>
                 {
                     transitionRoot.SetActive(false);

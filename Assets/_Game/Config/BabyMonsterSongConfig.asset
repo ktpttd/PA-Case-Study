@@ -15,9 +15,6 @@ MonoBehaviour:
   chart: {fileID: 4900000, guid: fbd72a4de9d54425cac455ba5287edaa, type: 3}
   audioClip: {fileID: 8300000, guid: fd84d192d8f87464192ffefd1bfb6953, type: 3}
   chartOffset: 0
-  fallDuration: 2.5
-  hitTolerance: 0.1
-  catchDistance: 0.1
   leftLaneCount: 3
   scoreRules:
   - velocity: 50

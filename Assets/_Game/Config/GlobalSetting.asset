@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17749adb23314641ba50b465c52cd4d5, type: 3}
+  m_Name: GlobalSetting
+  m_EditorClassIdentifier:
+  gameplay:
+    FallDuration: 2.5
+    HitTolerance: 0.1
+    CatchDistance: 0.1
+  input:
+    DragSensitivity: 1
+    KeyboardSpeed: 2
+  layout:
+    JudgementWorldY: -0.5
+    SpawnWorldY: 7
+    LeftPlatformLogicalXOffset: 0
+    RightPlatformLogicalXOffset: 0
+    PlatformJudgementWorldYOffset: -0.45
+    LeftMinX: 0.1
+    LeftMaxX: 0.35
+    RightMinX: 0.65
+    RightMaxX: 0.9
+    LandscapeLeftMinX: 0.3
+    LandscapeLeftMaxX: 0.45
+    LandscapeRightMinX: 0.55
+    LandscapeRightMaxX: 0.7
+    MaxCatchDistanceOfLaneSpacing: 0.45
+  intro:
+    CenterLocalXLeft: -100
+    CenterLocalXRight: 100
+    MoveDuration: 1
+    FadeOutDuration: 0.25
+    IntroDuration: 3
+    CatMoveDuration: 1
+    CatOutsideOffset: 6
+    CatMoveEase: 6
+    NoteMoveDuration: 0.5
+    NoteReadyWorldY: 4
+    NoteMoveEase: 9
+    NotePulseDuration: 0.5
+    NotePulseCount: 2
+    NotePulseScale: 0.8
+    NotePulseEase: 4
+    InstructionShowDelay: 0.15
+    InstructionFadeInDuration: 0.2
+  hitFeedback:
+    Messages:
+    - Sweet!
+    - Yummy!
+    - Taste!
+    VisibleDuration: 0.55
+    RiseDistance: 0.45
+  comboFeedback:
+    VisibleDuration: 0.55
+    PunchScaleStrength: 0.2
+    PunchScaleDuration: 0.25
+    ShakePositionStrength: {x: 5, y: 8}
+    ShakePositionDuration: 0.25
+    ShakePositionVibrato: 10
+  hud:
+    VisibleAlpha: 1
+    FadeDuration: 0.3
+  progress:
+    MinFillWidth: 40
+    OutsideOffset: 160
+    TransitionDuration: 0.3
+  score:
+    OutsideOffset: 500
+    TransitionDuration: 0.3
+  endCard:
+    ResultAnimationHoldDuration: 1
+    HandMoveDuration: 0.75
+    OpenRadius: 1.2
+    IrisFeather: 0.015
+    PortraitPawSize: {x: 300, y: 300}
+    LandscapePawSize: {x: 200, y: 200}
+    CoverDuration: 1
+    CoveredHoldDuration: 0.5
+    RevealDuration: 1

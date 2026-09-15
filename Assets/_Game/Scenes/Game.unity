@@ -194,8 +194,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSession: {fileID: 1093299810}
   hudCanvasGroup: {fileID: 18883240}
-  visibleAlpha: 1
-  fadeDuration: 0.3
 --- !u!1 &40598068
 GameObject:
   m_ObjectHideFlags: 0
@@ -6737,8 +6735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38af159beab491d96ab5b0738d8813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragSensitivity: 1
-  keyboardSpeed: 2
   gameSession: {fileID: 1093299810}
   gameplayLayout: {fileID: 1093299809}
 --- !u!114 &1093299809
@@ -6754,16 +6750,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameplayCamera: {fileID: 467591244}
-  judgementWorldY: -0.5
-  leftMinX: 0.1
-  leftMaxX: 0.35
-  rightMinX: 0.65
-  rightMaxX: 0.9
-  landscapeLeftMinX: 0.3
-  landscapeLeftMaxX: 0.45
-  landscapeRightMinX: 0.55
-  landscapeRightMaxX: 0.7
-  maxCatchDistanceOfLaneSpacing: 0.45
 --- !u!114 &1093299810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6777,6 +6763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songConfig: {fileID: 11400000, guid: ee26477518fba42a4bdaf4c1a69263da, type: 2}
+  globalSetting: {fileID: 11400000, guid: 58170417496e4156bb976d7b6f7c0556, type: 2}
   songPlayback: {fileID: 1093299811}
 --- !u!114 &1093299811
 MonoBehaviour:
@@ -6962,7 +6949,6 @@ MonoBehaviour:
   endCardController: {fileID: 1346129776}
   songChoiceEndCard: {fileID: 1093299824}
   endGameTransition: {fileID: 1093299826}
-  resultAnimationHoldDuration: 1
 --- !u!114 &1093299819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6977,7 +6963,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteSystem: {fileID: 1093299815}
   gameSession: {fileID: 1093299810}
-  config: {fileID: 11400000, guid: 640b003bcbf3d4acd85bb013e7c289a6, type: 2}
   leftFeedback: {fileID: 846753392}
   rightFeedback: {fileID: 862131615}
 --- !u!114 &1093299820
@@ -6995,8 +6980,6 @@ MonoBehaviour:
   scoreState: {fileID: 1093299817}
   gameSession: {fileID: 1093299810}
   scoreText: {fileID: 1802816199}
-  outsideOffset: 500
-  transitionDuration: 0.3
 --- !u!114 &1093299821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7017,23 +7000,6 @@ MonoBehaviour:
   instructionCanvasGroup: {fileID: 1193034056}
   leftInstruction: {fileID: 1385258554}
   rightInstruction: {fileID: 498144548}
-  centerLocalXLeft: -100
-  centerLocalXRight: 100
-  moveDuration: 1
-  fadeOutDuration: 0.25
-  introDuration: 3
-  catMoveDuration: 1
-  catOutsideOffset: 6
-  catMoveEase: 6
-  noteMoveDuration: 0.5
-  noteReadyWorldY: 4
-  noteMoveEase: 9
-  notePulseDuration: 0.5
-  notePulseCount: 2
-  notePulseScale: 0.8
-  notePulseEase: 4
-  instructionShowDelay: 0.15
-  instructionFadeInDuration: 0.2
 --- !u!114 &1093299822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7065,9 +7031,6 @@ MonoBehaviour:
   gameSession: {fileID: 1093299810}
   progressFillImage: {fileID: 589846291}
   progressBarRoot: {fileID: 336015266}
-  minFillWidth: 40
-  outsideOffset: 160
-  transitionDuration: 0.3
 --- !u!114 &1093299824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7087,7 +7050,7 @@ MonoBehaviour:
   leftSongCardSprite: {fileID: 21300000, guid: d85c1eff1b22e423e860949277f3f050, type: 3}
   rightSongCardSprite: {fileID: 21300000, guid: 909e5a59dce1d43ac837069c7a21e632, type: 3}
   handSprite: {fileID: 21300000, guid: a6769954b6ec84e4fa492728f30bf3c9, type: 3}
-  handMoveDuration: 0.75
+  globalSetting: {fileID: 11400000, guid: 58170417496e4156bb976d7b6f7c0556, type: 2}
 --- !u!114 &1093299825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7120,13 +7083,7 @@ MonoBehaviour:
   blackOverlay: {fileID: 1710416423}
   pawImage: {fileID: 855421212}
   irisMaterial: {fileID: 2100000, guid: 0131ae196691c4ca6b51629b474755c7, type: 2}
-  openRadius: 1.2
-  irisFeather: 0.015
-  portraitPawSize: {x: 300, y: 300}
-  landscapePawSize: {x: 200, y: 200}
-  coverDuration: 1
-  coveredHoldDuration: 0.5
-  revealDuration: 1
+  globalSetting: {fileID: 11400000, guid: 58170417496e4156bb976d7b6f7c0556, type: 2}
 --- !u!114 &1093299827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7170,12 +7127,6 @@ MonoBehaviour:
   noteSystem: {fileID: 1093299815}
   gameSession: {fileID: 1093299810}
   comboText: {fileID: 1119252485}
-  visibleDuration: 0.55
-  punchScaleStrength: 0.2
-  punchScaleDuration: 0.25
-  shakePositionStrength: {x: 5, y: 8}
-  shakePositionDuration: 0.25
-  shakePositionVibrato: 10
 --- !u!1 &1119252483
 GameObject:
   m_ObjectHideFlags: 0
@@ -7260,8 +7211,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7781,6 +7732,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6409182845140436558, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6409182845559140320, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7868,6 +7823,10 @@ PrefabInstance:
     - target: {fileID: 6409182846253341900, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6409182846686500321, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
+      propertyPath: _endCardDescriptionText
+      value: Pick Next Song
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

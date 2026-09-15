@@ -18,32 +18,6 @@ namespace DuetCats.Presentation
         [SerializeField] private CanvasGroup instructionCanvasGroup;
         [SerializeField] private Transform leftInstruction;
         [SerializeField] private Transform rightInstruction;
-        [SerializeField] private float centerLocalXLeft;
-        [SerializeField] private float centerLocalXRight;
-        [SerializeField, Min(0.01f)] private float moveDuration = 0.8f;
-        [SerializeField, Min(0f)] private float fadeOutDuration = 0.25f;
-
-        [Header("Intro")]
-        [SerializeField, Min(0.01f)] private float introDuration = 3f;
-
-        [Header("Intro - Cat")]
-        [SerializeField, Min(0.01f)] private float catMoveDuration = 1f;
-        [SerializeField, Min(0f)] private float catOutsideOffset = 6f;
-        [SerializeField] private Ease catMoveEase = Ease.OutQuad;
-
-        [Header("Intro - Note")]
-        [SerializeField, Min(0.01f)] private float noteMoveDuration = 0.5f;
-        [SerializeField] private float noteReadyWorldY = 4f;
-        [SerializeField] private Ease noteMoveEase = Ease.OutCubic;
-        [SerializeField, Min(0.01f)] private float notePulseDuration = 0.5f;
-        [SerializeField, Min(1)] private int notePulseCount = 2;
-        [SerializeField, Range(0.01f, 1f)] private float notePulseScale = 0.8f;
-        [SerializeField] private Ease notePulseEase = Ease.InOutSine;
-        [SerializeField, Min(0f)] private float instructionShowDelay = 0.15f;
-
-        [Header("Intro - Instruction")]
-        [SerializeField, Min(0.01f)] private float instructionFadeInDuration = 0.2f;
-
         private bool wasVisible;
         private bool isStarting;
         private Vector3 initialLeftLocalPosition;
@@ -100,7 +74,7 @@ namespace DuetCats.Presentation
             instructionCanvasGroup.interactable = false;
             instructionCanvasGroup.blocksRaycasts = false;
             fadeTween = instructionCanvasGroup
-                .DOFade(0f, fadeOutDuration)
+                .DOFade(0f, gameSession.GlobalSetting.Intro.FadeOutDuration)
                 .SetUpdate(true)
                 .OnComplete(StartGame);
         }
@@ -114,7 +88,7 @@ namespace DuetCats.Presentation
 
             var introSongTime = noteSystem != null
                 ? noteSystem.GetIntroSongTime()
-                : gameSession.SongContent.FirstHitTime - gameSession.SongConfig.FallDuration;
+                : gameSession.SongContent.FirstHitTime - gameSession.GlobalSetting.Gameplay.FallDuration;
             if (gameSession.TryStartRun(introSongTime))
             {
                 return;
@@ -132,7 +106,8 @@ namespace DuetCats.Presentation
         private void StartIntro()
         {
             if (gameSession == null || gameSession.Phase != GamePhase.Ready ||
-                noteSystem == null || leftCat == null || rightCat == null)
+                gameSession.GlobalSetting == null || noteSystem == null ||
+                leftCat == null || rightCat == null)
             {
                 RefreshVisibility();
                 return;
@@ -142,38 +117,39 @@ namespace DuetCats.Presentation
             SetVisible(false);
             noteSystem.PrepareIntroNotes();
 
-            SetCatIntroOffsets(-catOutsideOffset, catOutsideOffset);
+            var tuning = gameSession.GlobalSetting.Intro;
+            SetCatIntroOffsets(-tuning.CatOutsideOffset, tuning.CatOutsideOffset);
             introSequence = DOTween.Sequence().SetUpdate(true);
-            introSequence.AppendInterval(introDuration);
+            introSequence.AppendInterval(tuning.IntroDuration);
             introSequence.Insert(
                 0f,
-                DOVirtual.Float(-catOutsideOffset, 0f, catMoveDuration, leftCat.SetIntroOffsetX)
-                    .SetEase(catMoveEase));
+                DOVirtual.Float(-tuning.CatOutsideOffset, 0f, tuning.CatMoveDuration, leftCat.SetIntroOffsetX)
+                    .SetEase(tuning.CatMoveEase));
             introSequence.Insert(
                 0f,
-                DOVirtual.Float(catOutsideOffset, 0f, catMoveDuration, rightCat.SetIntroOffsetX)
-                    .SetEase(catMoveEase));
+                DOVirtual.Float(tuning.CatOutsideOffset, 0f, tuning.CatMoveDuration, rightCat.SetIntroOffsetX)
+                    .SetEase(tuning.CatMoveEase));
 
             for (var index = 0; index < noteSystem.ActiveNotes.Count; index++)
             {
                 var noteTransform = noteSystem.ActiveNotes[index].View.transform;
                 var targetPosition = noteTransform.position;
-                targetPosition.y = noteReadyWorldY;
+                targetPosition.y = tuning.NoteReadyWorldY;
                 var targetScale = noteTransform.localScale;
                 introSequence.Insert(
-                    catMoveDuration,
-                    noteTransform.DOMove(targetPosition, noteMoveDuration).SetEase(noteMoveEase));
+                    tuning.CatMoveDuration,
+                    noteTransform.DOMove(targetPosition, tuning.NoteMoveDuration).SetEase(tuning.NoteMoveEase));
                 introSequence.Insert(
-                    catMoveDuration + noteMoveDuration,
+                    tuning.CatMoveDuration + tuning.NoteMoveDuration,
                     noteTransform.DOScale(
-                            targetScale * notePulseScale,
-                            notePulseDuration / (notePulseCount * 2f))
-                        .SetEase(notePulseEase)
-                        .SetLoops(notePulseCount * 2, LoopType.Yoyo));
+                            targetScale * tuning.NotePulseScale,
+                            tuning.NotePulseDuration / (tuning.NotePulseCount * 2f))
+                        .SetEase(tuning.NotePulseEase)
+                        .SetLoops(tuning.NotePulseCount * 2, LoopType.Yoyo));
             }
 
             introSequence.InsertCallback(
-                catMoveDuration + noteMoveDuration + instructionShowDelay,
+                tuning.CatMoveDuration + tuning.NoteMoveDuration + tuning.InstructionShowDelay,
                 ShowInstructionDuringIntro);
             introSequence.AppendCallback(CompleteIntro);
         }
@@ -193,7 +169,7 @@ namespace DuetCats.Presentation
                 instructionCanvasGroup.interactable = false;
                 instructionCanvasGroup.blocksRaycasts = false;
                 fadeTween = instructionCanvasGroup
-                    .DOFade(1f, instructionFadeInDuration)
+                    .DOFade(1f, gameSession.GlobalSetting.Intro.InstructionFadeInDuration)
                     .SetUpdate(true);
             }
 
@@ -259,14 +235,18 @@ namespace DuetCats.Presentation
 
             leftInstruction.localPosition = initialLeftLocalPosition;
             rightInstruction.localPosition = initialRightLocalPosition;
-            leftMovementTween = CreateMovementTween(leftInstruction, centerLocalXLeft);
-            rightMovementTween = CreateMovementTween(rightInstruction, centerLocalXRight);
+            leftMovementTween = CreateMovementTween(
+                leftInstruction,
+                gameSession.GlobalSetting.Intro.CenterLocalXLeft);
+            rightMovementTween = CreateMovementTween(
+                rightInstruction,
+                gameSession.GlobalSetting.Intro.CenterLocalXRight);
         }
 
         private Tween CreateMovementTween(Transform instructionTransform, float centerX)
         {
             return instructionTransform
-                .DOLocalMoveX(centerX, moveDuration)
+                .DOLocalMoveX(centerX, gameSession.GlobalSetting.Intro.MoveDuration)
                 .SetEase(Ease.InOutSine)
                 .SetLoops(-1, LoopType.Yoyo);
         }
