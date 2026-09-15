@@ -63,7 +63,7 @@ namespace DuetCats.Presentation
             transitionSequence = DOTween.Sequence()
                 .SetUpdate(true)
                 .Append(DOTween.To(SetIrisRadius, openRadius, 0f, coverDuration).SetEase(Ease.InQuad))
-                .Join(pawImage.rectTransform.DOScale(1f, coverDuration).SetEase(Ease.OutBack))
+                .Join(pawImage.rectTransform.DOScale(2f, coverDuration).SetEase(Ease.OutBack))
                 .AppendInterval(coveredHoldDuration)
                 .AppendCallback(() => onCovered?.Invoke())
                 .AppendCallback(() => onReveal?.Invoke())

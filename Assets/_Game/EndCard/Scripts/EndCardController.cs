@@ -342,6 +342,8 @@ public class EndCardController : MonoBehaviour
 
     public void ClickCTA()
     {
+        Debug.Log($"ClickCTA");
+        Application.OpenURL("https://apps.apple.com/us/app/duet-cats-rhythm-meow-game/id1658687701");
 #if LUNA_IS_PRESENT || LUNA_EDITOR_SOURCES
         Luna.Unity.Playable.InstallFullGame();
 #endif

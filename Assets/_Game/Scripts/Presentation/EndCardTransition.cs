@@ -60,7 +60,7 @@ namespace DuetCats.Presentation
 
             if (endCardController == null)
             {
-                Debug.LogError("EndCardTransition needs an EndCardController for its Luna ScreenClickButton.", this);
+                Debug.LogError("EndCardTransition needs an EndCardController for its CTA button.", this);
                 enabled = false;
                 return;
             }
@@ -76,13 +76,14 @@ namespace DuetCats.Presentation
             {
                 endCardCanvas.overrideSorting = true;
                 endCardCanvas.sortingOrder = 100;
+                endCardCanvas.transform.localScale = Vector3.one;
             }
 
             endGameTransition.Play(
                 () =>
                 {
-                    // The custom UI is visual-only; Luna's ScreenClickButton below it receives every tap.
-                    endCardController.EnableScreenClickCTA();
+                    // The custom UI is visual-only; use the configured CTA button.
+                    endCardController.OpenEndCard();
                     songChoiceEndCard.ShowForTransition(0.1f);
                 },
                 () => songChoiceEndCard.RevealFromTransition(endGameTransition.RevealDuration),
